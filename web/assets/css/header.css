@@ -44,25 +44,25 @@
 }
 .header-container__mid--logo{
     border: 1px solid lightgray;
-    width: 300px;
+    width: 150px;
     height: 100%;
     /* margin: 35px 100px 0px 100px; */
 }
 .header-container__mid--search{
     border: 1px solid lightgray;
     height: 100%;
-    width: 800px;
+    width: 1000px;
 }
 .header-container__mid--search form{
     margin: 30px 200px 0px 200px;
 }
 .header-container__mid--search input{
-    width: 300px;
+    width: 500px;
 }
 .header-container__mid--cart{
     border: 1px solid lightgray;
     height: 100%;
-    width: 178px;
+    width: 128px;
 }
 .header-container__mid--cart i {
     margin-left: 100px;
@@ -72,5 +72,18 @@
 .header-container__bottom{
     height: 100%;
     width: 100%;
-    background-color: yellow;
+}
+.header-container__bottom--menu{
+    width: 100%;
+    height: 100%;
+    margin-left: 200px;
+}
+.header-container__bottom--menu li {
+    height: 100%;
+    background-color: gray;
+    display:inline-block;
+    float: left;
+    vertical-align: top;
+    width: 150px;
+    text-align: center;
 }

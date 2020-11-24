@@ -3,4 +3,5 @@
 !/LTWeb.ipr
 !/LTWeb.iws
 !/web/WEB-INF/
-!/LTWeb.iws
+!/target/
+!/out/

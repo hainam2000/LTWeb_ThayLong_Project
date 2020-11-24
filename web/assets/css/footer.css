@@ -1,0 +1,94 @@
+
+.footer {
+    background: #7288a2;
+}
+
+.footer .about {
+    padding-right: 40px;
+}
+
+.footer .single-footer h4 {
+    font-size: 17px;
+    font-weight: 600;
+    color: black;
+    text-transform: capitalize;
+    margin-bottom: 30px;
+}
+
+
+.footer .about .text {
+    color:#c69500;
+    font-weight: 400;
+    font-size: 2rem;
+}
+
+.footer .about .call {
+    margin-top: 15px;
+    font-weight: 400;
+    color: white;
+}
+
+.call span {
+    padding-top: 10px;
+    display: block;
+}
+.call a {
+    color: #f7941d;
+    font-size: 20px;
+    font-weight: 600;
+}
+
+.links ul li {
+    display: block;
+    margin-bottom: 8px;
+    margin-top: 10px;
+}
+
+.footer .links ul li:last-child {
+    margin-bottom: 0;
+}
+
+.footer .links ul li a {
+    color: #fff;
+    font-weight: 400;
+}
+
+.footer .links ul li a:hover {
+    color: #F7941D;
+}
+
+
+.footer .social .contact ul li {
+    color: #fff;
+    display: block;
+    margin-bottom: 4px;
+    font-weight: 400;
+}
+
+.footer .contact ul li:last-child {
+    margin-bottom: 0;
+}
+
+.footer .social ul {
+    margin-top: 20px;
+}
+
+.footer .social ul li {
+    display: inline-block;
+    margin-right: 25px;
+}
+
+.footer .social ul li:last-child {
+    margin-right: 0;
+}
+
+.footer .social ul li a {
+    color: #fff;
+    display: block;
+    font-size: 16px;
+}
+
+.footer .social ul li a:hover {
+    color: #F7941D;
+}
+

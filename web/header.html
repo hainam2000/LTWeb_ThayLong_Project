@@ -3,10 +3,11 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="/assets/css/header.css">
-    <link rel="stylesheet" href="/assets/css/bootstrap.min.css">
-    <link rel="stylesheet" href="/assets/css/fontawesome.min.css">
-    <link rel="stylesheet" href="/assets/css/fontawesome.css">
+
+    <link rel="stylesheet" href="assets/css/header.css">
+    <link rel="stylesheet" href="assets/css/bootstrap.min.css">
+    <link rel="stylesheet" href="assets/css/fontawesome.min.css">
+    <link rel="stylesheet" href="assets/css/fontawesome.css">
     <title>Document</title>
 </head>
 <body>
@@ -21,9 +22,9 @@
         </div>
         <div class="header-container__top--right">
             <ul class="header-container--list">
-                <li><i class="fa fa-user" aria-hidden="true"></i> Tài khoản</li>
-                <li><i class="fas fa-sign-in-alt"></i></i> Đăng nhập</li>
-                <li><i class="fa fa-registered" aria-hidden="true"></i> Đăng kí</li>
+                <li><a href=""><i class="fa fa-user"></i>Tài khoản</a></li>
+                <li><a href="login.html"><i class="fas fa-sign-in-alt"></i>Đăng nhập</a></li>
+                <li><a href="register.html"><i class="fa fa-registered"></i>Đăng kí</a></li>
             </ul>
         </div>
       </div>  
@@ -32,21 +33,21 @@
             <div class="left header-container__mid--search">
                 <form class="search-form">
                 <input type="text" placeholder="Nhập tên sản phẩm..." name="search">
-                <button value="search" type="submit"><i class="fa fa-search" aria-hidden="true"></i></button>
+                <button value="search" type="submit"><i class="fas fa-search fa-1x" ></i></button>
             </form>
             </div>
             <div class="left header-container__mid--cart">
-                <i class="fa fa-shopping-cart" aria-hidden="true"></i>
+                <i class="fa fa-shopping-cart fa-2x" ></i>
             </div>
       </div>
       <div class="header-container__bottom">
             <div class="header-container__bottom--menu">
                 <ul>
-                    <li>Trang chu</li>
-                    <li>San pham</li>
-                    <li>hoan tra</li>
-                    <li>bao hanh</li>
-                    <li>gioi thieu</li>
+                    <li class="active"><a href="ShopHomepage.html">Trang chủ</a></li>
+                    <li class="product"><a href="ShopItem.html">Sản Phẩm</a></li>
+                    <li class="about-us"><a href="about.html">Thông tin</a></li>
+                    <li class="warranty"><a href="warranty.html">Bảo hành</a></li>
+                    <li class="faq"><a href="faq.html">FAQ</a></li>
                 </ul>
             </div>
       </div>

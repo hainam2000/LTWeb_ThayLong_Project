@@ -1,7 +1,7 @@
 package view;
 
 import java.io.Serializable;
-
+import tools.*;
 public class Product implements Serializable {
     private String id;
     private String name;
@@ -19,8 +19,7 @@ public class Product implements Serializable {
         this.name = name;
         this.type = type;
         this.description = description;
-        this.imgUrl = "http://localhost:8080/LTWeb_war_exploded/assets/images/" + imgUrl;
-        //this.itemUrl = "" + itemUrl;
+        this.imgUrl = "http://localhost:8080/LTWeb_war_exploded/assets/images/" + type + "/" + imgUrl;
         this.price = price;
         this.salePrice = salePrice;
     }

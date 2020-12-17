@@ -238,7 +238,7 @@ li.subtotal:before {
 
 aside {
   float: right;
-  position: relative;
+  position: absolute;
   width: 30%;
 }
 
@@ -246,7 +246,7 @@ aside {
   background-color: #eee;
   border: 1px solid #aaa;
   padding: 1rem;
-  position: fixed;
+  position: absolute;
   width: 250px;
   -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;

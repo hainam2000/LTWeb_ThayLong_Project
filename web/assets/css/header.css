@@ -38,8 +38,7 @@
 }
 
 .header-container__mid{
-    border: 1px solid lightgray;
-    width: 100%;
+    width: 0%;
     height: 100px;
 }
 .header-container__mid--logo{
@@ -49,13 +48,11 @@
     /* margin: 35px 100px 0px 100px; */
 }
 .header-container__mid--search{
-    background: blue;
-    border: 1px solid lightgray;
-    height: 100%;
-    width: 80%;
+    margin-left: 50px;
+    width: 500px; 
 }
 .header-container__mid--search form{
-    margin: 30px 200px 0px 200px;
+    align-items: center;
 }
 .header-container__mid--search input{
     width: 90%;

@@ -19,6 +19,6 @@ public class CPUHomepage extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         Collection<Product> values = Data.dataCPU.values();
         request.setAttribute("dataCPU", values);
-        request.getRequestDispatcher("ShopHomepage.jsp").forward(request,response);
+        request.getRequestDispatcher("CPU.jsp").forward(request,response);
     }
 }

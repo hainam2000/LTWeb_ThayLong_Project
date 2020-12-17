@@ -3,54 +3,70 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-    <link rel="stylesheet" href="assets/css/header.css">
-    <link rel="stylesheet" href="assets/css/bootstrap.min.css">
-    <link rel="stylesheet" href="assets/css/fontawesome.min.css">
-    <link rel="stylesheet" href="assets/css/fontawesome.css">
     <title>Document</title>
+    <link href="assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link href="assets/css/shop-homepage.css" rel="stylesheet">
+    <link rel="stylesheet" href="assets/css/header.css">
+    <link rel="stylesheet" href="assets/css/font-awesome.min.css">
 </head>
 <body>
-    <div class="header-container">
-      <div class="header-container__top">
-        <div class="header-container__top--left">
-            <ul class="header-container--list">
-                <li><i class="fa fa-phone" aria-hidden="true"></i> Phone</li>
-                <li><i class="fa fa-envelope" aria-hidden="true"></i> Gmail</li>
-                <li><i class="fa fa-map-marker" aria-hidden="true"></i> Địa chỉ</li>
-            </ul>
+  <header>
+    <div>
+      <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
+        <div class="container">
+          <div style="margin-left: -50px">
+            <a class="navbar-brand" href="#" ><img src="http://localhost:8080/LTWeb_war_exploded/assets/images/data/logo_divine_pure_white.png" style="margin-top: -5px;background-color: gray; width:50px;height: auto;"></a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+              <span class="navbar-toggler-icon"></span>
+            </button>
+          </div>
+          <div style="float: left; margin-left: -10px;">
+            <div class="collapse navbar-collapse" id="navbarResponsive">
+              <ul class="navbar-nav ml-auto">
+                <li class="nav-item active">
+                  <a class="nav-link" href="#" style="text-align: center;">Trang Chủ
+                    <span class="sr-only">(current)</span>
+                  </a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="#" style="text-align: center;">Sản Phẩm</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="#" style="text-align: center;">Dịch Vụ</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="#" style="text-align: center;">Thông Tin</a>
+                </li>
+              </ul>
+            </div>
+          </div>
+            <div class="header-container__mid--search">
+              <form class="search-form">
+              <input type="text" placeholder="Input product name..." name="search">
+              <button value="search" type="submit"><i class="fa fa-search" aria-hidden="true"></i></button>
+              </form>
+            </div>
+          <div style="margin-left: 0px;">
+            <div class="collapse navbar-collapse" id="navbarResponsive">
+              <ul class="navbar-nav ml-auto">
+                <li class="nav-item">
+                  <a class="nav-link" href="#" style="text-align: center;">Đăng Nhập</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="#" style="text-align: center;">Tài Khoản</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="#" style="text-align: center;">Giỏ Hàng</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="#" style="text-align: center;">FAQ</a>
+                </li>
+              </ul>
+            </div>
+          </div>
         </div>
-        <div class="header-container__top--right">
-            <ul class="header-container--list">
-                <li><a href=""><i class="fa fa-user"></i>Tài khoản</a></li>
-                <li><a href="login.html"><i class="fas fa-sign-in-alt"></i>Đăng nhập</a></li>
-                <li><a href="register.html"><i class="fa fa-registered"></i>Đăng kí</a></li>
-            </ul>
-        </div>
-      </div>  
-      <div class="header-container__mid">
-            <div class="left header-container__mid--logo">Logo</div>
-            <div class="left header-container__mid--search">
-                <form class="search-form">
-                <input type="text" placeholder="Nhập tên sản phẩm..." name="search">
-                <button value="search" type="submit"><i class="fas fa-search fa-1x" ></i></button>
-            </form>
-            </div>
-            <div class="left header-container__mid--cart">
-                <i class="fa fa-shopping-cart fa-2x" ></i>
-            </div>
+        </nav>
       </div>
-      <div class="header-container__bottom">
-            <div class="header-container__bottom--menu">
-                <ul>
-                    <li class="active"><a href="ShopHomepage.html">Trang chủ</a></li>
-                    <li class="product"><a href="ShopItem.html">Sản Phẩm</a></li>
-                    <li class="about-us"><a href="about.html">Thông tin</a></li>
-                    <li class="warranty"><a href="warranty.html">Bảo hành</a></li>
-                    <li class="faq"><a href="faq.html">FAQ</a></li>
-                </ul>
-            </div>
-      </div>
-    </div>
+    </header>
 </body>
 </html>

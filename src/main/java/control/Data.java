@@ -1,5 +1,5 @@
 package control;
-import view.*;
+import model.Product;
 
 import java.util.HashMap;
 import java.util.Map;

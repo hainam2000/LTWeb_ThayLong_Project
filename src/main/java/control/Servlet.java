@@ -1,6 +1,6 @@
 package control;
 
-import view.Product;
+import model.Product;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -9,7 +9,6 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.util.Collection;
-import java.util.HashMap;
 
 @WebServlet(name = "Index", urlPatterns = "")
 public class Servlet extends HttpServlet {

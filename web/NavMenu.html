@@ -3,14 +3,46 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="assets/vendor/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="assets/css/font-awesome.min.css">
+    <link rel="stylesheet" href="assets/css/nav-menu.css">
+    <link rel="stylesheet" href="assets/js/jquery.min.js">
+    <script src="assets/js/nav-menu.js"></script>
     <title>Document</title>
 </head>
 <body>
-    <div class="sidebar">
-        <div class="sidebar__category">
-            <div class=""></div>
-        </div>
-        
+    <div class="menubar">
+        <button class="tablinks" onmouseover="openCategory(event, 'RAM')">RAM</button>
+        <button class="tablinks" onmouseover="openCategory(event, 'CPU')">CPU</button>
+        <button class="tablinks" onmouseover="openCategory(event, 'VGA')">VGA</button>
+        <button class="tablinks" onmouseover="openCategory(event, 'SSD')">SSD</button>
+        <button class="tablinks" onmouseover="openCategory(event, 'HDD')">HDD</button>
+        <button class="tablinks" onmouseover="openCategory(event, 'Mainboard')">Mainboard</button>
+    </div>
+
+    <div id="RAM" class="tabcontent">
+        <h3>RAM</h3>
+        <p>London is the capital city of England.</p>
+    </div>
+    <div id="CPU" class="tabcontent">
+        <h3>CPU</h3>
+        <p>London is the capital city of England.</p>
+    </div>
+    <div id="VGA" class="tabcontent">
+        <h3>VGA</h3>
+        <p>London is the capital city of England.</p>
+    </div>
+    <div id="SSD" class="tabcontent">
+        <h3>SSD</h3>
+        <p>London is the capital city of England.</p>
+    </div>    
+    <div id="HDD" class="tabcontent">
+        <h3>HDD</h3>
+        <p>London is the capital city of England.</p>
+    </div>
+    <div id="Mainboard" class="tabcontent">
+        <h3>Mainboard</h3>
+        <p>London is the capital city of England.</p>
     </div>
 </body>
 </html>

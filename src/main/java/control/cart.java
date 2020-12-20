@@ -1,6 +1,6 @@
 package control;
 
-import view.Product;
+import model.Product;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;

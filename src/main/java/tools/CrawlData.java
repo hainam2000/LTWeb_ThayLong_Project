@@ -6,24 +6,25 @@ import org.jsoup.Jsoup;
 import org.jsoup.nodes.*;
 import org.jsoup.select.Elements;
 
+import javax.print.Doc;
+
 
 public class CrawlData {
     public static final String BrandName = "p > span:contains(Nhà sản xuất)";
     public static final String ProductName = "div.col-sm-6.col-xs-12.product_parameters > h1";
-    public static final String ProductDetail = "div.col-sm-6.col-xs-12.product_parameters > p span";
+    public static final String ProductDescription = "div.col-sm-6.col-xs-12.product_parameters > p span";
     public static final String ProductPrice = ".product_price > del";
     public static final String ProductPriceSale = ".product_sale_price";
-
+    public static final String ProductDetail = ".tab-pane > p";
+    public static final String ProductImage = "div.container img[src~=(?i)\\.(png|jpg)]";
     public static ArrayList<String> linksList = new ArrayList<>();
     public static List<String> itemsList = new ArrayList<>();
-    public static List<String> dataList = new ArrayList<>();
-
 
     //region utils
-    public void getAllPages(String topic, int limit){
+    public void getAllPages(String topicUrl, int limit){
         String result = "";
         for(int i = 1; i <= limit; i++){
-            result = topic + i;
+            result = topicUrl + i;
             linksList.add(result);
         }
     }
@@ -56,15 +57,17 @@ public class CrawlData {
         Element str = doc.select(ProductName).get(0);
         return name = str.text().replace("/", "");
     }
-
-    public String getProductDetails(String url) throws IOException {
-        String detail = "";
+    public String getProductRename(int name){
+        return "" + (name+1);
+    }
+    public String getProductDescription(String url) throws IOException {
+        String description = "";
         Document doc = Jsoup.connect(url).get();
-        Elements details = doc.select(ProductDetail);
-        for (Element d : details) {
-            detail += d.text();
+        Elements descriptions = doc.select(ProductDescription);
+        for (Element d : descriptions) {
+            description += d.text();
         }
-        return detail;
+        return description;
     }
     public int getProductPrice(String url) throws IOException{
         int price = 0;
@@ -82,8 +85,33 @@ public class CrawlData {
         priceSale = Integer.parseInt(e.text().replace("Liên hệ", "1000").replace(",", "").replace("₫", ""));
         return priceSale;
     }
-    //endregion
+    public String getProductDetail(String url) throws  IOException{
+        String detail = "";
+        Document doc = Jsoup.connect(url).get();
+        Elements details = doc.select(ProductDetail);
+        for(Element d : details){
+            detail += d.text();
+        }
 
+        return detail;
+    }
+
+    //endregion
+    //region Image
+    public List<String> getProductImageUrls(List<String> urls,String url) throws IOException {
+        Document doc = Jsoup.connect(url).get();
+        Elements images = doc.select(ProductImage);
+        for(Element image : images){
+            if(image.attr("src").contains("https:") || image.attr("src").contains("http:"))
+                urls.add(image.attr("src"));
+            else continue;
+        }
+        return urls;
+    }
+    public String renameProductImage(int name){
+        return "" + (name+1) + ".jpg";
+    }
+    //endregion
     //region Backup
 //    public static int counter = 0;
 //    public static ArrayList<String> linksList = new ArrayList<>();

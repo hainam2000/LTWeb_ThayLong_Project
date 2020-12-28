@@ -173,16 +173,19 @@
     overflow: hidden;
     width: 15ch;
 }
-.item-price{
-    font-size: 14px;
-    text-overflow: ellipsis;
-    position: absolute;
-    right: 40%;
-}
 .item-quantity {
-    width: fit-content;
+    width: 70%;
     font-size: 14px;
     float: left;
+    height: auto;
+}
+.item-quantity input {
+    height: 30px;
+    line-height: 30px;
+    text-align: center;
+}
+.item-quantity input[type=button]{
+    width: 25px;
 }
 .item-cancel{
     position: relative;
@@ -191,19 +194,50 @@
     right: 10%;
     text-align: center;
 }
-
-/* .header_rgb(109, 160, 177)rt li {
-    position: relative;
-    top: 5;
-}
-.header__user--cart li i{
+.item-price{
     position: absolute;
-    top: 10%;
-    left: 0%;
+    font-size: 14px;
+    text-overflow: ellipsis;
+    left: 27%;
+    bottom: 5%;
 }
-.header__user--cart li p {
+.login-register__modal {
+    background-color: white;
+    position: fixed;
+    top: 25%;
+    left: 42.5%;
+    margin-top: -50px;
+    margin-left: -100px;
+    border: 1px solid rgba(0,0,0,0.5);
+    border-radius: 10px;
+    box-shadow: 0 2px 5px 0 rgba(0,0,0,.26)!important;
+}
+.login-register__modal .modal__login {
+    display: none;
+    width: 400px;
+    height: 300px;
+
+}
+.login-register__modal .modal__login h3 {
+    margin-top: 20px;
+    text-align: center;
+}
+.login-register__modal .modal__login form{
+    margin: 30px;
+} 
+.login-register__modal .modal__login form label {
+    text-align: center;
+}
+.login-register__modal .modal__login form input {
     float: right;
+    margin-right: 10px;
+    width: 200px;
 }
-.header__user--cart-table {
-    display: inline-table;
-} */
+.login-register__modal .modal__login a {
+    position: absolute;
+    left: 25%;
+    top: 70%;
+    width: 200px;
+    height: 50px;
+    line-height: 40px;
+}

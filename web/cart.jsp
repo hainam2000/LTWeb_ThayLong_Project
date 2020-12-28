@@ -1,95 +1,114 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-<%@ page contentType="text/html;charset=UTF-8" language="java" %>
-<%@ taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn" %>
+  <%@ page contentType="text/html;charset=UTF-8" language="java" %>
+    <%@ taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn" %>
+      <html lang="en">
 
-<html lang="en">
+      <head>
+        <meta charset="utf-8">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="assets/css/cart.css">
+        <link rel="stylesheet" href="assets/css/header.css">
+        <link rel="stylesheet" href="assets/css/font-awesome.min.css">
+        <link href="assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+        <script src="/assets/js/cart.js"></script>
+        <title>Cart</title>
+        <style>
+          <%@include file="assets/css/header.css"%><%@include file="assets/vendor/bootstrap/css/bootstrap.min.css"%><%@include file="assets/css/shop-homepage.css"%><%@include file="assets/css/font-awesome.min.css"%>
+        </style>
+      </head>
 
-<head>
-  <meta charset="utf-8">
-  <meta http-equiv="x-ua-compatible" content="ie=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="stylesheet" href="assets/css/cart.css">
-  <script src="assets/js/cart.js"></script>
-  <style>
-    <%@include file="assets/css/header.css"%>
-    <%@include file="assets/vendor/bootstrap/css/bootstrap.min.css"%>
-    <%@include file="assets/css/shop-homepage.css"%>
-    <%@include file="assets/css/font-awesome.min.css"%>
-  </style>
-  <title>Cart</title>
-</head>
-
-<body>
-<jsp:include page="header.html"></jsp:include>
-  <main>
-    <div class="basket">
-      <div class="basket-module" style="padding-top: 20px">
-        <label for="promo-code">Enter a promotional code</label>
-        <input id="promo-code" type="text" name="promo-code" maxlength="5" class="promo-code-field">
-        <button class="promo-code-cta">Apply</button>
-      </div>
-      <div class="basket-labels">
-        <ul>
-          <li class="item item-heading">Item</li>
-          <li class="price">Price</li>
-          <li class="quantity">Quantity</li>
-          <li class="subtotal">Subtotal</li>
-        </ul>
-      </div>
-      <c:forEach items="${dataHDD}" var="d">
-      <div class="basket-product" >
-        <div class="item">
-          <div class="product-image">
-            <img src="${d.imgUrl}" alt="Placholder Image 2" class="product-frame"style="width: 100px; height: auto;">
+      <body>
+        <jsp:include page="header.jsp"></jsp:include>
+        <div class="page-content">
+          <div class="cart__product">
+            <h2 class="cart__product--title">
+              GIỎ HÀNG
+              <span class="cart__product--title-counter">(${d.counter} sản phẩm)</span>
+            </h2>
+            <div class="products--list">
+              <ul>
+                <li>
+                  <div class="product">
+                    <div class="product-img">
+                      <a href="/productName">
+                        <img src="assets/images/CPU/AMDAthlon200GE3.2GHz24RadeonVega3Graphics/gearvn_cpu_amd.jpg"
+                          alt="">
+                      </a>
+                    </div>
+                    <div class="product-content">
+                      <div class="product-content--description">
+                        <p class="name">Tên sản phẩm: <a href="/productName">(16GB DDR4 2x8G 3200) RAM AORUS RGB Memory
+                            CL16-18-18-38 (kèm Demo kit)</a></p>
+                      </div>
+                      <div class="product-content--detail">
+                        <p class="category">Mục sản phẩm: <span>VGA</span></p>
+                      </div>
+                    </div>
+                    <div class="product-price">
+                      <p style="position: absolute; top: 10px; left: -50px">Tổng tiền: <span>1000000000</span></p>
+                      <br>
+                      <br>
+                      <p style="width: 150px; position: absolute;top: 30px; left: -15px; text-align: center;">
+                        <span class="item-quantity">
+                          <input type="button" value="-" onclick="minus()">
+                          <input type="text" name="" id="quantity" size="4" value="1">
+                          <input type="button" value="+" onclick="plus()">
+                        </span>
+                      </p>
+                    </div>
+                  </div>
+                </li>
+              </ul>
+            </div>
           </div>
-          <div class="product-details">
-            <h1 style="font-size: 20px;"><span class="item-quantity">4</span> ${d.name}</h1>
-            <p><strong>${d.description}</strong></p>
-            <p>Product Code - 232321939</p>
-          </div>
-        </div>
-        <div class="price">${d.price}</div>
-        <div class="quantity">
-          <input type="number" value="4" min="1" class="quantity-field">
-        </div>
-        <div class="subtotal">${d.price}</div>
-        <div class="remove">
-          <button>Remove</button>
-        </div>
-      </div>
-      </c:forEach>
-    </div>
-    <aside>
-      <div class="summary">
-        <div class="summary-total-items"><span class="total-items"></span> Items in your Bag</div>
-        <div class="summary-subtotal">
-          <div class="subtotal-title">Subtotal</div>
-          <div class="subtotal-value final-value" id="basket-subtotal">130.00</div>
-          <div class="summary-promo hide">
-            <div class="promo-title">Promotion</div>
-            <div class="promo-value final-value" id="basket-promo"></div>
-          </div>
-        </div>
-        <div class="summary-delivery">
-          <select name="delivery-collection" class="summary-delivery-selection">
-              <option value="0" selected="selected">Select Collection or Delivery</option>
-             <option value="collection">Collection</option>
-             <option value="first-class">Royal Mail 1st Class</option>
-             <option value="second-class">Royal Mail 2nd Class</option>
-             <option value="signed-for">Royal Mail Special Delivery</option>
-          </select>
-        </div>
-        <div class="summary-total">
-          <div class="total-title">Total</div>
-          <div class="total-value final-value" id="basket-total">130.00</div>
-        </div>
-        <div class="summary-checkout">
-          <button class="checkout-cta">Go to Secure Checkout</button>
-        </div>
-      </div>
-    </aside>
-  </main>
-  <jsp:include page="footer.html"></jsp:include>
-</body>
+          <div class="cart__price">
+            <div class="address">
+              <p class="heading">
+                <span>Thông tin nhận hàng</span>
+                <a href="/account">Thay đổi</a>
+              </p>
+              <p class="title">
+                <b class="name">Phạm Thiên Long</b>
+                <b class="phone"> 0373118242</b>
+              </p>
+              <p class="user-address">
+                KTX Đại Học Quốc Gia Khu B, Phường Linh Xuân, Quận Thủ Đức, Hồ Chí Minh
+              </p>
+            </div>
+            <div class="coupon">
 
-</html>
+            </div>
+            <div class="total-price">
+              <p class="prices-item">
+                <span class="text">Tổng tiền hàng: </span>
+                <span class="money">100000000000đ</span>
+                <br>
+                <span class="text">Tổng tiền phí vận chuyển:</span>
+                <span class="money">10000000đ</span>
+              </p>
+              <p class="price-total">
+                <span class="text">Tổng thanh toán: </span>
+                <span class="money">10000000000000đ</span>
+              </p>
+              <p></p>
+            </div>
+          </div>
+        </div>
+        <script>
+          var count = 1;
+          var countElement = document.getElementById("quantity");
+          function plus() {
+            count++;
+            countElement.value = count;
+          }
+          function minus() {
+            if (count > 1) {
+              count--;
+              countElement.value = count;
+            }
+          }
+        </script>
+      </body>
+
+      </html>

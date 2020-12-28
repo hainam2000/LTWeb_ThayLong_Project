@@ -6,9 +6,11 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Document</title>
   <link href="assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
-  <link href="assets/css/shop-homepage.css" rel="stylesheet">
+  <!-- <link href="assets/css/shop-homepage.css" rel="stylesheet"> -->
   <link rel="stylesheet" href="assets/css/header.css">
   <link rel="stylesheet" href="assets/css/font-awesome.min.css">
+  <script src="assets/js/jquery.min.js"></script>
+
 </head>
 
 <body>
@@ -31,25 +33,27 @@
           <div class="header-container--search">
             <form class="search-form">
               <input type="text" placeholder="Input product name..." name="search" style="border-radius: 5px;">
-              <button value="search" type="submit"><i
-                  class="fa fa-search" aria-hidden="true"></i></button>
+              <button value="search" type="submit"><i class="fa fa-search" aria-hidden="true"></i></button>
             </form>
           </div>
           <div class="header__user">
             <ul>
               <li>
-                <a href="/login">
-                  <i class="fa fa-user" aria-hidden="true"></i><span> Đăng nhập </span>
+                <a href="/account">
+                  <i class="fa fa-user" aria-hidden="true"></i><span> Tài
+                    khoản </span>
                 </a>
                 <ul class="header__user--account">
-                  <li>
+                  <li >
                     <a role="button" href="/login" style=" color: #32494d" class="btn btn-outline-info btn-sm">Đăng nhập</a>
                   </li>
                   <li>
-                    <a role="button" href="/register" style=" color: #32494d" class="btn btn-outline-info btn-sm">Đăng ký</a>
+                    <a role="button" href="/register" style=" color: #32494d" class="btn btn-outline-info btn-sm">Đăng
+                      ký</a>
                   </li>
                   <li>
-                    <a role="button" href="/account" style=" color: #32494d" class="btn btn-outline-info btn-sm">Tài khoản</a>
+                    <a role="button" href="/account" style=" color: #32494d" class="btn btn-outline-info btn-sm">Tài
+                      khoản</a>
                   </li>
                 </ul>
               </li>
@@ -57,19 +61,25 @@
                 <a href="/cart">
                   <i class="fa fa-shopping-cart" aria-hidden="true"></i><span> Giỏ hàng </span>
                 </a>
-                
+
                 <div class="header__user--cart">
                   <div class="shopping-cart-header">
                     <i style="position: relative; right: 30%;" class="fa fa-shopping-cart cart-icon fa-lg"></i>
                     <span style="position: relative;right: 30%;" class="badge fa-sm">200</span>
-                    <a role="button" href="/cart" style="float: right; color: #32494d" class="btn btn-outline-info btn-sm">View Cart</a>
+                    <a role="button" href="/cart" style="float: right; color: #32494d"
+                      class="btn btn-outline-info btn-sm">View Cart</a>
                   </div>
-  
+
                   <ul class="shopping-cart-item">
                     <li>
-                      <img style="max-width: 125px; max-height: 125px;" src="assets/images/CPU/AMDAthlon200GE3.2GHz24RadeonVega3Graphics/gearvn_cpu_amd.jpg">
+                      <img style="max-width: 125px; max-height: 125px;"
+                        src="assets/images/CPU/AMDAthlon200GE3.2GHz24RadeonVega3Graphics/gearvn_cpu_amd.jpg">
                       <span class="item-name">item name ne nha may asdasdasdasdsadasdasdba </span>
-                      <span class="item-quantity">Số lượng:</span>
+                      <span class="item-quantity">Số lượng:
+                        <input type="button" value="-" onclick="minus();">
+                        <input type="text" name="" id="quantity" size="2">
+                        <input type="button" value="+" onclick="plus();">
+                      </span>
                       <span class="item-price">Tổng tiền:</span>
                       <button type="button" class="btn btn-outline-danger item-cancel">X</button>
                     </li>
@@ -83,6 +93,21 @@
     </nav>
     </div>
   </header>
+  <script>
+    var countElement = document.getElementById("quantity");
+    var count = 1;
+
+    function plus() {
+      count++;
+      countElement.value = count;
+    }
+    function minus() {
+      if (count > 1) {
+        count--;
+        countElement.value = count;
+      }
+    }
+  </script>
 </body>
 
 </html>

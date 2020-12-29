@@ -20,16 +20,16 @@ public class ToolsRuner {
 
 
 
-
+        String jsonFile = "/Users/ThienLong/Documents/empty/HDDImages.json";
         String itemUrls = "https://gearvn.com/products/asus-prime-h310m-cs-r2-0-lga1151v2";
         String pageUrl = "https://gearvn.com/collections/mainboard-bo-mach-chu";
         String path = "/Users/ThienLong/Documents/empty/";
-        String categoryUrl = "https://gearvn.com/collections/mainboard-bo-mach-chu?page=";
+        String categoryUrl = "https://gearvn.com/collections/hdd-o-cung-pc?page=";
 
         boolean isMake = false;
-
-        int productID = 95;
-
+        int counter = 0;
+        int productID = 549;
+/*
         cd.getAllPages(categoryUrl,9);
         for (String link: CrawlData.linksList) {
             cd.getAllProductsOnPage(link);
@@ -50,8 +50,14 @@ public class ToolsRuner {
             productID++;
             Thread.sleep(2000);
         }
-        stj.writeJsonFile(path + "MainboardImages.json", JSONUtils.imagesList);
-
+        stj.writeJsonFile(path + "HDDImages.json", JSONUtils.imagesList);
+*/
+        stj.readImageJsonFile(dataList, jsonFile);
+        for (String value : dataList ) {
+            du.insertElement("Image", value);
+            counter++;
+        }
+        System.out.println("Total values: " + counter);
         /*
         int idCounter = 1;
         int itemCounter = 0;

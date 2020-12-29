@@ -51,8 +51,22 @@ public class JSONUtils {
 
         }
     }
-
-    public List<String> readJsonFile(List<String> res, String file){
+    public List<String> readImageJsonFile(List<String> res, String file){
+        JSONParser jsonParser = new JSONParser();
+        try(FileReader reader = new FileReader(file)){
+            Object obj = jsonParser.parse(reader);
+            JSONArray list = (JSONArray) obj;
+            for(Object o : list){
+                res.add(parseImageObject((JSONObject) o));
+            }
+            System.out.println("read succeed");
+        }
+        catch (IOException | ParseException e) {
+            e.printStackTrace();
+        }
+        return res;
+    }
+    public List<String> readProductJsonFile(List<String> res, String file){
         JSONParser jsonParser = new JSONParser();
         try(FileReader reader = new FileReader(file)){
             Object obj = jsonParser.parse(reader);

@@ -17,8 +17,8 @@ public class cart extends HttpServlet {
     }
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        Collection<Product> values = Data.dataHDD.values();
-        request.setAttribute("dataHDD", values);
+//        Collection<Product> values = Data.dataHDD.values();
+//        request.setAttribute("dataHDD", values);
         request.getRequestDispatcher("cart.jsp").forward(request,response);
     }
 }

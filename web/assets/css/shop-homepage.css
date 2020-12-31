@@ -42,3 +42,31 @@ body {
 .body__menu ul li:hover .menu__submenu{
   display: block;
 }
+.product {
+  width: 250px;
+  height: 300px;
+  border: solid 0.5px rgba(0,0,0,.26);
+  border-radius: 5px;
+}
+.product:hover{
+  box-shadow: 0 2px 5px 0 rgba(0,0,0,.26)!important;;
+}
+.product__details {
+  margin: 15px 10px;
+}
+.product__details--name {
+  text-align: left;
+  font-size: 16px;
+}
+.product__details--name a {
+  text-decoration: none;
+}
+.product__details--price {
+  margin-top: 15px;
+  text-align: left;
+  font-style: bold;
+  font-size: 18px;
+}
+.product__deatails--onStock {
+  font-size: 15px;
+}

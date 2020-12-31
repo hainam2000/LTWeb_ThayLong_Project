@@ -3,33 +3,40 @@ package model;
 import java.io.Serializable;
 import tools.*;
 public class Product implements Serializable {
-    private String id;
+    //region Field
+    private int id;
     private String name;
-    private String type;
     private String description;
-    private String imgUrl;
+    private String details;
     private int price;
+    private int isSale; //1 true 0 false;
     private int salePrice;
+    private int id_brand, id_category;
+    private int storage;
+    //endregion
 
+    //region Constructor & Getter Setter
     public Product(){
 
     }
-
-    public Product(String id, String name ,String type, String description, String imgUrl, int price, int salePrice){
+    public Product(int id, String name, String description, String details, int price, int isSale, int salePrice, int id_brand, int id_category, int storage) {
         this.id = id;
         this.name = name;
-        this.type = type;
         this.description = description;
-        this.imgUrl = "http://localhost:8080/LTWeb_war_exploded/assets/images/" + type + "/" + imgUrl;
+        this.details = details;
         this.price = price;
+        this.isSale = isSale;
         this.salePrice = salePrice;
+        this.id_brand = id_brand;
+        this.id_category = id_category;
+        this.storage = storage;
     }
 
-    public String getId() {
+    public int getId() {
         return id;
     }
 
-    public void setId(String id) {
+    public void setId(int id) {
         this.id = id;
     }
 
@@ -41,14 +48,6 @@ public class Product implements Serializable {
         this.name = name;
     }
 
-    public String getType() {
-        return type;
-    }
-
-    public void setType(String type) {
-        this.type = type;
-    }
-
     public String getDescription() {
         return description;
     }
@@ -57,12 +56,12 @@ public class Product implements Serializable {
         this.description = description;
     }
 
-    public String getImgUrl() {
-        return imgUrl;
+    public String getDetails() {
+        return details;
     }
 
-    public void setImgUrl(String imgUrl) {
-        this.imgUrl = imgUrl;
+    public void setDetails(String details) {
+        this.details = details;
     }
 
     public int getPrice() {
@@ -73,6 +72,14 @@ public class Product implements Serializable {
         this.price = price;
     }
 
+    public int getIsSale() {
+        return isSale;
+    }
+
+    public void setIsSale(int isSale) {
+        this.isSale = isSale;
+    }
+
     public int getSalePrice() {
         return salePrice;
     }
@@ -80,75 +87,32 @@ public class Product implements Serializable {
     public void setSalePrice(int salePrice) {
         this.salePrice = salePrice;
     }
-//    private String id;
-//    private String name;
-//    private String detail;
-//    private double price;
-//    private float saleOff;
-//    private double priceSale;
-//    private String id_brand;
-//    private int storage;
-//    public Product(int id, String name, String detail, int price, float saleOff, int priceSale, int id_brand, int storage){
-//        this.id = id;
-//        this.name = name;
-//        this.detail = detail;
-//        this.price = price;
-//        this.saleOff = saleOff;
-//        this.priceSale = priceSale;
-//        this.id_brand = id_brand;
-//        this.storage = storage;
-//    }
-//
-//
-//    //Getter Setter
-//    public int getId() {
-//        return id;
-//    }
-//    public void setId(int id) {
-//        this.id = id;
-//    }
-//    public String getName() {
-//        return name;
-//    }
-//    public void setName(String name) {
-//        this.name = name;
-//    }
-//    public String getDetail() {
-//        return detail;
-//    }
-//    public void setDetail(String detail) {
-//        this.detail = detail;
-//    }
-//    public int getPrice() {
-//        return price;
-//    }
-//    public void setPrice(int price) {
-//        this.price = price;
-//    }
-//    public float getSaleOff() {
-//        return saleOff;
-//    }
-//    public void setSaleOff(float saleOff) {
-//        this.saleOff = saleOff;
-//    }
-//    public int getPriceSale() {
-//        return priceSale;
-//    }
-//    public void setPriceSale(int priceSale) {
-//        this.priceSale = priceSale;
-//    }
-//    public int getId_brand() {
-//        return id_brand;
-//    }
-//    public void setId_brand(int id_brand) {
-//        this.id_brand = id_brand;
-//    }
-//    public int getStorage() {
-//        return storage;
-//    }
-//    public void setStorage(int storage) {
-//        this.storage = storage;
-//    }
-//
+
+    public int getId_brand() {
+        return id_brand;
+    }
+
+    public void setId_brand(int id_brand) {
+        this.id_brand = id_brand;
+    }
+
+    public int getId_category() {
+        return id_category;
+    }
+
+    public void setId_category(int id_category) {
+        this.id_category = id_category;
+    }
+
+    public int getStorage() {
+        return storage;
+    }
+
+    public void setStorage(int storage) {
+        this.storage = storage;
+    }
+
+
+    //endregion
 
 }

@@ -17,8 +17,8 @@ public class Servlet extends HttpServlet {
     }
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        Collection<Product> values = Data.index.values();
-        request.setAttribute("index", values);
+//        Collection<Product> values = Data.index.values();
+//        request.setAttribute("index", values);
         request.getRequestDispatcher("index.jsp").forward(request,response);
         }
     }

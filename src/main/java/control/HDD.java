@@ -19,8 +19,8 @@ public class HDD extends HttpServlet {
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         ProductEntity pe = new ProductEntity();
-        Collection<Product> values = Data.dataHDD.values(); //pe.getAllProduct();//Data.dataHDD.values();
-        request.setAttribute("dataHDD", values);
+        Collection<Product> values = pe.getAllProductWithCategory("Product", "5");//Data.dataHDD.values();
+        request.setAttribute("list", values);
         request.getRequestDispatcher("HDD.jsp").forward(request,response);
     }
 }

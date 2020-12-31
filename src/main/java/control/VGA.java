@@ -1,6 +1,7 @@
 package control;
 
 import model.Product;
+import model.ProductEntity;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -17,8 +18,10 @@ public class VGA extends HttpServlet {
     }
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        Collection<Product> values = Data.dataVGA.values();
-        request.setAttribute("dataVGA", values);
+        ProductEntity pe = new ProductEntity();
+        Collection<Product> values = pe.getAllProductWithCategory("Product", "6");
+//        Collection<Product> values = Data.dataVGA.values();
+        request.setAttribute("list", values);
         request.getRequestDispatcher("VGA.jsp").forward(request,response);
     }
 }

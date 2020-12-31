@@ -1,0 +1,45 @@
+*{
+    padding: 0px;
+    margin-top: 10px;
+}
+.container{
+margin-left: 100px;
+margin-top: 100px;
+margin-bottom: 100px;
+
+}
+.list-group{
+    border-radius: 10px;
+    width: 220px;
+    background-color: rgb(194, 197, 197);
+    align-items: center;
+    padding : 10px 10px 10px 10px;
+    
+
+
+}
+.list-group .list-group-item{
+    text-align: center;
+    background-color: gray;
+    border-color: darkgray;
+    border-radius: 5px;
+    margin-top: 2px;
+    width: 190px;
+
+}
+.card-body-container{
+    padding-left: 20px;
+    width: 600px;
+    
+}
+.card-body{
+    padding-left: 70px;
+    padding-right: 20px;
+    width: 700px;
+}
+.here{
+ margin-right: 10px;
+}
+.btn-submit{
+    background-color: gray;
+}

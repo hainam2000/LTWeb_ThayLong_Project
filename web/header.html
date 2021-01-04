@@ -5,11 +5,16 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Document</title>
+
+  <!-- Bootstrap core CSS -->
   <link href="assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
-  <!-- <link href="assets/css/shop-homepage.css" rel="stylesheet"> -->
-  <link rel="stylesheet" href="assets/css/header.css">
   <link rel="stylesheet" href="assets/css/font-awesome.min.css">
+
+  <!-- Custom styles for this template -->
+  <link rel="stylesheet" href="assets/css/header.css">
+  <script src="assets/js/bootstrap.js"></script>
   <script src="assets/js/jquery.min.js"></script>
+  <script src="assets/js/bootstrap.bundle.js"></script>
 
 </head>
 
@@ -73,7 +78,7 @@
                   <ul class="shopping-cart-item">
                     <li>
                       <img style="max-width: 125px; max-height: 125px;"
-                        src="assets/images/CPU/AMDAthlon200GE3.2GHz24RadeonVega3Graphics/gearvn_cpu_amd.jpg">
+                        src="http://localhost:8080/LTWeb_war_exploded/assets/images/product/1/1.jpg">
                       <span class="item-name">item name ne nha may asdasdasdasdsadasdasdba </span>
                       <span class="item-quantity">Số lượng:
                         <input type="button" value="-" onclick="minus();">
@@ -89,10 +94,84 @@
             </ul>
           </div>
         </div>
+      </nav>
     </div>
-    </nav>
+
+    <div class="advertisement">
+      <div class="submenu">
+        <ul>
+          <li>
+            <a href="/mainboard">Mainboard</a>
+          </li>
+          <li>
+            <a href="/cpu">CPU</a>
+          </li>
+          <li>
+            <a href="/ram">RAM</a>
+          </li>
+          <li>
+            <a href="/vga">VGA</a>
+          </li>
+          <li>
+            <a href="/ssd">SSD</a>
+          </li>
+          <li>
+            <a href="/hdd">HDD</a>
+          </li>
+        </ul>
+      </div>
+      
+      <div id="demo" class="carousel slide" data-ride="carousel" style="width: 500px;">
+
+        <!-- Indicators -->
+        <ul class="carousel-indicators">
+          <li data-target="#demo" data-slide-to="0" class="active"></li>
+          <li data-target="#demo" data-slide-to="1"></li>
+          <li data-target="#demo" data-slide-to="2"></li>
+          <li data-target="#demo" data-slide-to="4"></li>
+          <li data-target="#demo" data-slide-to="5"></li>
+        </ul>
+
+        <!-- The slideshow -->
+        <div class="carousel-inner">
+          <div class="carousel-inner_img carousel-item active">
+            <img src="http://localhost:8080/LTWeb_war_exploded/assets/images/advertisement/solid1.jpg" alt="">
+          </div>
+          <div class="carousel-inner_img carousel-item">
+            <img src="http://localhost:8080/LTWeb_war_exploded/assets/images/advertisement/solid2.jpg" alt="">
+          </div>
+          <div class="carousel-inner_img carousel-item">
+            <img src="http://localhost:8080/LTWeb_war_exploded/assets/images/advertisement/solid3.jpg" alt="">
+          </div>
+          <div class="carousel-inner_img carousel-item">
+            <img src="http://localhost:8080/LTWeb_war_exploded/assets/images/advertisement/solid4.jpg" alt="">
+          </div>
+          <div class="carousel-inner_img carousel-item">
+            <img src="http://localhost:8080/LTWeb_war_exploded/assets/images/advertisement/solid5.jpg" alt="">
+          </div>
+          <a class="carousel-control-prev" href="#demo" data-slide="prev">
+            <span class="carousel-control-prev-icon"></span>
+          </a>
+          <a class="carousel-control-next" href="#demo" data-slide="next">
+            <span class="carousel-control-next-icon"></span>
+          </a>
+        </div>
+
+        <!-- Left and right controls -->
+        <!-- <a class="carousel-control-prev" href="#demo" data-slide="prev">
+          <span class="carousel-control-prev-icon"></span>
+        </a>
+        <a class="carousel-control-next" href="#demo" data-slide="next">
+          <span class="carousel-control-next-icon"></span>
+        </a> -->
+        <div class="carousel-right">
+          <img src="http://localhost:8080/LTWeb_war_exploded/assets/images/advertisement/solid6.jpg" alt="">
+          <img src="http://localhost:8080/LTWeb_war_exploded/assets/images/advertisement/solid7.jpg" alt="">
+        </div>
+      </div>
     </div>
   </header>
+    
   <script>
     var countElement = document.getElementById("quantity");
     var count = 1;

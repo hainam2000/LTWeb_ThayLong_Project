@@ -1,6 +1,7 @@
 package control;
 
 import model.Product;
+import model.ProductEntity;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -11,7 +12,7 @@ import java.io.IOException;
 import java.util.Collection;
 
 @WebServlet(name = "Index", urlPatterns = "")
-public class Servlet extends HttpServlet {
+public class Index extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         doGet(request,response);
     }
@@ -19,6 +20,9 @@ public class Servlet extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 //        Collection<Product> values = Data.index.values();
 //        request.setAttribute("index", values);
+        ProductEntity pe = new ProductEntity();
+        Collection<Product> values = pe.getRandomProduct("40");
+        request.setAttribute("list", values);
         request.getRequestDispatcher("index.jsp").forward(request,response);
         }
     }

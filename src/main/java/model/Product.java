@@ -8,6 +8,7 @@ public class Product implements Serializable {
     private String name;
     private String description;
     private String details;
+    private String imgUrl;
     private int price;
     private int isSale; //1 true 0 false;
     private int salePrice;
@@ -19,11 +20,12 @@ public class Product implements Serializable {
     public Product(){
 
     }
-    public Product(int id, String name, String description, String details, int price, int isSale, int salePrice, int id_brand, int id_category, int storage) {
+    public Product(int id, String name, String description, String details, String imgUrl, int price, int isSale, int salePrice, int id_brand, int id_category, int storage) {
         this.id = id;
         this.name = name;
         this.description = description;
         this.details = details;
+        this.imgUrl = "http://localhost:8080/LTWeb_war_exploded/assets/images/product/" + imgUrl + ".jpg";
         this.price = price;
         this.isSale = isSale;
         this.salePrice = salePrice;
@@ -63,6 +65,10 @@ public class Product implements Serializable {
     public void setDetails(String details) {
         this.details = details;
     }
+
+    public String getImgUrl() { return imgUrl;}
+
+    public void setImgUrl(String imgUrl) { this.imgUrl = imgUrl; }
 
     public int getPrice() {
         return price;
@@ -112,7 +118,10 @@ public class Product implements Serializable {
         this.storage = storage;
     }
 
-
+    public String toString(){
+        return getId() + "\n" + getName() + "\n" + getDescription() + "\n" + getDetails() + "\n" + getImgUrl() + "\n" +
+                "===================================================================";
+    }
     //endregion
 
 }

@@ -11,7 +11,7 @@ public class Image {
     public Image(int id, int idProduct, String url) {
         this.id = id;
         this.idProduct = idProduct;
-        this.url = "http://localhost:8080/LTWeb_war_exploded/assets/images/" + url;
+        this.url = "http://localhost:8080/LTWeb_war_exploded/assets/images/product/" + url;
     }
 
     public int getId() {

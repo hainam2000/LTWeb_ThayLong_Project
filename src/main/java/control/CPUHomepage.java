@@ -1,7 +1,6 @@
 package control;
 
-import model.Product;
-import model.ProductEntity;
+import model.*;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -19,8 +18,7 @@ public class CPUHomepage extends HttpServlet {
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         ProductEntity pe = new ProductEntity();
-        Collection<Product> values = pe.getAllProductWithCategory("Product", "3");
-//        Collection<Product> values = Data.dataCPU.values();
+        Collection<Product> values = pe.getAllProductForHomepage("3");
         request.setAttribute("list", values);
         request.getRequestDispatcher("CPU.jsp").forward(request,response);
     }

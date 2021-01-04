@@ -1,34 +1,19 @@
 package database;
 
-import model.Image;
-import model.ImageEntity;
 import model.Product;
 import model.ProductEntity;
 
-import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
-import java.util.ArrayList;
-import java.util.LinkedList;
-import java.util.List;
+import java.util.Collection;
 
 public class DatabaseUtils {
     public static final String ProductTable = "Product(id, name, description, details, price, isSale, priceSale, id_brand, id_category, storage)";
-    public static void main(String[] args) throws SQLException, ClassNotFoundException {
-        Statement s = ConnectionDB.connect();
-        DatabaseUtils DU = new DatabaseUtils();
+    public static void main(String[] args) {
         ProductEntity pe = new ProductEntity();
-        ImageEntity ie = new ImageEntity();
-        int count = 0;
-        for(Image i : ie.getAllImageWithProductID("2")){
-            if(count == 10){
-                break;
-            } else {
-                System.out.println("id: " + i.getId());
-                System.out.println("id product: " + i.getIdProduct());
-                System.out.println("url: " + i.getUrl());
-            }
-            count++;
+        Collection<Product> values = pe.getRandomProduct("20");
+        for (Product p : values) {
+                System.out.println(p.getName());
         }
     }
 

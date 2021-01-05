@@ -1,6 +1,7 @@
 package control;
 
-import model.*;
+import model.Product;
+import model.ProductEntity;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -10,16 +11,17 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.util.Collection;
 
-@WebServlet(name = "ProductHomepage", urlPatterns = "/CPU")
-public class CPUHomepage extends HttpServlet {
+@WebServlet(name = "MainboardHomepage", urlPatterns = "/mainboard")
+public class Mainboard extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         doGet(request, response);
     }
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         ProductEntity pe = new ProductEntity();
-        Collection<Product> values = pe.getAllProductForHomepage("3");
+        Collection<Product> values = pe.getAllProductWithCategory("Product", "1");
+        //        Collection<Product> values = Data.dataMB.values();
         request.setAttribute("list", values);
-        request.getRequestDispatcher("CPU.jsp").forward(request,response);
+        request.getRequestDispatcher("Mainboard.jsp").forward(request,response);
     }
 }

@@ -1,7 +1,9 @@
 package control;
 
+import entity.CategoryEntity;
+import model.Category;
 import model.Product;
-import model.ProductEntity;
+import entity.ProductEntity;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -21,8 +23,13 @@ public class Index extends HttpServlet {
 //        Collection<Product> values = Data.index.values();
 //        request.setAttribute("index", values);
         ProductEntity pe = new ProductEntity();
-        Collection<Product> values = pe.getRandomProduct("40");
-        request.setAttribute("list", values);
+        CategoryEntity ce = new CategoryEntity();
+
+        Collection<Category> categories = ce.getAllCategory();
+        Collection<Product> productList = pe.getRandomProduct("40");
+
+        request.setAttribute("clist", categories);
+        request.setAttribute("productsList", productList);
         request.getRequestDispatcher("index.jsp").forward(request,response);
         }
     }

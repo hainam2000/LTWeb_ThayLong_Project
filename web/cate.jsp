@@ -36,7 +36,7 @@
             <div class="container">
 
               <div class="row">
-                <c:forEach items="${productsList}" var="p">
+                <c:forEach items="${list}" var="p">
                   <div class="product">
                     <div class="product__header">
                       <a href="#">
@@ -48,7 +48,7 @@
                         <a href="#">${p.name}</a>
                       </h5>
                       <h6 class="product__details--price">${p.price}đ | ${p.salePrice}đ</h6>
-                      <h6 class="product__details--onStock">Còn lại: ${p.storage}</h6>
+                      <h6 class="product__deatails--onStock">Còn lại: ${p.storage}</h6>
                     </div>
                     <div class="product__footer">
                       <button type="button" class="btn btn-outline-info">Add to <i class="fa fa-shopping-cart"

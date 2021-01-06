@@ -1,6 +1,8 @@
 package model;
 
-public class Image {
+import java.io.Serializable;
+
+public class Image implements Serializable {
     private int id;
     private int idProduct;
     private String url;
@@ -11,7 +13,7 @@ public class Image {
     public Image(int id, int idProduct, String url) {
         this.id = id;
         this.idProduct = idProduct;
-        this.url = "http://localhost:8080/LTWeb_war_exploded/assets/images/product/" + url;
+        this.url = "http://localhost:8080/LTWeb_war_exploded/assets/images/product/" + url + ".jpg";
     }
 
     public int getId() {

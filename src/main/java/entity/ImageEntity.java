@@ -1,6 +1,7 @@
-package model;
+package entity;
 
 import database.ConnectionDB;
+import model.Image;
 
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -9,7 +10,7 @@ import java.util.LinkedList;
 import java.util.List;
 
 public class ImageEntity {
-    public List<Image> getAllImageWithProductID( String productID){
+    public List<Image> getAllImageWithProductID(String productID){
         List<Image> result = new LinkedList<>();
         Statement s = null;
         try {

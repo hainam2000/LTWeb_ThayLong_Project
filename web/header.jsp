@@ -99,24 +99,11 @@
   <div class="advertisement">
     <div class="submenu">
       <ul>
+        <c:forEach items="${clist}" var="c">
         <li>
-          <a href="/LTWeb_war_exploded/mainboard">Mainboard</a>
+          <a href="category?cid=${c.id}">${c.name}</a>
         </li>
-        <li>
-          <a href="/LTWeb_war_exploded/cpu">CPU</a>
-        </li>
-        <li>
-          <a href="/LTWeb_war_exploded/ram">RAM</a>
-        </li>
-        <li>
-          <a href="/LTWeb_war_exploded/vga">VGA</a>
-        </li>
-        <li>
-          <a href="/LTWeb_war_exploded/ssd">SSD</a>
-        </li>
-        <li>
-          <a href="/LTWeb_war_exploded/hdd">HDD</a>
-        </li>
+        </c:forEach>
       </ul>
     </div>
     

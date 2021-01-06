@@ -1,7 +1,9 @@
 package database;
 
+import entity.CategoryEntity;
+import model.Category;
 import model.Product;
-import model.ProductEntity;
+import entity.ProductEntity;
 
 import java.sql.SQLException;
 import java.sql.Statement;
@@ -11,9 +13,10 @@ public class DatabaseUtils {
     public static final String ProductTable = "Product(id, name, description, details, price, isSale, priceSale, id_brand, id_category, storage)";
     public static void main(String[] args) {
         ProductEntity pe = new ProductEntity();
-        Collection<Product> values = pe.getRandomProduct("20");
-        for (Product p : values) {
-                System.out.println(p.getName());
+        CategoryEntity ce = new CategoryEntity();
+        Collection<Category> values = ce.getAllCategory();
+        for (Category c : values) {
+                System.out.println(c.toString());
         }
     }
 
@@ -31,5 +34,6 @@ public class DatabaseUtils {
             e.printStackTrace();
         }
     }
+
 
 }

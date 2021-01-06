@@ -1,7 +1,9 @@
-package model;
+package entity;
 import database.ConnectionDB;
+import model.Product;
 
 import javax.xml.transform.Result;
+import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
@@ -16,9 +18,6 @@ public class ProductEntity {
             ResultSet rs = s.executeQuery("SELECT * from Product JOIN Image on Image.idProduct = Product.id  AND Image.url LIKE '%/1' ORDER BY RAND() limit " + limit);
             while(rs.next()){
                 result.add(new Product(
-//  int id, String name, String description, String details,
-//  String imgUrl, int price, int isSale,
-//  int salePrice, int id_brand, int id_category, int storage)
                         rs.getInt(1),
                         rs.getString(2),
                         rs.getString(3),
@@ -27,8 +26,8 @@ public class ProductEntity {
                         rs.getInt(5),
                         rs.getInt(6),
                         rs.getInt(7),
-                        rs.getInt(8),
-                        rs.getInt(9),
+                        rs.getString(8),
+                        rs.getString(9),
                         rs.getInt(10)));
             }
         }
@@ -54,8 +53,8 @@ public class ProductEntity {
                         rs.getInt(5),
                         rs.getInt(6),
                         rs.getInt(7),
-                        rs.getInt(8),
-                        rs.getInt(9),
+                        rs.getString(8),
+                        rs.getString(9),
                         rs.getInt(10)));
             }
         }
@@ -80,8 +79,8 @@ public class ProductEntity {
                         rs.getInt(5),
                         rs.getInt(6),
                         rs.getInt(7),
-                        rs.getInt(8),
-                        rs.getInt(9),
+                        rs.getString(8),
+                        rs.getString(9),
                         rs.getInt(10)));
             }
         }
@@ -90,12 +89,13 @@ public class ProductEntity {
         }
         return result;
     }
-    public List<Product> getAllProductWithCategory(String table, String category){
+    public List<Product> getAllProductByCategoryID(String categoryID){
         List<Product> result = new LinkedList<>();
         Statement s = null;
+
         try {
             s = ConnectionDB.connect();
-            ResultSet rs = s.executeQuery("SELECT * from Product JOIN Image on Image.idProduct = Product.id WHERE Product.id_category =" + category);
+            ResultSet rs = s.executeQuery("SELECT * from Product JOIN Image on Image.idProduct = Product.id WHERE Product.id_category = " + categoryID + " AND Image.url LIKE '%/1';");
             while(rs.next()) {
                 result.add(new Product(rs.getInt(1),
                         rs.getString(2),
@@ -105,8 +105,8 @@ public class ProductEntity {
                         rs.getInt(5),
                         rs.getInt(6),
                         rs.getInt(7),
-                        rs.getInt(8),
-                        rs.getInt(9),
+                        rs.getString(8),
+                        rs.getString(9),
                         rs.getInt(10)));
             }
             return result;

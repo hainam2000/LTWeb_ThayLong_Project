@@ -12,7 +12,8 @@ public class Product implements Serializable {
     private int price;
     private int isSale; //1 true 0 false;
     private int salePrice;
-    private int id_brand, id_category;
+    private String brandName;
+    private String categoryName;
     private int storage;
     //endregion
 
@@ -20,7 +21,7 @@ public class Product implements Serializable {
     public Product(){
 
     }
-    public Product(int id, String name, String description, String details, String imgUrl, int price, int isSale, int salePrice, int id_brand, int id_category, int storage) {
+    public Product(int id, String name, String description, String details, String imgUrl, int price, int isSale, int salePrice, String brandName, String categoryName, int storage) {
         this.id = id;
         this.name = name;
         this.description = description;
@@ -29,8 +30,8 @@ public class Product implements Serializable {
         this.price = price;
         this.isSale = isSale;
         this.salePrice = salePrice;
-        this.id_brand = id_brand;
-        this.id_category = id_category;
+        this.brandName = brandName;
+        this.categoryName = categoryName;
         this.storage = storage;
     }
 
@@ -94,20 +95,20 @@ public class Product implements Serializable {
         this.salePrice = salePrice;
     }
 
-    public int getId_brand() {
-        return id_brand;
+    public String getId_brand() {
+        return brandName;
     }
 
-    public void setId_brand(int id_brand) {
-        this.id_brand = id_brand;
+    public void setId_brand(String brandName) {
+        this.brandName = brandName;
     }
 
-    public int getId_category() {
-        return id_category;
+    public String getId_category() {
+        return categoryName;
     }
 
-    public void setId_category(int id_category) {
-        this.id_category = id_category;
+    public void setId_category(String categoryName) {
+        this.categoryName = categoryName;
     }
 
     public int getStorage() {
@@ -118,10 +119,23 @@ public class Product implements Serializable {
         this.storage = storage;
     }
 
-    public String toString(){
-        return getId() + "\n" + getName() + "\n" + getDescription() + "\n" + getDetails() + "\n" + getImgUrl() + "\n" +
-                "===================================================================";
+    @Override
+    public String toString() {
+        return "Product{" +
+                "id=" + id +
+                ", name='" + name + '\'' +
+                ", description='" + description + '\'' +
+                ", details='" + details + '\'' +
+                ", imgUrl='" + imgUrl + '\'' +
+                ", price=" + price +
+                ", isSale=" + isSale +
+                ", salePrice=" + salePrice +
+                ", id_brand=" + brandName +
+                ", id_category=" + categoryName +
+                ", storage=" + storage +
+                '}';
     }
+
     //endregion
 
 }

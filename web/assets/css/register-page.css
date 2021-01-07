@@ -9,7 +9,7 @@
 }
 
 .container{
-    margin-top: 100px;
+    margin-top: 10%;
     width: 600px;
     background-color: #a9b3c9;
     border-radius: 10px;
@@ -27,9 +27,8 @@
     margin-left: 450px;
     padding-bottom: 10px;
     /*background-color: red;*/
-
+    text-decoration: none;
 }
-
 .btn-reg {
     width: 120px;
     text-align: center;
@@ -40,4 +39,43 @@
 }
 .login-title{
     margin-left: 180px;
+}
+.btn-login {
+    width: 120px;
+    text-align: center;
+    border-radius: 10px;
+    margin-left: 225px;
+    margin-top: 20px;
+    margin-bottom: 5px;
+}
+.reg-title{
+    margin-left: 60px;
+}
+.reg-title a {
+    text-decoration: none;
+    color: rgb(4, 117, 238);
+
+}
+#login {
+    display: block;
+}
+.tab {
+    overflow: hidden;
+    display: table;
+    background-color: #a9b3c9;
+}
+.tab button {
+    background-color: inherit;
+    float: left;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    padding: 14px 16px;
+    transition: 0.3s;
+}
+.tab button:hover {
+    background-color: #ddd;
+}
+.tab button.active {
+    background-color: #ccc;
 }

@@ -7,14 +7,14 @@
     text-align: center;
     padding-top: 30px;
 }
+
 .container{
-    margin-top: 200px;
+    margin-top: 100px;
     width: 600px;
     background-color: #a9b3c9;
     border-radius: 10px;
 }
 .form-group{
-    padding-top: 10px;
     padding-left: 30px;
     padding-right: 30px;
 }
@@ -24,13 +24,13 @@
 }
 .forgot-pass{
     color: black;
-    margin-left: 420px;
+    margin-left: 450px;
     padding-bottom: 10px;
     /*background-color: red;*/
 
 }
 
-.btn-login {
+.btn-reg {
     width: 120px;
     text-align: center;
     border-radius: 10px;
@@ -38,6 +38,6 @@
     margin-top: 20px;
     margin-bottom: 5px;
 }
-.reg-title{
-    margin-left: 60px;
+.login-title{
+    margin-left: 180px;
 }

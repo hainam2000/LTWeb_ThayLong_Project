@@ -18,7 +18,7 @@ public class DatabaseUtils {
         CategoryEntity ce = new CategoryEntity();
         ProductEntity pe = new ProductEntity();
 
-        Collection<Product> products = pe.getRandomProduct("40");
+        Collection<Product> products = pe.searchProduct("asus");
         Collection<Image> images = ie.getAllImageWithProductID("1");
 //        Product p = pe.getProductWithID("1");
         for (Product p : products) {

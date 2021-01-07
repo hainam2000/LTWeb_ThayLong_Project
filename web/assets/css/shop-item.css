@@ -3,19 +3,19 @@ body {
   padding: 0;
 }
 .page-content {
-  margin: 10%;
+  margin: 5% 10% 10% 10%;
 }
 .product__showcase{
   width: 100%;
 }
 .product__showcase--fotorama{
-  width: 500px;
+  width: 400px;
   float: left;
   margin-right: 5%;
 }
-.product__showcase--fotorama > .fotorama img {
-  width: 250px !important;
-  height: 250px !important;
+
+.product__showcase--fotorama > .fotorama {
+  width: 350px !important;
 }
 .product__showcase--details ul {
   position: relative;
@@ -54,14 +54,18 @@ body {
   vertical-align: middle;
   text-align: center;
   border-bottom: 1px solid rgba(0,0,0,0.26);
+  padding-bottom: 50px;
 }
 .product__details--images h3{
   margin-top: 3rem;
   margin-bottom: 1rem;
 }
 .product__details--images img {
-  width: 800px;
+  width: 300px;
   height: auto;
+}
+.relate {
+  padding-left: 20px;
 }
 .relate h3{
   margin-top: 3rem;
@@ -75,9 +79,10 @@ body {
   color: white;
 }
 .relate__product {
-  margin: 10%;
-  max-width: 200px;
+  margin: 5%;
+  max-width: 190px;
   max-height: 500px;
+  height: 320px;
   box-shadow: 0 2px 5px 0 rgba(0,0,0,.26);
 }
 .relate__product img {
@@ -92,15 +97,16 @@ body {
   margin: 10px;
   text-align: left;
 }
-.relate__product p a {
-  text-decoration: none;
-}
 .relate ul {
   list-style-type: none;
 }
 .relate ul li {
   position: relative;
   display: inline-table;
+}
+.relate ul li a{
+  text-decoration: none;
+  color: black;
 }
 .relate__product:hover {
   box-shadow: 0 2px 5px 0px rgba(0, 0, 0, 0.5);

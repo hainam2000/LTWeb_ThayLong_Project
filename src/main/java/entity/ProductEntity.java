@@ -122,4 +122,33 @@ public class ProductEntity {
             return null;
         }
     }
+
+    public List<Product> searchProduct(String txtSearch){
+        List<Product> result = new LinkedList<>();
+        Statement s = null;
+
+        try {
+            s = ConnectionDB.connect();
+            ResultSet rs = s.executeQuery(query + "where (Product.`name` like '%" + txtSearch + "%' or  Brand.`name` like '%" + txtSearch + "%' or  Category.`name` like '%" + txtSearch + "%') AND Image.url LIKE '%/1.jpg'");
+            while(rs.next()) {
+                result.add(new Product(
+                        rs.getInt(1),
+                        rs.getString(2),
+                        rs.getString(3),
+                        rs.getString(4),
+                        rs.getString(5),
+                        rs.getInt(6),
+                        rs.getInt(7),
+                        rs.getInt(8),
+                        rs.getString(9),
+                        rs.getString(10),
+                        rs.getInt(11)));
+            }
+            return result;
+        }
+        catch(ClassNotFoundException| SQLException e) {
+            e.printStackTrace();
+            return result;
+        }
+    }
 }

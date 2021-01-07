@@ -1,0 +1,49 @@
+<div id="demo" class="carousel slide" data-ride="carousel" style="width: 500px;">
+
+        <!-- Indicators -->
+        <ul class="carousel-indicators">
+          <li data-target="#demo" data-slide-to="0" class="active"></li>
+          <li data-target="#demo" data-slide-to="1"></li>
+          <li data-target="#demo" data-slide-to="2"></li>
+          <li data-target="#demo" data-slide-to="4"></li>
+          <li data-target="#demo" data-slide-to="5"></li>
+        </ul>
+
+        <!-- The slideshow -->
+        <div class="carousel-inner">
+          <div class="carousel-inner_img carousel-item active">
+            <img src="http://localhost:8080/LTWeb_war_exploded/assets/images/advertisement/solid1.jpg" alt="">
+          </div>
+          <div class="carousel-inner_img carousel-item">
+            <img src="http://localhost:8080/LTWeb_war_exploded/assets/images/advertisement/solid2.jpg" alt="">
+          </div>
+          <div class="carousel-inner_img carousel-item">
+            <img src="http://localhost:8080/LTWeb_war_exploded/assets/images/advertisement/solid3.jpg" alt="">
+          </div>
+          <div class="carousel-inner_img carousel-item">
+            <img src="http://localhost:8080/LTWeb_war_exploded/assets/images/advertisement/solid4.jpg" alt="">
+          </div>
+          <div class="carousel-inner_img carousel-item">
+            <img src="http://localhost:8080/LTWeb_war_exploded/assets/images/advertisement/solid5.jpg" alt="">
+          </div>
+          <a class="carousel-control-prev" href="#demo" data-slide="prev">
+            <span class="carousel-control-prev-icon"></span>
+          </a>
+          <a class="carousel-control-next" href="#demo" data-slide="next">
+            <span class="carousel-control-next-icon"></span>
+          </a>
+        </div>
+
+        <!-- Left and right controls -->
+        <!-- <a class="carousel-control-prev" href="#demo" data-slide="prev">
+          <span class="carousel-control-prev-icon"></span>
+        </a>
+        <a class="carousel-control-next" href="#demo" data-slide="next">
+          <span class="carousel-control-next-icon"></span>
+        </a> -->
+        <div class="carousel-right">
+          <img src="http://localhost:8080/LTWeb_war_exploded/assets/images/advertisement/solid7.jpg" alt="">
+        </div>
+      </div>
+
+      style="width: 250px !important; height: 250px !important;"

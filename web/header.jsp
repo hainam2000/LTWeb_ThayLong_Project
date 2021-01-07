@@ -7,14 +7,17 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Document</title>
-  <link href="assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+  <!-- Bootstrap core CSS -->
+  <link href="assets/css/bootstrap.min.css" rel="stylesheet">
   <link rel="stylesheet" href="assets/css/font-awesome.min.css">
 
   <!-- Custom styles for this template -->
   <link rel="stylesheet" href="assets/css/header.css">
+  <link rel="stylesheet" href="assets/css/fotorama.css">
   <script src="assets/js/bootstrap.js"></script>
   <script src="assets/js/jquery.min.js"></script>
   <script src="assets/js/bootstrap.bundle.js"></script>
+  <script src="assets/js/fotorama.js"></script>
 </head>
 
 <body>
@@ -71,22 +74,24 @@
                   <i style="position: relative; right: 30%;" class="fa fa-shopping-cart cart-icon fa-lg"></i>
                   <span style="position: relative;right: 30%;" class="badge fa-sm">200</span>
                   <a role="button" href="/LTWeb_war_exploded/cart" style="float: right; color: #32494d"
-                    class="btn btn-outline-info btn-sm">View Cart</a>
+                    class="btn btn-outline-info btn-sm">Chi Tiết Giỏ Hàng</a>
                 </div>
 
                 <ul class="shopping-cart-item">
+                  <c:forEach items="${cart}" var="item" begin="1" end="5">
                   <li>
                     <img style="max-width: 125px; max-height: 125px;"
-                      src="http://localhost:8080/LTWeb_war_exploded/assets/images/product/1/1.jpg">
-                    <span class="item-name">item name ne nha may asdasdasdasdsadasdasdba </span>
+                      src=${item.imgUrl}>
+                    <span class="item-name">${item.name}</span>
                     <span class="item-quantity">Số lượng:
                       <input type="button" value="-" onclick="minus();">
                       <input type="text" name="" id="quantity" size="2" value="1">
                       <input type="button" value="+" onclick="plus();">
                     </span>
-                    <span class="item-price">Tổng tiền:</span>
+                    <span class="item-price">Tổng tiền:${item.salePrice}</span>
                     <button type="button" class="btn btn-outline-danger item-cancel">X</button>
                   </li>
+                  </c:forEach>
                 </ul>
               </div>
             </li>
@@ -96,65 +101,6 @@
     </nav>
   </div>
 
-  <div class="advertisement">
-    <div class="submenu">
-      <ul>
-        <c:forEach items="${clist}" var="c">
-        <li>
-          <a href="category?cid=${c.id}">${c.name}</a>
-        </li>
-        </c:forEach>
-      </ul>
-    </div>
-    
-    <div id="demo" class="carousel slide" data-ride="carousel" style="width: 500px;">
-
-      <!-- Indicators -->
-      <ul class="carousel-indicators">
-        <li data-target="#demo" data-slide-to="0" class="active"></li>
-        <li data-target="#demo" data-slide-to="1"></li>
-        <li data-target="#demo" data-slide-to="2"></li>
-        <li data-target="#demo" data-slide-to="4"></li>
-        <li data-target="#demo" data-slide-to="5"></li>
-      </ul>
-
-      <!-- The slideshow -->
-      <div class="carousel-inner">
-        <div class="carousel-inner_img carousel-item active">
-          <img src="http://localhost:8080/LTWeb_war_exploded/assets/images/advertisement/solid1.jpg" alt="">
-        </div>
-        <div class="carousel-inner_img carousel-item">
-          <img src="http://localhost:8080/LTWeb_war_exploded/assets/images/advertisement/solid2.jpg" alt="">
-        </div>
-        <div class="carousel-inner_img carousel-item">
-          <img src="http://localhost:8080/LTWeb_war_exploded/assets/images/advertisement/solid3.jpg" alt="">
-        </div>
-        <div class="carousel-inner_img carousel-item">
-          <img src="http://localhost:8080/LTWeb_war_exploded/assets/images/advertisement/solid4.jpg" alt="">
-        </div>
-        <div class="carousel-inner_img carousel-item">
-          <img src="http://localhost:8080/LTWeb_war_exploded/assets/images/advertisement/solid5.jpg" alt="">
-        </div>
-        <a class="carousel-control-prev" href="#demo" data-slide="prev">
-          <span class="carousel-control-prev-icon"></span>
-        </a>
-        <a class="carousel-control-next" href="#demo" data-slide="next">
-          <span class="carousel-control-next-icon"></span>
-        </a>
-      </div>
-
-      <!-- Left and right controls -->
-      <!-- <a class="carousel-control-prev" href="#demo" data-slide="prev">
-        <span class="carousel-control-prev-icon"></span>
-      </a>
-      <a class="carousel-control-next" href="#demo" data-slide="next">
-        <span class="carousel-control-next-icon"></span>
-      </a> -->
-      <div class="carousel-right">
-        <img src="http://localhost:8080/LTWeb_war_exploded/assets/images/advertisement/solid6.jpg" alt="">
-        <img src="http://localhost:8080/LTWeb_war_exploded/assets/images/advertisement/solid7.jpg" alt="">
-      </div>
-    </div>
   </div>
 </header>
   <script>

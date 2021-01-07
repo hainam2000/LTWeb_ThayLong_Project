@@ -13,6 +13,10 @@ body {
   float: left;
   margin-right: 5%;
 }
+.product__showcase--fotorama > .fotorama img {
+  width: 250px !important;
+  height: 250px !important;
+}
 .product__showcase--details ul {
   position: relative;
   left: 2%;

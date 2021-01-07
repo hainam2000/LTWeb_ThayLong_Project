@@ -30,7 +30,7 @@
 
           <!-- Navigation -->
           <jsp:include page="header.jsp"></jsp:include>
-
+          <jsp:include page="advertisement.jsp"></jsp:include>
           <!-- Page Content -->
           <div class="page-content">
             <div class="container">
@@ -39,13 +39,13 @@
                 <c:forEach items="${productsList}" var="p">
                   <div class="product">
                     <div class="product__header">
-                      <a href="#">
+                      <a href="product?pid=${p.id}">
                         <img class="card-img-top" src=${p.imgUrl} alt="">
                       </a>
                     </div>
                     <div class="product__details">
                       <h5 class="product__details--name">
-                        <a href="#">${p.name}</a>
+                        <a href="product?pid=${p.id}">${p.name}</a>
                       </h5>
                       <h6 class="product__details--price">${p.price}đ | ${p.salePrice}đ</h6>
                       <h6 class="product__details--onStock">Còn lại: ${p.storage}</h6>

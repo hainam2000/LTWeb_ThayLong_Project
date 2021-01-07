@@ -5,12 +5,9 @@ body {
   margin: 0;
   padding: 0;
 }
-.row {
-  margin-bottom: 10%;
-}
 .page-content {
-  margin-bottom: 5rem;
-  margin-top: -5rem;
+  margin-bottom: 5rem !important;
+  margin-top: -5rem !important;
 }
 .page-container{
   padding-top: 5%;

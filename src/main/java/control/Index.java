@@ -1,7 +1,9 @@
 package control;
 
 import entity.CategoryEntity;
+import entity.ImageEntity;
 import model.Category;
+import model.Image;
 import model.Product;
 import entity.ProductEntity;
 
@@ -24,10 +26,8 @@ public class Index extends HttpServlet {
 //        request.setAttribute("index", values);
         ProductEntity pe = new ProductEntity();
         CategoryEntity ce = new CategoryEntity();
-
-        Collection<Category> categories = ce.getAllCategory();
         Collection<Product> productList = pe.getRandomProduct("40");
-
+        Collection<Category> categories = ce.getAllCategory();
         request.setAttribute("clist", categories);
         request.setAttribute("productsList", productList);
         request.getRequestDispatcher("index.jsp").forward(request,response);

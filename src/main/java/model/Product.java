@@ -26,7 +26,7 @@ public class Product implements Serializable {
         this.name = name;
         this.description = description;
         this.details = details;
-        this.imgUrl = "http://localhost:8080/LTWeb_war_exploded/assets/images/product/" + imgUrl + ".jpg";
+        this.imgUrl =  imgUrl;
         this.price = price;
         this.isSale = isSale;
         this.salePrice = salePrice;
@@ -95,19 +95,19 @@ public class Product implements Serializable {
         this.salePrice = salePrice;
     }
 
-    public String getId_brand() {
+    public String getBrandName() {
         return brandName;
     }
 
-    public void setId_brand(String brandName) {
+    public void setBrandName(String brandName) {
         this.brandName = brandName;
     }
 
-    public String getId_category() {
+    public String getCategoryName() {
         return categoryName;
     }
 
-    public void setId_category(String categoryName) {
+    public void setCategoryName(String categoryName) {
         this.categoryName = categoryName;
     }
 
@@ -130,8 +130,8 @@ public class Product implements Serializable {
                 ", price=" + price +
                 ", isSale=" + isSale +
                 ", salePrice=" + salePrice +
-                ", id_brand=" + brandName +
-                ", id_category=" + categoryName +
+                ", brandName=" + brandName +
+                ", categoryName=" + categoryName +
                 ", storage=" + storage +
                 '}';
     }

@@ -1,7 +1,9 @@
 package database;
 
 import entity.CategoryEntity;
+import entity.ImageEntity;
 import model.Category;
+import model.Image;
 import model.Product;
 import entity.ProductEntity;
 
@@ -12,11 +14,15 @@ import java.util.Collection;
 public class DatabaseUtils {
     public static final String ProductTable = "Product(id, name, description, details, price, isSale, priceSale, id_brand, id_category, storage)";
     public static void main(String[] args) {
-        ProductEntity pe = new ProductEntity();
+        ImageEntity ie = new ImageEntity();
         CategoryEntity ce = new CategoryEntity();
-        Collection<Category> values = ce.getAllCategory();
-        for (Category c : values) {
-                System.out.println(c.toString());
+        ProductEntity pe = new ProductEntity();
+
+        Collection<Product> products = pe.getRandomProduct("40");
+        Collection<Image> images = ie.getAllImageWithProductID("1");
+//        Product p = pe.getProductWithID("1");
+        for (Product p : products) {
+            System.out.println(p.toString());
         }
     }
 

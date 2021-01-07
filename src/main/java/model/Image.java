@@ -13,7 +13,7 @@ public class Image implements Serializable {
     public Image(int id, int idProduct, String url) {
         this.id = id;
         this.idProduct = idProduct;
-        this.url = "http://localhost:8080/LTWeb_war_exploded/assets/images/product/" + url + ".jpg";
+        this.url = url;
     }
 
     public int getId() {
@@ -32,11 +32,20 @@ public class Image implements Serializable {
         this.idProduct = idProduct;
     }
 
-    public String getUrl() {
+    public String geturl() {
         return url;
     }
 
-    public void setUrl(String url) {
+    public void seturl(String url) {
         this.url = url;
+    }
+
+    @Override
+    public String toString() {
+        return "Image{" +
+                "id=" + id +
+                ", idProduct=" + idProduct +
+                ", url='" + url + '\'' +
+                '}';
     }
 }

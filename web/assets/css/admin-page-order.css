@@ -6,7 +6,8 @@
     width: 200px;
     margin-top: 100px;
     margin-left: 50px;
-    float: left
+    float: left;
+    /*background-color: black;*/
 }
 
 .navbar-sidebar{
@@ -29,7 +30,7 @@
     color:  white;
 }
 
-.user__modify__content {
+.order__modify__content {
     float: left;
     width: 75%;
     background: #a9b3c9;
@@ -39,7 +40,7 @@
     border-radius: 10px;
 
 }
-.modify-user{
+.modify-order{
     margin-top: 30px;
     margin-left: 15px;
     width: 400px;
@@ -55,6 +56,9 @@
 }
 .modify__button{
     margin-top: 20px;
+}
+.mod__btn{
+    padding: 5px 5px 5px 5px;
 }
 .table{
     margin-left: 5px;

@@ -15,11 +15,10 @@ public class User {
     public User() {
 
     }
-    public User(int id, int role, String userName, String password,
-                String email, String phone, String address, String fullName){
+    public User(int id, String fullName, String email, String phone, String address, int role, String accountName, String password){
         this.id = id;
         this.role = role;
-        this.accountName = userName;
+        this.accountName = accountName;
         this.password = password;
         this.email = email;
         this.address = address;
@@ -91,6 +90,21 @@ public class User {
     public void setPassword(String password) {
         this.password = password;
     }
+
+    @Override
+    public String toString() {
+        return "User{" +
+                "id=" + id +
+                ", fullName='" + fullName + '\'' +
+                ", email='" + email + '\'' +
+                ", phone='" + phone + '\'' +
+                ", address='" + address + '\'' +
+                ", role=" + role +
+                ", accountName='" + accountName + '\'' +
+                ", password='" + password + '\'' +
+                '}';
+    }
+
     //endregion
     //Function
     

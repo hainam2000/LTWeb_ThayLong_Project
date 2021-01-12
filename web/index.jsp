@@ -19,7 +19,7 @@
 
           <!-- Custom styles for this template -->
           <link href="assets/css/shop-homepage.css" rel="stylesheet">
-          <link rel="stylesheet" href="assets/css/header.css">
+          <link href="assets/css/header.css" rel="stylesheet">
           <script src="assets/js/bootstrap.js"></script>
           <script src="assets/js/jquery.min.js"></script>
           <script src="assets/js/bootstrap.bundle.js"></script>
@@ -32,7 +32,7 @@
           <jsp:include page="header.jsp"></jsp:include>
           <jsp:include page="advertisement.jsp"></jsp:include>
           <!-- Page Content -->
-          <div class="page-content">
+          <div class="page-content" style="margin-top: 5% !important;">
             <div class="container">
 
               <div class="row">
@@ -61,6 +61,19 @@
 
             </div>
           </div>
+
+            <ul class="pagination justify-content-center">
+              <li class="page-item">
+                <a class="page-link" href="#" tabindex="-1">Previous</a>
+              </li>
+              <c:forEach begin="1" end="${pageLimit}" var="i">
+              <li class="page-item"><a class="page-link" href="page?index=${i}">${i}</a></li>
+              </c:forEach>
+              <li class="page-item">
+                <a class="page-link" href="#">Next</a>
+              </li>
+            </ul>
+
           <!-- /.col-lg-9 -->
 
           <!-- Footer -->

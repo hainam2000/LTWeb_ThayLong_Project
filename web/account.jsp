@@ -10,7 +10,7 @@
     <link rel="stylesheet" href="assets/css/register-page.css">
 </head>
 <body>
-    <div class="container">
+    <div class="contain-main">
         <div class="tab">
             <button class="tablinks" onclick="changeTab(event, 'login')" id="defaultOpen">ĐĂNG NHẬP</button>
             <button class="tablinks" onclick="changeTab(event, 'register')" >ĐĂNG KÝ</button>

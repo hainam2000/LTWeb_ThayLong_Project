@@ -31,4 +31,24 @@ public class CategoryEntity {
         }
         return clist;
     }
+    public int getNumberPageWithCate(String id_category){
+        int pages = 0;
+        Statement s = null;
+        try {
+            s = ConnectionDB.connect();
+            ResultSet rs = s.executeQuery(  "select count(*) from product where Product.id_category = " + id_category);
+            while(rs.next()){
+                int total = rs.getInt(1);
+                pages = total / 20;
+                if(total % 20 != 0) {
+                    pages++;
+                }
+            }
+            return pages;
+        }
+        catch (ClassNotFoundException| SQLException e) {
+            e.printStackTrace();
+            return 0;
+        }
+    }
 }

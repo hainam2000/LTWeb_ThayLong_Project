@@ -1,15 +1,11 @@
 package database;
 
-import entity.CategoryEntity;
-import entity.ImageEntity;
-import model.Category;
-import model.Image;
-import model.Product;
-import entity.ProductEntity;
+import model.*;
+import entity.*;
 
 import java.sql.SQLException;
 import java.sql.Statement;
-import java.util.Collection;
+import java.util.*;
 
 public class DatabaseUtils {
     public static final String ProductTable = "Product(id, name, description, details, price, isSale, priceSale, id_brand, id_category, storage)";
@@ -17,13 +13,11 @@ public class DatabaseUtils {
         ImageEntity ie = new ImageEntity();
         CategoryEntity ce = new CategoryEntity();
         ProductEntity pe = new ProductEntity();
+        UserEntity ue = new UserEntity();
 
-        Collection<Product> products = pe.searchProduct("asus");
-        Collection<Image> images = ie.getAllImageWithProductID("1");
-//        Product p = pe.getProductWithID("1");
-        for (Product p : products) {
-            System.out.println(p.toString());
-        }
+//        for(Product p : productList) {
+//            System.out.println(p.toString());
+//        }
     }
 
 

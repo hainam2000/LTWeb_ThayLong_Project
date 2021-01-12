@@ -27,7 +27,7 @@ public class CategoryControl extends HttpServlet {
 
         Collection<Product> products = pe.getAllProductByCategoryID(cateID);
         Collection<Category> categories = ce.getAllCategory();
-
+        int pages = ce.getNumberPageWithCate(cateID);
 
         request.setAttribute("clist", categories);
         request.setAttribute("productsList", products);

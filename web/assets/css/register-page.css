@@ -8,12 +8,6 @@
     padding-top: 30px;
 }
 
-.container{
-    margin-top: 10%;
-    width: 600px;
-    background-color: #a9b3c9;
-    border-radius: 10px;
-}
 .form-group{
     padding-left: 30px;
     padding-right: 30px;
@@ -24,18 +18,19 @@
 }
 .forgot-pass{
     color: black;
-    margin-left: 450px;
+    margin-left: 350px;
     padding-bottom: 10px;
-    /*background-color: red;*/
     text-decoration: none;
 }
 .btn-reg {
     width: 120px;
     text-align: center;
     border-radius: 10px;
-    margin-left: 225px;
+    margin-left: 200px;
     margin-top: 20px;
     margin-bottom: 5px;
+    border: 1px solid black;
+    box-shadow: 0 2px 5px 0 rgba(0,0,0,.26)!important;
 }
 .login-title{
     margin-left: 180px;
@@ -44,9 +39,11 @@
     width: 120px;
     text-align: center;
     border-radius: 10px;
-    margin-left: 225px;
+    margin-left: 200px;
     margin-top: 20px;
     margin-bottom: 5px;
+    border: 1px solid black;
+    box-shadow: 0 2px 5px 0 rgba(0,0,0,.26)!important;
 }
 .reg-title{
     margin-left: 60px;
@@ -62,7 +59,6 @@
 .tab {
     overflow: hidden;
     display: table;
-    background-color: #a9b3c9;
 }
 .tab button {
     background-color: inherit;

@@ -106,6 +106,7 @@
 .header__user--account li a{
     background: white;
     display: block;
+    width: 150px;
 }
 
 .header__user ul li > .header__user--cart{
@@ -288,4 +289,82 @@
 .rightmenu img{
     width: 250px;
     margin: 5px;
+}
+.modal {
+    margin-top: 5%;
+    position: fixed;
+}
+
+.form-title{
+    font-weight: bolder;
+    text-align: center;
+    padding-top: 30px;
+}
+
+.form-group{
+    padding-left: 30px;
+    padding-right: 30px;
+}
+.lb{
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-weight: bold;
+}
+.forgot-pass{
+    color: black;
+    margin-left: 350px;
+    padding-bottom: 10px;
+    text-decoration: none;
+}
+.btn-reg {
+    width: 120px;
+    text-align: center;
+    border-radius: 10px;
+    margin-left: 200px;
+    margin-top: 20px;
+    margin-bottom: 5px;
+    border: 1px solid black;
+    box-shadow: 0 2px 5px 0 rgba(0,0,0,.26)!important;
+}
+.login-title{
+    margin-left: 180px;
+}
+.btn-login {
+    width: 120px;
+    text-align: center;
+    border-radius: 10px;
+    margin-left: 200px;
+    margin-top: 20px;
+    margin-bottom: 5px;
+    border: 1px solid black;
+    box-shadow: 0 2px 5px 0 rgba(0,0,0,.26)!important;
+}
+.reg-title{
+    margin-left: 60px;
+}
+.reg-title a {
+    text-decoration: none;
+    color: rgb(4, 117, 238);
+
+}
+#login {
+    display: block;
+}
+.tab {
+    overflow: hidden;
+    display: table;
+}
+.tab button {
+    background-color: inherit;
+    float: left;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    padding: 14px 16px;
+    transition: 0.3s;
+}
+.tab button:hover {
+    background-color: #ddd;
+}
+.tab button.active {
+    background-color: #ccc;
 }

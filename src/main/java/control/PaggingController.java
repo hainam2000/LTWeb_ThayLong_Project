@@ -23,7 +23,7 @@ public class PaggingController extends HttpServlet {
 
         ProductEntity pe = new ProductEntity();
         Collection<Product> pages = pe.getProductForPagging(500, indexPage);
-        request.setAttribute("pages", pages);
+        request.setAttribute("Index", pages);
         request.getRequestDispatcher("Index").forward(request,response);
     }
 }

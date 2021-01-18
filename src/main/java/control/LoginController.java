@@ -25,7 +25,7 @@ public class LoginController extends HttpServlet {
         User u = ue.getUser(username, password);
         if(u == null) {
             request.setAttribute("mess", "Wrong username or password!");
-            request.getRequestDispatcher("").forward(request,response);
+            request.getRequestDispatcher("Index").forward(request,response);
         } else {
             HttpSession session = request.getSession();
             session.setAttribute("user", u);

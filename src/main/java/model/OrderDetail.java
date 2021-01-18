@@ -5,17 +5,19 @@ import java.io.Serializable;
 public class OrderDetail implements Serializable {
     private int id;
     private int idProduct;
+    private int idOrder;
     private int quantity;
-    private int productPrice;
+    private double productPrice;
     private double totalPrice;
 
     public OrderDetail() {
 
     }
 
-    public OrderDetail(int id, int idProduct, int quantity, int productPrice, double totalPrice) {
+    public OrderDetail(int id, int idProduct, int idOrder, int quantity, double productPrice, double totalPrice) {
         this.id = id;
         this.idProduct = idProduct;
+        this.idOrder = idOrder;
         this.quantity = quantity;
         this.productPrice = productPrice;
         this.totalPrice = totalPrice;
@@ -44,12 +46,17 @@ public class OrderDetail implements Serializable {
     public void setQuantity(int quantity) {
         this.quantity = quantity;
     }
-
-    public int getProductPrice() {
+    public void addOneQuantity() {
+        this.quantity++;
+    }
+    public void removeOneQuantity(){
+        this.quantity--;
+    }
+    public double getProductPrice() {
         return productPrice;
     }
 
-    public void setProductPrice(int productPrice) {
+    public void setProductPrice(double productPrice) {
         this.productPrice = productPrice;
     }
 
@@ -57,11 +64,20 @@ public class OrderDetail implements Serializable {
         return getQuantity() * getProductPrice();
     }
 
+    public int getIdOrder() {
+        return idOrder;
+    }
+
+    public void setIdOrder(int idOrder) {
+        this.idOrder = idOrder;
+    }
+
     @Override
     public String toString() {
         return "OrderDetail{" +
                 "id=" + id +
                 ", idProduct=" + idProduct +
+                ", idOrder=" + idOrder +
                 ", quantity=" + quantity +
                 ", productPrice=" + productPrice +
                 ", totalPrice=" + totalPrice +

@@ -8,14 +8,10 @@
         <meta http-equiv="x-ua-compatible" content="ie=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <link rel="stylesheet" href="assets/css/cart.css">
-        <link rel="stylesheet" href="assets/css/header.css">
         <link rel="stylesheet" href="assets/css/font-awesome.min.css">
         <link href="assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
         <script src="/assets/js/cart.js"></script>
         <title>Cart</title>
-        <style>
-          <%@include file="assets/css/header.css"%><%@include file="assets/vendor/bootstrap/css/bootstrap.min.css"%><%@include file="assets/css/shop-homepage.css"%><%@include file="assets/css/font-awesome.min.css"%>
-        </style>
       </head>
 
       <body>
@@ -63,22 +59,24 @@
             </div>
           </div>
           <div class="cart__price">
+            <c:if test="${sessionScope.user != null}">
             <div class="address">
               <p class="heading">
                 <span>Thông tin nhận hàng</span>
                 <a href="/account">Thay đổi</a>
               </p>
               <p class="title">
-                <b class="name">Phạm Thiên Long</b>
-                <b class="phone"> 0373118242</b>
+                <b class="name">${user.fullName}</b>
+                <b class="phone"> ${user.phone}</b>
               </p>
               <p class="user-address">
-                KTX Đại Học Quốc Gia Khu B, Phường Linh Xuân, Quận Thủ Đức, Hồ Chí Minh
+                ${user.address}
               </p>
             </div>
             <div class="coupon">
 
             </div>
+            </c:if>
             <div class="total-price">
               <p class="prices-item">
                 <span class="text">Tổng tiền hàng: </span>

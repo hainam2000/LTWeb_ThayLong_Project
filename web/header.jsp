@@ -55,8 +55,6 @@
                 <a href="#" data-toggle="modal" data-target="#myModal">
                   <i class="fa fa-user" aria-hidden="true"></i><span> Tài khoản </span>
                 </a>
-<%--              </c:if>--%>
-<%--              <c:if test="${sessionScope.user != null}">--%>
               <ul class="header__user--account" style="font-size: 15px !important;">
                 <c:if test="${sessionScope.user.role == 1}">
                 <li >

@@ -21,11 +21,7 @@ public class RegisterController extends HttpServlet {
         String username = request.getParameter("username");
         String password = request.getParameter("password");
         String confirmPassword = request.getParameter("confirmPassword");
-        String fullname = request.getParameter("fullname");
-        String phone = request.getParameter("phone");
         String mail = request.getParameter("mail");
-        String address = request.getParameter("address");
-        PrintWriter out = response.getWriter();
         UserEntity ue = new UserEntity();
         User u = ue.checkExist(username, mail);
         if(!password.equals(confirmPassword)) {

@@ -8,7 +8,12 @@ public class Utils {
                 .replace("tíchhợp", "tichhop").replace("â", "a").replace("uồn", "uo");
     }
 
-    public static String upperCase(String str) {
-        return str.toUpperCase();
+    public static int changeStringToInt(String str) {
+        try{
+            return Integer.parseInt(str);
+        } catch(Exception e) {
+            return 0;
+        }
     }
+
 }

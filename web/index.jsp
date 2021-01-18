@@ -19,7 +19,6 @@
 
           <!-- Custom styles for this template -->
           <link href="assets/css/shop-homepage.css" rel="stylesheet">
-          <link href="assets/css/header.css" rel="stylesheet">
           <script src="assets/js/bootstrap.js"></script>
           <script src="assets/js/jquery.min.js"></script>
           <script src="assets/js/bootstrap.bundle.js"></script>
@@ -51,8 +50,13 @@
                       <h6 class="product__details--onStock">Còn lại: ${p.storage}</h6>
                     </div>
                     <div class="product__footer">
-                      <button type="button" class="btn btn-outline-info">Add to <i class="fa fa-shopping-cart"
-                          aria-hidden="true"></i></button>
+                      <a role="button" href="/LTWeb_war_exploded/addtoCart?pid=${p.id}" style="color: #32494d"
+                         class="btn btn-outline-info">Thêm vào <i class="fa fa-shopping-cart"
+                                                                 aria-hidden="true"></i></a>
+                          <%--                      <c:url value="/addtoCart?pid=${p.id}" var="addtoCart">--%>
+<%--                      <button type="button" class="">Add to <i class="fa fa-shopping-cart"--%>
+<%--                          aria-hidden="true"></i></button>--%>
+<%--                      </c:url>--%>
                     </div>
                   </div>
                 </c:forEach>
@@ -67,7 +71,7 @@
                 <a class="page-link" href="#" tabindex="-1">Previous</a>
               </li>
               <c:forEach begin="1" end="${pageLimit}" var="i">
-              <li class="page-item"><a class="page-link" href="page?index=${i}">${i}</a></li>
+              <li class="page-item"><a class="page-link" href="Index?index=${i}">${i}</a></li>
               </c:forEach>
               <li class="page-item">
                 <a class="page-link" href="#">Next</a>

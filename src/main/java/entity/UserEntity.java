@@ -9,6 +9,7 @@ import java.sql.Statement;
 import java.util.*;
 import database.ConnectionDB;
 public class UserEntity {
+
     public User getUser(String username, String password) {
         Statement s = null;
         try {
@@ -63,6 +64,10 @@ public class UserEntity {
         try {
             s = ConnectionDB.connect();
             s.executeUpdate(query);
+            ResultSet rs = s.executeQuery("select `User`.id from `User` where `User`.username = '" + username +"'");
+            while(rs.next()) {
+                OrderEntity.createOrder(rs.getString(1));
+            }
         }
         catch (ClassNotFoundException|SQLException e) {
             e.printStackTrace();

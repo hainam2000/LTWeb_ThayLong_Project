@@ -1,4 +1,7 @@
-<!DOCTYPE html>
+<%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -6,6 +9,7 @@
     <title>CHÍNH SÁCH BẢO HÀNH SẢN PHẨM</title>
 </head>
 <body>
+<jsp:include page="header.jsp"></jsp:include>
     <div class="noindex">
         <div>
 <div class="container" id="layout-page-main">
@@ -15,5 +19,6 @@
 </div>
 </div>
     </div>
+<jsp:include page="footer.jsp"></jsp:include>
 </body>
 </html>

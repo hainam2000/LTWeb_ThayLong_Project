@@ -1,4 +1,6 @@
-<!DOCTYPE html>
+<%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -7,6 +9,7 @@
     <link rel="stylesheet" href="/assets/css/faq.css">
 </head>
 <body>
+<jsp:include page="header.jsp"></jsp:include>
     <div class="container">
  
         <h2>Các câu hỏi thường gặp</h2>
@@ -48,5 +51,6 @@
        
       <script src='https://code.jquery.com/jquery-3.2.1.min.js'></script>
       <script  src="/assets/js/faq.js"></script>
+<jsp:include page="footer.jsp"></jsp:include>
 </body>
 </html>

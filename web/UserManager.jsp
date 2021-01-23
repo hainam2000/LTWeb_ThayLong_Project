@@ -6,7 +6,7 @@
 <head>
     <meta charset="UTF-8">
     <title>Admin</title>
-    <link rel="stylesheet" href="assets/css/admin-page.css">
+    <link rel="stylesheet" href="assets/css/userManager.css">
     <link rel="stylesheet" href="assets/css/bootstrap.css ">
 </head>
 <body>

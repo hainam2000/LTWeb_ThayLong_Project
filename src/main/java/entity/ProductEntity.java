@@ -208,4 +208,19 @@ public class ProductEntity {
 
 
     }
+//                    delete Product and  all images of this Product
+    public void deleteProduct(String id){
+        Statement s = null;
+        String query1 = "delete from product where id = "+id;
+        String query2 =  "delete from image where idProduct = "+id;
+        try{
+            s = ConnectionDB.connect();
+            s.execute(query1);
+            s.execute(query2);
+        }
+        catch (ClassNotFoundException|SQLException e) {
+            e.printStackTrace();
+        }
+
+    }
 }

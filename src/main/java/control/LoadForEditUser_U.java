@@ -1,31 +1,29 @@
 package control;
 
-import entity.ProductEntity;
 import entity.UserEntity;
-import model.Product;
 import model.User;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
-import javax.servlet.http.*;
+import javax.servlet.http.HttpServlet;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
-import java.util.Collection;
 
-@WebServlet(name = "UserController"  , urlPatterns = "/user")
-public class UserController extends HttpServlet {
+@WebServlet(name = "LoadForEditUser_U",urlPatterns = "/LoadForEditUser_U")
+public class LoadForEditUser_U extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        doGet(request,response);
+            doGet(request,response);
     }
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
-
-        String id =  request.getParameter("id");
+        String uid = request.getParameter("uid");
         UserEntity ue = new UserEntity();
-        User u = ue.getUserByID(id);
+        User user = ue.getUserByID(uid);
 
-        request.setAttribute("userDetail", u);
-        request.getRequestDispatcher("User.jsp").forward(request,response);
+        request.setAttribute("userDetail", user);
 
+        request.getRequestDispatcher("EditUser_U.jsp").forward(request,response);
     }
 }

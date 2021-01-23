@@ -35,12 +35,12 @@
 		            <div class="row">
 		                <div class="col-md-12">
 
-                            <form action="edit" method="post">
+                            <form action="LoadForEditUser_U?uid=${userDetail.id}" method="post">
 
                                 <div class="form-group row">
                                     <label for="id" class="col-4 col-form-label">ID</label>
                                     <div class="col-8">
-                                        <input id="id" name="username" value="${userDetail.id}" class="form-control here" type="text" readonly>
+                                        <input id="id" name="id" value="${userDetail.id}" class="form-control here" type="text" readonly>
                                     </div>
                                 </div>
 
@@ -61,14 +61,14 @@
                               <div class="form-group row">
                                 <label for="phone" class="col-4 col-form-label">Số điện thoại</label> 
                                 <div class="col-8">
-                                  <input id="phone" name="phone" value="${userDetail.phone}" class="form-control here" type="text">
+                                  <input id="phone" name="phone" value="${userDetail.phone}" class="form-control here" type="text"readonly>
                                 </div>
                               </div>    
 
                               <div class="form-group row">
                                 <label for="address" class="col-4 col-form-label">Địa chỉ</label> 
                                 <div class="col-8">
-                                  <input id="address" name="address" value="${userDetail.address}" class="form-control here" type="text">
+                                  <input id="address" name="address" value="${userDetail.address}" class="form-control here" type="text"readonly>
                                 </div>
                               </div>
 
@@ -78,13 +78,6 @@
                                   <input id="email" name="email" value="${userDetail.email}" class="form-control here"  type="Email" readonly>
                                 </div>
                               </div>
-                              
-                              <div class="form-group row">
-                                <label for="newpass" class="col-4 col-form-label">Thay đổi mật khẩu </label> 
-                                <div class="col-8">
-                                  <input id="newpass" name="newpass" value="${userDetail.password}" class="form-control here" type="password">
-                                </div>
-                              </div> 
                               <hr>
                               <div class="form-group row">
                                 <div class="offset-4 col-8">

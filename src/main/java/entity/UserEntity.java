@@ -1,5 +1,6 @@
 package entity;
 
+import model.Category;
 import model.User;
 
 import java.sql.PreparedStatement;
@@ -32,6 +33,34 @@ public class UserEntity {
 
         }
         return null;
+    }
+    public List<User> getAllUser() {
+        List<User> ulist = new LinkedList<>();
+        Statement s = null;
+        ResultSet rs = null;
+
+        try {
+            s = ConnectionDB.connect();
+            rs = s.executeQuery("SELECT * from user ORDER BY id ASC ;");
+            while(rs.next()){
+                ulist.add(new User(
+//                         public User(int id, String fullName, String email, String phone, String address, int role, String accountName, String password)
+                        rs.getInt(1),
+                        rs.getString(2),
+                        rs.getString(3),
+                        rs.getString(4),
+                        rs.getString(5),
+                        rs.getInt(6),
+                        rs.getString(7),
+                        rs.getString(8)
+
+                ));
+            }
+        }
+        catch (ClassNotFoundException| SQLException e) {
+            e.printStackTrace();
+        }
+        return ulist;
     }
     public User getUserByID(String id) {
         Statement s = null;
@@ -97,23 +126,25 @@ public class UserEntity {
         }
     }
 
-    public void editUser(String id, String fullName, String email, String phone, String address, String accountName, String new_password){
+    public void deleteUser(String id){
         Statement s = null;
-        String query ="UPDATE `user` set  fullName ='"+fullName+"', mail='"+ email+"',phone='"+phone+"',address = '"+address+"',username='"+accountName+"',password = '"+new_password+"' WHERE id =" +id ;
+        String query = "delete from user where id = "+id;
         try{
             s = ConnectionDB.connect();
-            PreparedStatement ps = ConnectionDB.preparedStatementConnect(query);
-//
-//            ps.setString(1,fullName);
-//            ps.setString(2,email);
-//            ps.setString(3,phone);
-//            ps.setString(4,address);
-//            ps.setString(5,accountName);
-//            ps.setString(6,new_password);
-//            ps.setString(7,id);
+            s.execute(query);
+        }
+        catch (ClassNotFoundException|SQLException e) {
+            e.printStackTrace();
+        }
 
+    }
 
-
+    public void editUser(String id, String fullName, String email, String phone, String address, String accountName, String new_password){
+        Statement s = null;
+        String query ="UPDATE `user` set  fullName ='"+fullName+"', mail='"+ email+"',phone='"+phone+"',address = '"+address+"',username='"+accountName+"',password = '"+new_password+"' WHERE id ='" +id+"'" ;
+        try{
+            s = ConnectionDB.connect();
+            s.executeUpdate(query);
 
         }
         catch (ClassNotFoundException|SQLException e) {

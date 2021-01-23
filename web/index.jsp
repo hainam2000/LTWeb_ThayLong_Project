@@ -50,13 +50,9 @@
                       <h6 class="product__details--onStock">Còn lại: ${p.storage}</h6>
                     </div>
                     <div class="product__footer">
-                      <a role="button" href="/LTWeb_war_exploded/addtoCart?pid=${p.id}" style="color: #32494d"
-                         class="btn btn-outline-info">Thêm vào <i class="fa fa-shopping-cart"
-                                                                 aria-hidden="true"></i></a>
-                          <%--                      <c:url value="/addtoCart?pid=${p.id}" var="addtoCart">--%>
-<%--                      <button type="button" class="">Add to <i class="fa fa-shopping-cart"--%>
-<%--                          aria-hidden="true"></i></button>--%>
-<%--                      </c:url>--%>
+                      <form action="cart/add?pid=${p.id}&userID=${sessionScope.user.id}" method="post">
+                      <button class="btn btn-outline-info" style="color: #32494d">Thêm vào <i class="fa fa-shopping-cart" aria-hidden="true"></i></button>
+                      </form>
                     </div>
                   </div>
                 </c:forEach>

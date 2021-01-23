@@ -19,7 +19,6 @@ public class DatabaseUtils {
 
         OrderDetail od = oe.getOrderDetailByPID("12");
         o.addOrderDetail(od);
-        o.getValuesOfOrderList();
 //        System.out.println(oe.isPaid("13"));
     }
 

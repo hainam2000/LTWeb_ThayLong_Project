@@ -25,10 +25,10 @@ public class RegisterController extends HttpServlet {
         UserEntity ue = new UserEntity();
         User u = ue.checkExist(username, mail);
         if(!password.equals(confirmPassword)) {
-            request.getRequestDispatcher("").forward(request,response);
+            request.getRequestDispatcher("Index").forward(request,response);
             request.setAttribute("mess", "Confirm password is incorrect!");
         } else if(u != null) { //
-            request.getRequestDispatcher("").forward(request,response);
+            request.getRequestDispatcher("Index").forward(request,response);
             request.setAttribute("mess", "Username or email is duplicated!");
         } else if(u == null) {
             ue.register(username, password, mail);

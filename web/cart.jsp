@@ -1,3 +1,4 @@
+<%@ page import="model.Cart" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
   <%@ page contentType="text/html;charset=UTF-8" language="java" %>
     <%@ taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn" %>
@@ -24,6 +25,10 @@
             </h2>
             <div class="products--list">
               <ul>
+                <%
+                  Cart c = Cart.getCartSession(session);
+                %>
+                <c:forEach items="">
                 <li>
                   <div class="product">
                     <div class="product-img">
@@ -55,6 +60,7 @@
                     </div>
                   </div>
                 </li>
+                </c:forEach>
               </ul>
             </div>
           </div>

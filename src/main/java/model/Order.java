@@ -8,7 +8,7 @@ import java.util.Map;
 public class Order implements Serializable {
     private int id;
     private int idUser;
-    private Map<Integer, OrderDetail> orderList = new HashMap<>();
+//    private Map<Integer, OrderDetail> orderList = new HashMap<>();
     private double totalPrice;
     private String status;
 
@@ -66,7 +66,7 @@ public class Order implements Serializable {
 //            orderList.put(od.getId(), od);
 //        }
 //    }
-
+/*
     public void getValuesOfOrderList() {
         for(Map.Entry<Integer, OrderDetail> o : orderList.entrySet()){
             System.out.println(o.toString());
@@ -89,7 +89,7 @@ public class Order implements Serializable {
         }
         return totalPrice;
     }
-
+*/
     @Override
     public String toString() {
         return "Order{" +

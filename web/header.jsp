@@ -27,14 +27,14 @@
       <div class="container">
         <div class="header__container--logo">
           <div class="header__container--logo--img left">
-            <a class="navbar-brand" href="#"><img src="assets/images/data/logo_divine_pure_white.png"></a>
+            <a class="navbar-brand" href="/Index"><img src="assets/images/data/logo_divine_pure_white.png"></a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive"
                     aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
               <span class="navbar-toggler-icon"></span>
             </button>
           </div>
           <div class="header-container--logo--text">
-            <a href="#" style="text-align: center;">LKMT Store</a>
+            <a href="/Index" style="text-align: center;">LKMT Store</a>
           </div>
         </div>
         <div class="header-container--search">

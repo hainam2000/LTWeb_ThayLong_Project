@@ -94,7 +94,7 @@ body {
   height: 36px;
   background-color: rgba(104, 99, 99, 0.26);
 }
-.product__footer a {
+.product__footer form{
   position: relative;
   align-items: center;
   left: 30%;

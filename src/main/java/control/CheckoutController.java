@@ -14,7 +14,28 @@ public class CheckoutController extends HttpServlet {
     }
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-            
+        String shipping = request.getParameter("shipping");
+        String payment = request.getParameter("payment");
+
+        if(shipping != null) {
+            if(shipping.equalsIgnoreCase("tietkiem")) {
+
+            } else if(shipping.equalsIgnoreCase("nhanh")) {
+
+            } else if(shipping.equalsIgnoreCase("antoan")) {
+
+            }
+        }
+        if(payment != null) {
+            if(payment.equalsIgnoreCase("cod")) {
+
+            } else if(payment.equalsIgnoreCase("momo")) {
+
+            } else if(payment.equalsIgnoreCase("bank")) {
+
+            }
+        }
+
         response.sendRedirect("checkout.jsp");
     }
 }

@@ -16,13 +16,13 @@
 
             <body>
                 <jsp:include page="header.jsp"></jsp:include>
-                <div class="page-content">
+                <div class="page-content" style="">
                     <div class="cart__product">
-                        <h2 class="cart__product--title">
+                        <h3 class="cart__product--title">
                             GIỎ HÀNG
                             <span class="cart__product--title-counter">(${cart == null ? 0 : cart.getTotalQuantity()}
                                 sản phẩm)</span>
-                        </h2>
+                        </h3>
                         <div class="products--list">
                             <ul>
                                 <c:forEach items="${cart.getProducts()}" var="p">
@@ -60,24 +60,40 @@
                                 </c:forEach>
                             </ul>
                         </div>
+                        <h3 class="cart__product--title" style="margin-top: 10px;">
+                            Phương thức vận chuyển
+                        </h3>
                         <div class="shipping-method">
-                            <form method="get" action="/Checkout">
-
+                            <form id="shipping" method="get" action="/LTWeb_war_exploded/checkout">
+                                <input type="radio" name="shipping" id="tietkiem" onblur="submitShipping()" value="tietkiem">
+                                <label for="tietkiem">Giao hang tiet kiem</label> <br>
+                                <input type="radio" name="shipping" id="nhanh" onblur="submitShipping()" value="nhanh">
+                                <label for="nhanh">Giao hang nhanh</label><br>
+                                <input type="radio" name="shipping" id="antoan" onblur="submitShipping()" value="antoan">
+                                <label for="antoan">Giao hang an toan</label>
                             </form>
                         </div>
+                        <h3 class="cart__product--title" style="margin-top: 10px;">
+                            Phương thức thanh toán
+                        </h3>
                         <div class="payment-method">
-                            <form>
-
+                            <form id="payment" method="get" action="/LTWeb_war_exploded/checkout">
+                                <input type="radio" name="payment" id="cod" value="cod" onblur="submitPayment()">
+                                <label for="cod">cod</label> <br>
+                                <input type="radio" name="payment" id="momo" value="momo" onblur="submitPayment()">
+                                <label for="momo">momo</label><br>
+                                <input type="radio" name="payment" id="bank" value="bank" onblur="submitPayment()">
+                                <label for="bank">bank</label>
                             </form>
                         </div>
-                        <p class="payment">
+                        <p class="payment" style="margin-top: 10px;">
                             <a href="payment?userID=${sessionScope.user.id}" class="btn btn-danger" style="width: fit-content">
-                                Xác nhận thanh toán (Xin vui lòng kiểm tra lại đơn hàng trước khi Thanh Toán)
+                                Xác nhận thanh toán
                             </a>
+                            (Xin vui lòng kiểm tra lại đơn hàng trước khi Thanh Toán)
                         </p>
                     </div>
                     <div class="cart__price">
-                        <c:if test="${sessionScope.user != null}">
                             <div class="address">
                                 <p class="heading">
                                     <span>Thông tin nhận hàng</span>
@@ -94,7 +110,6 @@
                             <div class="coupon">
 
                             </div>
-                        </c:if>
                         <div class="total-price">
                             <p class="prices-item">
                                 <span class="text">Tổng tiền hàng: </span>
@@ -107,24 +122,15 @@
                                 <span class="text">Tổng thanh toán: </span>
                                 <span class="money">${cart.getShippingPrice() + cart.getTotalPrice()}đ</span>
                             </p>
-
                         </div>
                     </div>
                 </div>
                 <script>
-                    var count = 1;
-                    var countElement = document.getElementById("quantity");
-
-                    function plus() {
-                        count++;
-                        countElement.value = count;
+                    function submitPayment() {
+                        document.getElementById("payment").submit();
                     }
-
-                    function minus() {
-                        if (count > 1) {
-                            count--;
-                            countElement.value = count;
-                        }
+                    function submitShipping() {
+                        document.getElementById("shipping").submit();
                     }
                 </script>
             </body>

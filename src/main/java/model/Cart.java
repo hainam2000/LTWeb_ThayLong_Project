@@ -74,6 +74,14 @@ public class Cart implements Serializable {
         return totalPrice;
     }
 
+    public List<Product> getAllProduct() {
+        List<Product> result = new LinkedList<>();
+        for(Product p : productMap.values()) {
+            result.add(p);
+        }
+        return result;
+    }
+
     public static Cart getCartSession(HttpSession session) {
         return session.getAttribute("cart") == null ? new Cart() : (Cart) session.getAttribute("cart");
     }

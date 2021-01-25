@@ -7,7 +7,7 @@
     margin: 0;
 }
 .page-content{
-    margin-top: 10%;
+    margin-top: 3%;
 }
 .cart__product {
     margin-left: 3%;
@@ -16,7 +16,7 @@
 }
 .products--list {
     border: 2px solid black;
-
+    border-radius: 5px;
 }
 .products--list ul {
     list-style-type: none;
@@ -153,7 +153,15 @@
 
 .payment-method {
     border: 2px solid black;
+    border-radius: 5px;
+}
+.payment-method form {
+    margin: 5px;
 }
 .shipping-method {
     border: 2px solid black;
+    border-radius: 5px;
+}
+.shipping-method form {
+    margin: 5px;
 }

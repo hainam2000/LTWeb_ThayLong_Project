@@ -3,6 +3,8 @@ package entity;
 import database.ConnectionDB;
 import model.Order;
 import model.OrderDetail;
+import model.Product;
+import tools.Utils;
 
 import java.io.Serializable;
 import java.sql.PreparedStatement;
@@ -103,7 +105,31 @@ public class OrderEntity implements Serializable {
         }
     }
 
-    public void addCartToOrder() {
+    public void addProductToOrderDetails(List<Product> productList, String userID) {
+        String sql = "insert into OrderDetail(OrderDetail.id_product, OrderDetail.id_order, OrderDetail.price, OrderDetail.quantity, OrderDetail.total_price) SELECT Product.id, `Order`.id, Product.price," +
+                " ?" +
+                ", ? * Product.price " +
+                "from Product JOIN `Order` JOIN `User` ON `Order`.id_user = `User`.id WHERE Product.id = ? " +
+                "AND `Order`.`status`='chua thanh toan' AND `User`.id = ?;";
+        PreparedStatement ps = null;
+        try {
+            ps = ConnectionDB.preparedStatementConnect(sql);
+            for (Product p : productList) {
+                ps.setInt(1, p.getQuantity());
+                ps.setInt(2, p.getQuantity());
+                ps.setInt(3, p.getId());
+                ps.setInt(4, Utils.changeStringToInt(userID));
+                ps.executeUpdate();
+                System.out.println("add success");
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
+    public void addCartToOrder(String userID) {
+
+
 //                bat userID vo button,
 //                vong lap cart, cho vao orderDetail va order
 //                order co userID = userID

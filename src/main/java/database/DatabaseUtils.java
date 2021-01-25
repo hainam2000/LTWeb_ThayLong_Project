@@ -17,8 +17,13 @@ public class DatabaseUtils {
         OrderEntity oe = new OrderEntity();
         Order o = new Order();
 
-        Order od = oe.getOrder("1");
-        System.out.println(od.toString());
+        List<Product> productList = pe.getRandomProduct("3");
+
+        Cart c = new Cart();
+        for(Product p : productList) {
+            c.addProduct(p);
+        }
+        oe.addProductToOrderDetails(c.getAllProduct(), "1");
     }
 
 

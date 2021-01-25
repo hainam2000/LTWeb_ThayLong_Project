@@ -16,7 +16,7 @@
 }
 .products--list {
   border: 2px solid black;
-  
+  border-radius: 5px;
 }
 .products--list ul {
   list-style-type: none;

@@ -12,7 +12,7 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import java.io.IOException;
 
-@WebServlet(name = "Servlet", urlPatterns = "/cart/delete")
+@WebServlet(name = "DeleteCartController", urlPatterns = "/cart/delete")
 public class DeleteCartController extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         doGet(request, response);

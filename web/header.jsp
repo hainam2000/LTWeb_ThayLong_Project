@@ -206,7 +206,7 @@
                   <input class="form-control" type="password" placeholder="Mật khẩu" name="password">
 
                 </div>
-                <a class="forgot-pass" href="#">Quên mật khẩu?</a>
+                <a class="forgot-pass" href="/forgot-password">Quên mật khẩu?</a>
                 <button class="btn-login">Đăng nhập</button>
               </form>
               <br>

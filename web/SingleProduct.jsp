@@ -57,10 +57,6 @@
                   Giá KM: <span>${product.salePrice}đ</span>
                 </p>
                 <a href="cart/add?pid=${product.id}" class="btn btn-danger btn-lg">Đặt hàng</a>
-<%--                <form action="cart/add?pid=${product.id}" method="post">--%>
-<%--                  <button type="button" class="btn btn-danger btn-lg"></button>--%>
-<%--                </form>--%>
-
               </div>
               <div class="product__details">
                 <h2>Thông tin sản phẩm</h2>
@@ -75,6 +71,9 @@
                 </div>
               </div>
             </div>
+          </div>
+          <div class="comment">
+
           </div>
           <div class="relate">
             <h3>Các sản phẩm khác</h3>

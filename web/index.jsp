@@ -50,7 +50,6 @@
                       <h6 class="product__details--onStock">Còn lại: ${p.storage}</h6>
                     </div>
                     <div class="product__footer">
-<%--                      &userID=${sessionScope.user.id}--%>
                       <form action="cart/add?pid=${p.id}" method="post">
                       <button class="btn btn-outline-info" style="color: #32494d">Thêm vào <i class="fa fa-shopping-cart" aria-hidden="true"></i></button>
                       </form>

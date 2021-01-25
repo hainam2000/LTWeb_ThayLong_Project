@@ -7,11 +7,11 @@
                 <meta charset="utf-8">
                 <meta http-equiv="x-ua-compatible" content="ie=edge">
                 <meta name="viewport" content="width=device-width, initial-scale=1">
-                <link rel="stylesheet" href="assets/css/cart.css">
+                <link rel="stylesheet" href="assets/css/checkout.css">
                 <link rel="stylesheet" href="assets/css/font-awesome.min.css">
                 <link href="assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
                 <script src="/assets/js/cart.js"></script>
-                <title>Cart</title>
+                <title>LKMT - Thông tin thanh toán</title>
             </head>
 
             <body>
@@ -51,19 +51,7 @@
                                                 <br>
                                                 <p style="width: 150px; position: absolute;top: 30px; left: -15px; text-align: center;">
                                                     <span class="product-quantity">
-                                                        <span class="">Số lượng: </span>
-                                                        <form action="cart/update?pid=${p.id}">
-                                                        <a href="cart/add?pid=${p.id}"
-                                                            class="btn btn-outline-secondary">+</a>
-                                                        <input type="text" id="quantity" value="${p.quantity}"
-                                                            name="quantity" size="2">
-                                                        <a href="cart/remove?pid=${p.id}" class="btn btn-outline-secondary">-</a>
-
-                                                        <button value="update" type="submit"
-                                                            class="btn btn-outline-secondary">Update</button>
-                                                        <%-- <a href="cart/update?pid=${p.id}"
-                                                            class="btn btn-outline-secondary">Update</a>--%>
-                                                        </form>
+                                                        Số lượng: ${p.quantity}
                                                     </span>
                                                 </p>
                                             </div>
@@ -72,6 +60,21 @@
                                 </c:forEach>
                             </ul>
                         </div>
+                        <div class="shipping-method">
+                            <form method="get" action="/Checkout">
+
+                            </form>
+                        </div>
+                        <div class="payment-method">
+                            <form>
+
+                            </form>
+                        </div>
+                        <p class="payment">
+                            <a href="payment?userID=${sessionScope.user.id}" class="btn btn-danger" style="width: fit-content">
+                                Xác nhận thanh toán (Xin vui lòng kiểm tra lại đơn hàng trước khi Thanh Toán)
+                            </a>
+                        </p>
                     </div>
                     <div class="cart__price">
                         <c:if test="${sessionScope.user != null}">
@@ -104,18 +107,7 @@
                                 <span class="text">Tổng thanh toán: </span>
                                 <span class="money">${cart.getShippingPrice() + cart.getTotalPrice()}đ</span>
                             </p>
-                            <p class="payment">
-                                <c:if test="${sessionScope.user == null}">
-                                    <a href="/cart" data-toggle="modal" data-target="#myModal">
-                                        <span> Thanh Toán </span>
-                                    </a>
-                                </c:if>
-                            <c:if test="${sessionScope.user != null}">
-                                <a href="checkout?userID=${sessionScope.user.id}" class="btn btn-success">
-                                Thanh toán
-                                </a>
-                            </c:if>
-                            </p>
+
                         </div>
                     </div>
                 </div>

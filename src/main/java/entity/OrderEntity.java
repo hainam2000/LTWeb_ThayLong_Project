@@ -103,5 +103,10 @@ public class OrderEntity implements Serializable {
         }
     }
 
-
+    public void addCartToOrder() {
+//                bat userID vo button,
+//                vong lap cart, cho vao orderDetail va order
+//                order co userID = userID
+//                bat dang nhap
+    }
 }

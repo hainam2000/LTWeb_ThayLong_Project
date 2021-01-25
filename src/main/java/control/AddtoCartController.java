@@ -13,7 +13,7 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import java.io.IOException;
 
-@WebServlet(name = "AddtoCart", urlPatterns = "/cart/add")
+@WebServlet(name = "AddtoCartController", urlPatterns = "/cart/add")
 public class AddtoCartController extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         doGet(request, response);
@@ -21,12 +21,10 @@ public class AddtoCartController extends HttpServlet {
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         String productID = request.getParameter("pid");
-        String userID = request.getParameter("userID");
         ProductEntity pe = new ProductEntity();
         HttpSession session = request.getSession();
         Product p = pe.getProductWithID(productID);
         Cart cart = Cart.getCartSession(session);
-
         if(productID == null || p == null)
             request.getRequestDispatcher("/Index").forward(request,response);
         else if(cart.isContain(p)){

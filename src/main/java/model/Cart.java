@@ -59,10 +59,9 @@ public class Cart implements Serializable {
     public void minusProd(Product product) {
         if(!productMap.containsKey(product.getId())) {
             return;
-        } else {
+        } else if(product.getQuantity() > 0){
             productMap.get(product.getId()).removeOneQuantity();
             productMap.get(product.getId()).returnProd();
-
         }
     }
 

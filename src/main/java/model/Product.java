@@ -163,6 +163,10 @@ public class Product implements Serializable {
                 '}';
     }
 
+    public String getIdToString() {
+        return this.id + "";
+    }
+
     //endregion
 
 }

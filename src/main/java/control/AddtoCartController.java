@@ -20,18 +20,23 @@ public class AddtoCartController extends HttpServlet {
     }
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        String orderDetailID = request.getParameter("pid");
+        String productID = request.getParameter("pid");
         String userID = request.getParameter("userID");
-        OrderEntity orderEntity = new OrderEntity();
+        ProductEntity pe = new ProductEntity();
         HttpSession session = request.getSession();
-        OrderDetail od = orderEntity.getOrderDetailByPID(orderDetailID);
+        Product p = pe.getProductWithID(productID);
+        Cart cart = Cart.getCartSession(session);
 
-        if(orderDetailID == null || od == null)  response.sendRedirect("/LTWeb_war_exploded/Index");
-        else {
-            Cart cart = Cart.getCartSession(session);
-            cart.addOrderDetail(od);
-            cart.commit(session);
+        if(productID == null || p == null)
             request.getRequestDispatcher("/Index").forward(request,response);
+        else if(cart.isContain(p)){
+            cart.addProduct(p);
+            cart.commit(session);
+            response.sendRedirect("/LTWeb_war_exploded/cart");
+        } else {
+            cart.addProduct(p);
+            cart.commit(session);
+            response.sendRedirect("/LTWeb_war_exploded/Index");
         }
     }
 }

@@ -17,9 +17,8 @@ public class DatabaseUtils {
         OrderEntity oe = new OrderEntity();
         Order o = new Order();
 
-        OrderDetail od = oe.getOrderDetailByPID("12");
-        o.addOrderDetail(od);
-//        System.out.println(oe.isPaid("13"));
+        Order od = oe.getOrder("1");
+        System.out.println(od.toString());
     }
 
 

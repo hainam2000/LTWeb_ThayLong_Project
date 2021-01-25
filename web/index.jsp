@@ -38,19 +38,20 @@
                 <c:forEach items="${productsList}" var="p">
                   <div class="product">
                     <div class="product__header">
-                      <a href="product?pid=${p.id}">
+                      <a href="/LTWeb_war_exploded/product?pid=${p.id}">
                         <img class="card-img-top" src=${p.imgUrl} alt="">
                       </a>
                     </div>
                     <div class="product__details">
                       <h5 class="product__details--name">
-                        <a href="product?pid=${p.id}">${p.name}</a>
+                        <a href="/LTWeb_war_exploded/product?pid=${p.id}">${p.name}</a>
                       </h5>
                       <h6 class="product__details--price">${p.price}đ | ${p.salePrice}đ</h6>
                       <h6 class="product__details--onStock">Còn lại: ${p.storage}</h6>
                     </div>
                     <div class="product__footer">
-                      <form action="cart/add?pid=${p.id}&userID=${sessionScope.user.id}" method="post">
+<%--                      &userID=${sessionScope.user.id}--%>
+                      <form action="cart/add?pid=${p.id}" method="post">
                       <button class="btn btn-outline-info" style="color: #32494d">Thêm vào <i class="fa fa-shopping-cart" aria-hidden="true"></i></button>
                       </form>
                     </div>

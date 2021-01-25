@@ -174,10 +174,10 @@
     overflow: hidden;
     width: 15ch;
 }
+
 .item-quantity {
-    width: 70%;
+    width: 60%;
     font-size: 14px;
-    float: left;
     height: auto;
 }
 .item-quantity input {

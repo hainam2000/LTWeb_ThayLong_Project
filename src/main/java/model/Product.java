@@ -15,6 +15,7 @@ public class Product implements Serializable {
     private String brandName;
     private String categoryName;
     private int storage;
+    private int quantity;
     //endregion
 
     //region Constructor & Getter Setter
@@ -117,6 +118,32 @@ public class Product implements Serializable {
 
     public void setStorage(int storage) {
         this.storage = storage;
+    }
+    public void take() {
+        this.storage--;
+    }
+    public void returnProd(){
+        this.storage++;
+    }
+    public int updateStorage(int quantity) {
+        if(quantity > this.storage) {
+            return 0;
+        } else return this.storage - quantity;
+    }
+
+
+    public int getQuantity() {
+        return quantity;
+    }
+
+    public void setQuantity(int quantity) {
+        this.quantity = quantity;
+    }
+    public void addOneQuantity() {
+        this.quantity++;
+    }
+    public void removeOneQuantity(){
+        this.quantity--;
     }
 
     @Override

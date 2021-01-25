@@ -1,44 +1,85 @@
 package model;
 
+import tools.Utils;
+
 import javax.servlet.http.HttpSession;
+import java.io.Serializable;
 import java.util.*;
 
-public class Cart extends HashMap {
-    private Map<Integer, OrderDetail> orderDetailList = new HashMap<>();
+public class Cart implements Serializable {
+    private Map<Integer, Product> productMap;
     private double totalPrice;
     public Cart() {
-
+        productMap = new HashMap<>();
     }
 
+    public Map<Integer, Product> getProductMap() {
+        return productMap;
+    }
+
+    public List<Product> getProducts(){
+        List<Product> productList = new LinkedList<>();
+        for(Product p : productMap.values()) {
+            productList.add(p);
+        }
+        return productList;
+    }
     public double getTotalPrice() {
+        for(Product p : productMap.values()) {
+            totalPrice += p.getPrice();
+        }
         return totalPrice;
+    }
+    public double getShippingPrice() {
+        return 12000;
+    }
+    public int getTotalQuantity() {
+        return  productMap.size();
     }
 
     public void setTotalPrice(double totalPrice) {
         this.totalPrice = totalPrice;
     }
-
-    public void addOrderDetail(OrderDetail od) {
-        if(orderDetailList.containsKey(od.getId())) {
-            orderDetailList.get(od.getId()).addOneQuantity();
+    public boolean isContain(Product product) {
+        if(productMap.containsKey(product.getId())) {
+            return true;
+        } else return false;
+    }
+    public void addProduct(Product product) {
+        if(productMap.containsKey(product.getId())) {
+            productMap.get(product.getId()).addOneQuantity();
+            productMap.get(product.getId()).take();
         } else {
-            orderDetailList.put(od.getId(), od);
+            productMap.put(product.getId(), product);
+            productMap.get(product.getId()).addOneQuantity();
+            productMap.get(product.getId()).take();
         }
     }
 
-    public void updateOrderDetail(int orderDetailId, int quantity) {
-        if(quantity <= 0) return;
-        else if(orderDetailList.containsKey(orderDetailId)) {
-            orderDetailList.get(orderDetailId).setQuantity(quantity);
+    public void minusProd(Product product) {
+        if(!productMap.containsKey(product.getId())) {
+            return;
+        } else {
+            productMap.get(product.getId()).removeOneQuantity();
+            productMap.get(product.getId()).returnProd();
+
         }
     }
-    public void removeOrderDetail(int orderDetailId) {
-        orderDetailList.remove(orderDetailId);
-    }
 
+    public void updateProduct(String productId, String quantity) {
+        if(Utils.changeStringToInt(quantity) <= 0) return;
+        else if(productMap.containsKey(Utils.changeStringToInt(productId))) {
+            productMap.get(Utils.changeStringToInt(productId)).setQuantity(Utils.changeStringToInt(quantity));
+            productMap.get(Utils.changeStringToInt(productId)).updateStorage(Utils.changeStringToInt(quantity));
+        }
+    }
+    public void removeProduct(String productId) {
+        productMap.remove(Utils.changeStringToInt(productId));
+        productMap.get(Utils.changeStringToInt(productId)).returnProd();
+    }
     public double setTotalPrice() {
-        for(OrderDetail od : orderDetailList.values()) {
-            this.totalPrice += od.getProductPrice() * od.getQuantity();
+        for(Product p : productMap.values()) {
+            this.totalPrice += p.getPrice() * p.getQuantity();
         }
         return totalPrice;
     }

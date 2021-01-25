@@ -85,22 +85,18 @@ public class OrderEntity implements Serializable {
         }
     }
 
-    public void addOrderDetailToOrderID(OrderDetail orderDetail, String orderId) {
-
-    }
-    public Order getOrder(String username, String status) {
-        String sql = "select `Order`.id, `Order`.id_user, `Order`.`status`, `Order`.total_price FROM `Order` JOIN `User` ON `User`.id = `Order`.id_user WHERE `User`.username = ? AND `Order`.`status` = ?";
+    public Order getOrder(String userID) {
+        String sql = " select `Order`.id, `Order`.id_user, `Order`.`status`, `Order`.total_price FROM `Order` JOIN `User` ON `User`.id = `Order`.id_user WHERE `User`.id = ? AND `Order`.`status` = 'chua thanh toan'";
         PreparedStatement ps = null;
         try {
             ps = ConnectionDB.preparedStatementConnect(sql);
-            ps.setString(1,username);
-            ps.setString(2, status);
+            ps.setString(1,userID);
             ResultSet rs = ps.executeQuery();
             if(rs.next()) {
                 return new Order(rs.getInt(1),
                 rs.getInt(2),
-                rs.getDouble(3),
-                rs.getString(4));
+                rs.getDouble(4),
+                rs.getString(3));
             } else return null;
         } catch (Exception e) {
             return null;

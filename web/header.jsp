@@ -27,14 +27,14 @@
       <div class="container">
         <div class="header__container--logo">
           <div class="header__container--logo--img left">
-            <a class="navbar-brand" href="/Index"><img src="assets/images/data/logo_divine_pure_white.png"></a>
+            <a class="navbar-brand" href="/LTWeb_war_exploded/Index"><img src="assets/images/data/logo_divine_pure_white.png"></a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive"
                     aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
               <span class="navbar-toggler-icon"></span>
             </button>
           </div>
           <div class="header-container--logo--text">
-            <a href="/Index" style="text-align: center;">LKMT Store</a>
+            <a href="/LTWeb_war_exploded/Index" style="text-align: center;">LKMT Store</a>
           </div>
         </div>
         <div class="header-container--search">
@@ -104,24 +104,26 @@
               <div class="header__user--cart" style="font-size: 15px !important;">
                 <div class="shopping-cart-header">
                   <i style="position: relative; right: 30%;" class="fa fa-shopping-cart cart-icon fa-lg"></i>
-                  <span style="position: relative;right: 30%;" class="badge fa-sm">200</span>
+                  <span style="position: relative;right: 30%;" class="badge fa-sm">${cart == null ? 0 : cart.getTotalQuantity()}</span>
                   <a role="button" href="/LTWeb_war_exploded/cart" style="float: right; color: #32494d"
                      class="btn btn-outline-info btn-sm">Chi Tiết Giỏ Hàng</a>
                 </div>
 
                 <ul class="shopping-cart-item">
-                  <c:forEach items="${cart}" var="item" begin="1" end="5">
+                  <c:forEach items="${cart.getProducts()}" var="p" begin="0" end="3">
                     <li>
                       <img style="max-width: 125px; max-height: 125px;"
-                           src=${item.imgUrl}>
-                      <span class="item-name">${item.name}</span>
-                      <span class="item-quantity">Số lượng:
-                      <input type="button" value="-" onclick="minus();">
-                      <input type="text" name="" id="quantity" size="2" value="1">
-                      <input type="button" value="+" onclick="plus();">
-                    </span>
-                      <span class="item-price">Tổng tiền:${item.salePrice}</span>
-                      <button type="button" class="btn btn-outline-danger item-cancel">X</button>
+                           src=${p.imgUrl}>
+                      <span class="item-name">${p.name}</span>
+                      <div class="item-quantity">
+                        <span class="">Số lượng: </span>
+                      <input class="btn btn-outline-secondary" type="button" value="+" onclick="plus()">
+                        <input type="text" id="quantity" value="${p.quantity}" size="2">
+                      <input class="btn btn-outline-secondary" type="button" value="-" onclick="minus()">
+                        <a href="cart/update?quantity=${p.quantity}" class="btn btn-outline-secondary">Update</a>
+                      </div>
+                      <span class="item-price">Tổng tiền:${p.price}</span>
+                      <a href="cart/delete?pid=${p.id}" class="btn btn-outline-danger item-cancel">X</a>
                     </li>
                   </c:forEach>
                 </ul>
@@ -208,6 +210,7 @@
   </div>
 </c:if>
 <script>
+  var xhttp = new XMLHttpRequest();
   var count = 1;
   var countElement = document.getElementById("quantity");
   function plus(){

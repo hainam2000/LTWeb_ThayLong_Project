@@ -56,14 +56,6 @@ public class Cart implements Serializable {
         }
     }
 
-    public void minusProd(Product product) {
-        if(!productMap.containsKey(product.getId())) {
-            return;
-        } else if(product.getQuantity() > 0){
-            productMap.get(product.getId()).removeOneQuantity();
-            productMap.get(product.getId()).returnProd();
-        }
-    }
 
     public void updateProduct(String productId, String quantity) {
         if(Utils.changeStringToInt(quantity) <= 0) return;
@@ -74,7 +66,6 @@ public class Cart implements Serializable {
     }
     public void removeProduct(String productId) {
         productMap.remove(Utils.changeStringToInt(productId));
-        productMap.get(Utils.changeStringToInt(productId)).returnProd();
     }
     public double setTotalPrice() {
         for(Product p : productMap.values()) {

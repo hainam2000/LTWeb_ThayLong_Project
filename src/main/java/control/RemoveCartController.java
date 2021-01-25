@@ -23,14 +23,10 @@ public class RemoveCartController extends HttpServlet {
         ProductEntity pe = new ProductEntity();
         Product p = pe.getProductWithID(productID);
         HttpSession session = request.getSession();
-        Cart cart = Cart.getCartSession(session);
         if(productID == null)
             request.getRequestDispatcher("/Index").forward(request,response);
-        else if(p.getQuantity() != 0){
-            cart.minusProd(p);
-            cart.commit(session);
-            response.sendRedirect("/LTWeb_war_exploded/cart");
-        } else if(p.getQuantity() == 0) {
+        else {
+            Cart cart = Cart.getCartSession(session);
             cart.removeProduct(productID);
             cart.commit(session);
             response.sendRedirect("/LTWeb_war_exploded/cart");

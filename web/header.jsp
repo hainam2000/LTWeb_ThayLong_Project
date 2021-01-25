@@ -117,10 +117,18 @@
                       <span class="item-name">${p.name}</span>
                       <div class="item-quantity">
                         <span class="">Số lượng: </span>
-                      <input class="btn btn-outline-secondary" type="button" value="+" onclick="plus()">
-                        <input type="text" id="quantity" value="${p.quantity}" size="2">
-                      <input class="btn btn-outline-secondary" type="button" value="-" onclick="minus()">
-                        <a href="cart/update?quantity=${p.quantity}" class="btn btn-outline-secondary">Update</a>
+                        <form action="cart/update?pid=${p.id}">
+                          <a href="cart/add?pid=${p.id}"
+                             class="btn btn-outline-secondary">+</a>
+                          <input type="text" id="quantity" value="${p.quantity}"
+                                 name="quantity" size="2">
+                          <a href="cart/remove?pid=${p.id}" class="btn btn-outline-secondary">-</a>
+
+                          <button value="update" type="submit"
+                                  class="btn btn-outline-secondary">Update</button>
+                            <%-- <a href="cart/update?pid=${p.id}"
+                                class="btn btn-outline-secondary">Update</a>--%>
+                        </form>
                       </div>
                       <span class="item-price">Tổng tiền:${p.price}</span>
                       <a href="cart/delete?pid=${p.id}" class="btn btn-outline-danger item-cancel">X</a>

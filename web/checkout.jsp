@@ -65,31 +65,34 @@
                         </h3>
                         <div class="shipping-method">
                             <form id="shipping" method="get" action="/LTWeb_war_exploded/checkout">
-                                <input type="radio" name="shipping" id="tietkiem" onblur="submitShipping()" value="tietkiem">
-                                <label for="tietkiem">Giao hang tiet kiem</label> <br>
-                                <input type="radio" name="shipping" id="nhanh" onblur="submitShipping()" value="nhanh">
-                                <label for="nhanh">Giao hang nhanh</label><br>
-                                <input type="radio" name="shipping" id="antoan" onblur="submitShipping()" value="antoan">
-                                <label for="antoan">Giao hang an toan</label>
+                                <input type="radio" name="shipping" id="saving" onclick="getShipping()" value="saving">
+                                <label for="saving">Giao hang tiet kiem</label> <br>
+                                <input type="radio" name="shipping" id="fast" onclick="getShipping()" value="fast">
+                                <label for="fast">Giao hang nhanh</label><br>
+                                <input type="radio" name="shipping" id="safety" onclick="getShipping()" value="safety">
+                                <label for="safety">Giao hang an toan</label>
                             </form>
                         </div>
                         <h3 class="cart__product--title" style="margin-top: 10px;">
                             Phương thức thanh toán
                         </h3>
-                        <div class="payment-method">
-                            <form id="payment" method="get" action="/LTWeb_war_exploded/checkout">
-                                <input type="radio" name="payment" id="cod" value="cod" onblur="submitPayment()">
-                                <label for="cod">cod</label> <br>
-                                <input type="radio" name="payment" id="momo" value="momo" onblur="submitPayment()">
-                                <label for="momo">momo</label><br>
-                                <input type="radio" name="payment" id="bank" value="bank" onblur="submitPayment()">
-                                <label for="bank">bank</label>
-                            </form>
-                        </div>
+
                         <p class="payment" style="margin-top: 10px;">
-                            <a href="payment?userID=${sessionScope.user.id}" class="btn btn-danger" style="width: fit-content">
-                                Xác nhận thanh toán
-                            </a>
+                            <c:if test="${sessionScope.user != null && !sessionScope.user.address.equals('')}">
+                                <a href="payment?userID=${sessionScope.user.id}" class="btn btn-danger" style="width: fit-content">
+                                    Xác nhận thanh toán
+                                </a>
+                            </c:if>
+                            <c:if test="${sessionScope.user == null}">
+                                <div class="alert alert-warning">
+                                    Xin vui lòng <a href="#" data-toggle="modal" data-target="#myModal" class="alert-link">đăng nhập</a>.
+                                </div>
+                            </c:if>
+                            <c:if test="${sessionScope.user.address.equals('') && sessionScope.user != null}">
+                                <div class="alert alert-warning">
+                                    Xin vui lòng <a href="#" class="alert-link">cập nhật địa chỉ</a>.
+                                </div>
+                            </c:if>
                             (Xin vui lòng kiểm tra lại đơn hàng trước khi Thanh Toán)
                         </p>
                     </div>
@@ -115,7 +118,7 @@
                                 <span class="text">Tổng tiền hàng: </span>
                                 <span class="money">${cart.getTotalPrice()}đ</span>
                                 <br>
-                                <span class="text">Tổng tiền phí vận chuyển:</span>
+                                <span class="text" style="margin-top: 3px;">Phí vận chuyển:</span>
                                 <span class="money">${cart.getShippingPrice()}đ</span>
                             </p>
                             <p class="price-total">
@@ -129,8 +132,40 @@
                     function submitPayment() {
                         document.getElementById("payment").submit();
                     }
-                    function submitShipping() {
-                        document.getElementById("shipping").submit();
+                        // document.getElementById("shipping").submit();
+                        // $(document).ready( function (){
+                        //     var radioVal;
+                        //     $("input[type='radio']").click( function () {
+                        //         radioVal = $("[name=shipping]:checked").val();
+                        //         alert(radioVal)
+                        //         $.post("checkout.jsp", {"shippingType" : radioVal});
+                        //     })
+                        //     // $('#payment').blur(function () {
+                        //     //
+                        //     // })
+                        // })
+                    //
+                    // $(document).ready(function() {
+                    //     $('[name=shipping]:checked').blur(function() {
+                    //
+                    //     });
+                    // });
+
+                    function getShipping() {
+                            var radioVal;
+                                radioVal = $('input[name="shipping"]:checked').val();
+                                console.log(radioVal);
+                                // $.post("checkout.jsp", {"shippingType" : radioVal});
+                                $.ajax({
+                                type : 'POST',
+                                url : 'checkout',
+                                data : {
+                                    shipping : radioVal
+                                },
+                                success : function() {
+                                        location.reload();
+                                }
+                            })
                     }
                 </script>
             </body>

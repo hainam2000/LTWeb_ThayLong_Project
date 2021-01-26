@@ -1,5 +1,8 @@
 package control;
 
+import entity.OrderEntity;
+import model.Cart;
+
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -16,7 +19,15 @@ public class PaymentController extends HttpServlet {
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         HttpSession session = request.getSession();
-        
+        Cart c = Cart.getCartSession(session);
+        OrderEntity oe = new OrderEntity();
+        String userID = request.getParameter("userID");
+
+        if(userID != null) {
+            oe.addProductToOrderDetails(c.getAllProduct(), userID);
+
+        }
+
 
 
         response.sendRedirect("payment.jsp");

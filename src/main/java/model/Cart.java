@@ -8,7 +8,8 @@ import java.util.*;
 
 public class Cart implements Serializable {
     private Map<Integer, Product> productMap;
-    private double totalPrice;
+    private int shippingPrice;
+    private int totalPrice;
     public Cart() {
         productMap = new HashMap<>();
     }
@@ -17,6 +18,34 @@ public class Cart implements Serializable {
         return productMap;
     }
 
+    public int getTotalPrice() {
+        for(Product p : productMap.values()) {
+            totalPrice += p.getPrice();
+        }
+        return totalPrice;
+    }
+    public void setShippingPrice(Shipping shipping) {
+         this.shippingPrice = shipping.getPrice();
+    }
+    public int getShippingPrice() {
+        return shippingPrice;
+    }
+
+    public int getTotalQuantity() {
+        return  productMap.size();
+    }
+
+    public void setTotalPrice(int totalPrice) {
+        this.totalPrice = totalPrice;
+    }
+
+    public boolean isContain(String productId) {
+        if(productMap.containsKey(productId)) {
+            return true;
+        } else return false;
+    }
+
+
     public List<Product> getProducts(){
         List<Product> productList = new LinkedList<>();
         for(Product p : productMap.values()) {
@@ -24,27 +53,7 @@ public class Cart implements Serializable {
         }
         return productList;
     }
-    public double getTotalPrice() {
-        for(Product p : productMap.values()) {
-            totalPrice += p.getPrice();
-        }
-        return totalPrice;
-    }
-    public double getShippingPrice() {
-        return 12000;
-    }
-    public int getTotalQuantity() {
-        return  productMap.size();
-    }
 
-    public void setTotalPrice(double totalPrice) {
-        this.totalPrice = totalPrice;
-    }
-    public boolean isContain(Product product) {
-        if(productMap.containsKey(product.getId())) {
-            return true;
-        } else return false;
-    }
     public void addProduct(Product product) {
         if(productMap.containsKey(product.getId())) {
             productMap.get(product.getId()).addOneQuantity();
@@ -56,23 +65,30 @@ public class Cart implements Serializable {
         }
     }
 
-
     public void updateProduct(String productId, String quantity) {
         if(Utils.changeStringToInt(quantity) <= 0) return;
-        else if(productMap.containsKey(Utils.changeStringToInt(productId))) {
+        if(productMap.containsKey(Utils.changeStringToInt(productId))) {
+            System.out.println(getTotalPrice());
+
             productMap.get(Utils.changeStringToInt(productId)).setQuantity(Utils.changeStringToInt(quantity));
-            productMap.get(Utils.changeStringToInt(productId)).updateStorage(Utils.changeStringToInt(quantity));
+            System.out.println(productMap.get(Utils.changeStringToInt(productId)).getQuantity());
+
+            int updatePrice = (productMap.get(Utils.changeStringToInt(productId)).getQuantity() *
+                    productMap.get(Utils.changeStringToInt(productId)).getPrice());
+
+
+            System.out.println(updatePrice);
+            setTotalPrice(getTotalPrice() - updatePrice);
+
+            System.out.println(getTotalPrice());
         }
     }
+
+
     public void removeProduct(String productId) {
         productMap.remove(Utils.changeStringToInt(productId));
     }
-    public double setTotalPrice() {
-        for(Product p : productMap.values()) {
-            this.totalPrice += p.getPrice() * p.getQuantity();
-        }
-        return totalPrice;
-    }
+
 
     public List<Product> getAllProduct() {
         List<Product> result = new LinkedList<>();

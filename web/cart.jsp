@@ -94,29 +94,21 @@
                         </c:if>
                         <div class="total-price">
                             <p class="prices-item">
-                                <span class="text">Tổng tiền hàng: </span>
+                                <span class="text">Tạm tính: </span>
                                 <span class="money">${cart.getTotalPrice()}đ</span>
-                                <br>
-                                <span class="text">Tổng tiền phí vận chuyển:</span>
-                                <span class="money">${cart.getShippingPrice()}đ</span>
                             </p>
-                            <p class="price-total">
-                                <span class="text">Tổng thanh toán: </span>
-                                <span class="money">${cart.getShippingPrice() + cart.getTotalPrice()}đ</span>
-                            </p>
-                            <p class="payment">
-                                <c:if test="${sessionScope.user == null}">
-                                    <a href="/cart" data-toggle="modal" data-target="#myModal">
-                                        <span> Thanh Toán </span>
-                                    </a>
-                                </c:if>
-                            <c:if test="${sessionScope.user != null}">
-                                <a href="checkout?userID=${sessionScope.user.id}" class="btn btn-success">
-                                Thanh toán
-                                </a>
-                            </c:if>
-                            </p>
+
                         </div>
+                        <c:if test="${sessionScope.user == null}">
+                            <a href="/cart" data-toggle="modal" data-target="#myModal" class="btn btn-success">
+                                <span> Thanh Toán </span>
+                            </a>
+                        </c:if>
+                        <c:if test="${sessionScope.user != null}">
+                            <a href="checkout?userID=${sessionScope.user.id}" class="btn btn-success">
+                                <span> Thanh Toán </span>
+                            </a>
+                        </c:if>
                     </div>
                 </div>
                 <script>

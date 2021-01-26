@@ -27,7 +27,7 @@ public class AddtoCartController extends HttpServlet {
         Cart cart = Cart.getCartSession(session);
         if(productID == null || p == null)
             request.getRequestDispatcher("/Index").forward(request,response);
-        else if(cart.isContain(p)){
+        else if(cart.isContain(p.getId() + "")){
             cart.addProduct(p);
             cart.commit(session);
             response.sendRedirect("/LTWeb_war_exploded/cart");

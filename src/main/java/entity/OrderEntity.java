@@ -1,11 +1,13 @@
 package entity;
 
 import database.ConnectionDB;
+import model.Cart;
 import model.Order;
 import model.OrderDetail;
 import model.Product;
 import tools.Utils;
 
+import javax.swing.*;
 import java.io.Serializable;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -55,7 +57,7 @@ public class OrderEntity implements Serializable {
                         rs.getInt(3),
                         rs.getInt(4),
                         rs.getInt(5),
-                        rs.getDouble(6)
+                        rs.getInt(6)
                 );
             } else return null;
         } catch (Exception e) {
@@ -77,8 +79,8 @@ public class OrderEntity implements Serializable {
                         rs.getInt(2),
                         rs.getInt(3),
                         rs.getInt(4),
-                        rs.getDouble(5),
-                        rs.getDouble(6)
+                        rs.getInt(5),
+                        rs.getInt(6)
                 ));
             }
             return orderDetails;
@@ -97,7 +99,7 @@ public class OrderEntity implements Serializable {
             if(rs.next()) {
                 return new Order(rs.getInt(1),
                 rs.getInt(2),
-                rs.getDouble(4),
+                rs.getInt(4),
                 rs.getString(3));
             } else return null;
         } catch (Exception e) {
@@ -120,11 +122,24 @@ public class OrderEntity implements Serializable {
                 ps.setInt(3, p.getId());
                 ps.setInt(4, Utils.changeStringToInt(userID));
                 ps.executeUpdate();
-                System.out.println("add success");
             }
         } catch (Exception e) {
             e.printStackTrace();
         }
+    }
+
+    public void changeOrderStatus(String userID, double totalPrice) {
+        String sql = "update `Order` SET `Order`.`status` = 'da thanh toan', `Order`.total_price = ? WHERE `Order`.id_user = ? AND `Order`.`status` = 'chua thanh toan'";
+        PreparedStatement ps = null;
+        try {
+            ps = ConnectionDB.preparedStatementConnect(sql);
+            ps.setString(1, userID);
+            ps.setDouble(2, totalPrice);
+            ps.executeUpdate();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
     }
 
     public void addCartToOrder(String userID) {

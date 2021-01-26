@@ -7,14 +7,14 @@ public class OrderDetail implements Serializable {
     private int idProduct;
     private int idOrder;
     private int quantity;
-    private double productPrice;
-    private double totalPrice;
+    private int productPrice;
+    private int totalPrice;
 
     public OrderDetail() {
 
     }
 
-    public OrderDetail(int id, int idProduct, int idOrder, int quantity, double productPrice, double totalPrice) {
+    public OrderDetail(int id, int idProduct, int idOrder, int quantity, int productPrice, int totalPrice) {
         this.id = id;
         this.idProduct = idProduct;
         this.idOrder = idOrder;
@@ -52,15 +52,15 @@ public class OrderDetail implements Serializable {
     public void removeOneQuantity(){
         this.quantity--;
     }
-    public double getProductPrice() {
+    public int getProductPrice() {
         return productPrice;
     }
 
-    public void setProductPrice(double productPrice) {
+    public void setProductPrice(int productPrice) {
         this.productPrice = productPrice;
     }
 
-    public double getTotalPrice() {
+    public int getTotalPrice() {
         return getQuantity() * getProductPrice();
     }
 

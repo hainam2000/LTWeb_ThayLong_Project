@@ -1,10 +1,15 @@
 package control;
 
+import entity.ShippingEntity;
+import model.Cart;
+import model.Shipping;
+
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 import java.io.IOException;
 
 @WebServlet(name = "CheckoutController", urlPatterns = "/checkout")
@@ -14,28 +19,18 @@ public class CheckoutController extends HttpServlet {
     }
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        HttpSession session = request.getSession();
+        Cart c = Cart.getCartSession(session);
+        ShippingEntity shippingEntity = new ShippingEntity();
+
+
         String shipping = request.getParameter("shipping");
         String payment = request.getParameter("payment");
-
         if(shipping != null) {
-            if(shipping.equalsIgnoreCase("tietkiem")) {
-
-            } else if(shipping.equalsIgnoreCase("nhanh")) {
-
-            } else if(shipping.equalsIgnoreCase("antoan")) {
-
-            }
+            Shipping shippingByName = shippingEntity.getShippingByName(shipping);
+            c.setShippingPrice(shippingByName);
+            c.commit(session);
         }
-        if(payment != null) {
-            if(payment.equalsIgnoreCase("cod")) {
-
-            } else if(payment.equalsIgnoreCase("momo")) {
-
-            } else if(payment.equalsIgnoreCase("bank")) {
-
-            }
-        }
-
         response.sendRedirect("checkout.jsp");
     }
 }

@@ -17,13 +17,31 @@ public class DatabaseUtils {
         OrderEntity oe = new OrderEntity();
         Order o = new Order();
 
-        List<Product> productList = pe.getRandomProduct("3");
-
+        Product product = pe.getProductWithID("1");
         Cart c = new Cart();
-        for(Product p : productList) {
-            c.addProduct(p);
-        }
-        oe.addProductToOrderDetails(c.getAllProduct(), "1");
+
+        c.addProduct(pe.getProductWithID("1"));
+        System.out.println(c.getTotalPrice());
+        c.addProduct(pe.getProductWithID("1"));
+        System.out.println(c.getTotalPrice());
+        c.addProduct(pe.getProductWithID("1"));
+        System.out.println(c.getTotalPrice());
+        c.addProduct(pe.getProductWithID("1"));
+        System.out.println(c.getTotalPrice());
+        c.addProduct(pe.getProductWithID("1"));
+        System.out.println(c.getTotalPrice());
+
+
+
+
+
+        c.updateProduct("1", "2");
+
+
+//        System.out.println(c.getTotalPrice());
+//        c.updateProduct("1", );
+//        System.out.println(c.getTotalQuantity());
+//        oe.changeOrderStatus("2",c.getTotalPrice());
     }
 
 

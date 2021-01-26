@@ -9,14 +9,14 @@ public class Order implements Serializable {
     private int id;
     private int idUser;
 //    private Map<Integer, OrderDetail> orderList = new HashMap<>();
-    private double totalPrice;
+    private int totalPrice;
     private String status;
 
     public Order() {
 
     }
 
-    public Order(int id, int idUser, double totalPrice, String status) {
+    public Order(int id, int idUser, int totalPrice, String status) {
         this.id = id;
         this.idUser = idUser;
         this.totalPrice = totalPrice;
@@ -43,7 +43,7 @@ public class Order implements Serializable {
 //        return totalPrice;
 //    }
 
-    public void setTotalPrice(double totalPrice) {
+    public void setTotalPrice(int totalPrice) {
         this.totalPrice = totalPrice;
     }
 

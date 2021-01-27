@@ -15,7 +15,7 @@ public class ImageEntity {
         Statement s = null;
         try {
             s = ConnectionDB.connect();
-            ResultSet rs = s.executeQuery("SELECT Image.idImage, Image.idProduct, Image.url from Image INNER JOIN Product ON Image.idProduct = Product.id WHERE Product.id = " + productID);
+            ResultSet rs = s.executeQuery("SELECT Image.idImage, Image.idProduct, Image.url from Image INNER JOIN Product ON Image.idProduct = Product.id WHERE Product.id = '" + productID + "' GROUP BY Image.idImage ");
             while(rs.next()) {
                 result.add(new Image(rs.getInt(1), rs.getInt(2), rs.getString(3)));
             }
@@ -26,7 +26,6 @@ public class ImageEntity {
             return result;
         }
     }
-
     public Image getOneImageWithProductID(String productID){
         Statement s = null;
         try {

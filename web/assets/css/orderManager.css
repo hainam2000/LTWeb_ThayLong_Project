@@ -1,6 +1,6 @@
 *{
     padding: 0px;
-    margin : 0px;
+    margin-bottom: 40px;
 }
 html{
     margin-bottom: 40px;
@@ -35,7 +35,7 @@ html{
     color:  white;
 }
 
-.user__modify__content {
+.order__modify__content {
     float: left;
     width: 75%;
     background: aliceblue;
@@ -46,7 +46,7 @@ html{
     border: solid 1px;
 
 }
-.modify-user{
+.modify-order{
     margin-top: 30px;
     margin-left: 15px;
     width: 400px;

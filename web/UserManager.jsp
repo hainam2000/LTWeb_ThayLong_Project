@@ -5,7 +5,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Admin</title>
+    <title>Quản lý người dùng</title>
     <link rel="stylesheet" href="assets/css/userManager.css">
     <link rel="stylesheet" href="assets/css/bootstrap.css ">
 </head>
@@ -26,6 +26,18 @@
                     <li class="navbar__single">
                         <a href="#">Quản lí đơn hàng</a>
                     </li>
+
+                    <li class="navbar__single">
+                        <a href="loadCategory">Danh mục sản phẩm</a>
+                    </li>
+
+                    <li class="navbar__single">
+                        <a href="loadBrand">Hãng sản xuất</a>
+                    </li>
+
+                    <li class="navbar__single">
+                        <a href="loadShipping">Shipping</a>
+                    </li>
                 </ul>
             </nav>
         </div>
@@ -33,7 +45,7 @@
         <div class="user__modify__content">
             <div class="modify-user">
                 <div class="content">
-                    <span><h5>Nhập thông tin khách hàng</h5></span>
+                    <span><h3>Nhập thông tin khách hàng</h3></span>
                 </div>
                 <div class="modify-form">
                     <form id="form-modify-user" method="post" action="">
@@ -161,7 +173,7 @@
                     </div>
                 </div>
             </div>
-            <br><hr>
+            <br><hr style="height: 10px;background-color: #a9b3c9">
             <div style="margin-left: 5px;margin-bottom: 90px">
                 <div>
                     <h3 style="float: left;">Danh sách tài khoản</h3>
@@ -174,7 +186,7 @@
             <table class="table table-data2" id="data-list">
                 <thead>
 
-                <tr>
+                <tr style="border: solid 3px">
                     <th>Mã KH</th>
                     <th>Tên KH</th>
                     <th>Email</th>
@@ -198,9 +210,7 @@
                     </tr>
                 </c:forEach>
                 </thead>
-                <tbody id="result">
 
-                </tbody>
             </table>
         </div>
     </div>

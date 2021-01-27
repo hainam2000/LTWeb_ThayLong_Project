@@ -30,6 +30,18 @@
                 <li class="navbar__single">
                     <a href="#">Quản lí đơn hàng</a>
                 </li>
+
+                <li class="navbar__single">
+                    <a href="loadCategory">Danh mục sản phẩm</a>
+                </li>
+
+                <li class="navbar__single">
+                    <a href="loadBrand">Hãng sản xuất</a>
+                </li>
+
+                <li class="navbar__single">
+                    <a href="loadShipping">Shipping</a>
+                </li>
             </ul>
         </nav>
     </div>
@@ -37,7 +49,7 @@
     <div class="product__modify__content">
         <div class="modify-product">
             <div class="content">
-                <span><h5>Nhập thông tin sản phẩm</h5></span>
+                <span><h3>Nhập thông tin sản phẩm</h3></span>
             </div>
             <div class="modify-form">
                 <form id="form-modify-product" method="post" action="">
@@ -158,7 +170,7 @@
                 </div>
             </div>
         </div>
-        <br><hr>
+        <br><hr style="height: 10px;background-color: #a9b3c9">
         <div style="margin-left: 10px;margin-bottom: 90px">
             <div>
                 <h3 style="float: left;">Danh sách sản phẩm</h3>
@@ -170,7 +182,7 @@
 
         <div class="row">
             <c:forEach items="${productsList}" var="p">
-                <div class="product" style="margin: 25px 26px">
+                <div class="product" style="margin: 25px 25px">
                     <div class="product__header">
                         <a href="product?pid=${p.id}">
                             <img class="card-img-top" src=${p.imgUrl} alt="">
@@ -188,6 +200,7 @@
                             <a href="deleteProduct?pid=${p.id}"> Xóa </a>
 
                     </div>
+
                 </div>
             </c:forEach>
 

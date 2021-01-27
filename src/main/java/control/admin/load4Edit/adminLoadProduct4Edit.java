@@ -1,4 +1,4 @@
-package control.admin;
+package control.admin.load4Edit;
 
 import entity.ImageEntity;
 import entity.ProductEntity;

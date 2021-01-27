@@ -11,6 +11,12 @@ public class Shipping implements Serializable {
     public Shipping(){
 
     }
+    public Shipping(int id,String name, String type,int price) {
+        this.id = id;
+        this.name = name;
+        this.type = type;
+        this.price = price;
+    }
     public Shipping(String name, String type,int price) {
         this.name = name;
         this.type = type;

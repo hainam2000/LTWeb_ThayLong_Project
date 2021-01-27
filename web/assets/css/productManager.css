@@ -1,13 +1,15 @@
 *{
     padding: 0px;
-    margin: 0px;
+    margin-bottom: 40px;
+}
+html{
+    margin-bottom: 40px;
 }
 .menu-sidebar__content{
     width: 200px;
     margin-top: 100px;
     margin-left: 50px;
     float: left;
-    /*background-color: black;*/
 }
 
 .navbar-sidebar{
@@ -15,15 +17,18 @@
     border-radius: 5px;
     padding: 20px 20px 10px 20px;
     text-align: center;
+    border: solid 1px;
 }
 .navbar__single{
     padding: 3px 5px 3px 5px;
     margin-top: 10px;
     background: #f4f2fa;
     border-radius: 5px;
+    border: solid 1px;
+
 }
 
-.navbar__single a:visited{
+.navbar__single a{
     color: black;
 }
 .navbar-sidebar a:active{
@@ -33,11 +38,12 @@
 .product__modify__content {
     float: left;
     width: 75%;
-    background: #a9b3c9;
+    background: aliceblue;
     margin-top: 100px;
     margin-left: 70px;
     padding: 10px 30px 10px 30px;
     border-radius: 10px;
+    border: solid 1px;
 
 }
 .modify-product{

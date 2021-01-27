@@ -1,4 +1,4 @@
-package control.admin;
+package control.admin.edit;
 
 import entity.UserEntity;
 

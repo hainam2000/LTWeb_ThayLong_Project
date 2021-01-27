@@ -206,4 +206,32 @@ public class OrderEntity implements Serializable {
             return null;
         }
     }
+    public List<Order> getAllOrder() {
+        List<Order> olist = new LinkedList<>();
+        Statement s = null;
+        ResultSet rs = null;
+
+        try {
+            s = ConnectionDB.connect();
+            rs = s.executeQuery("SELECT* FROM `order` ORDER BY id_user asc,id asc;");
+
+            while(rs.next()){
+                olist.add(new Order(
+                        rs.getInt(1),
+                        rs.getInt(2),
+                        rs.getInt(3),
+                        rs.getString(4),
+                        rs.getString(5)
+
+                ));
+            }
+            return  olist;
+        }
+        catch (ClassNotFoundException| SQLException e) {
+            e.printStackTrace();
+            return null;
+        }
+
+    }
+
 }

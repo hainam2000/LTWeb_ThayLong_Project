@@ -1,4 +1,4 @@
-package control.admin;
+package control.admin.add;
 
 import entity.UserEntity;
 

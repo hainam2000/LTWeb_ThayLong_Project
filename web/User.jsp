@@ -5,6 +5,7 @@
 <html lang="en">
 <head>
     <title>Thông tin cá nhân</title>
+    <link href="assets/css/fontawesome.css" rel="stylesheet">
     <link href="assets/css/bootstrap.css" rel="stylesheet">
     <link href="assets/css/user.css" rel="stylesheet">
     <!------ Include the above in your HEAD tag ---------->
@@ -14,12 +15,12 @@
 <jsp:include page="header.jsp"></jsp:include>
 
 <div class="contain-main">
-	<div class="row">
+	<div class="row" style="margin: 200px 100px 100px 100px">
 
 		<div class="col-md-3 slide-bar ">
-		     <div class="list-group " >
-                <a href="#" class="list-group-item list-group-item-action active">Thông tin cá nhân</a>
-                <a href="#" class="list-group-item list-group-item-action active">Danh sách đơn hàng</a> 
+		     <div class="list-group " style="margin-inline: 30px; text-align: center";>
+                <a href="user?id=${userDetail.id}" class="list-group-item list-group-item-action active">Thông tin cá nhân</a>
+                <a href="order?uid=${userDetail.id}" class="list-group-item list-group-item-action " style="margin-top: 10px">Danh sách đơn hàng</a>
             </div> 
 		</div>
 
@@ -28,7 +29,7 @@
 		        <div class="card-body">
 		            <div class="row">
 		                <div class="col-md-12">
-		                    <h4>Thông tin cá nhân</h4>
+		                    <h3 style="margin-left: 26px">Thông tin cá nhân</h3>
 		                    <hr>
 		                </div>
 		            </div>

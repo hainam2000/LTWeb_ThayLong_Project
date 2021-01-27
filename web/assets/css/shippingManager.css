@@ -1,6 +1,6 @@
 *{
     padding: 0px;
-    margin : 0px;
+    margin-bottom: 40px;
 }
 html{
     margin-bottom: 40px;
@@ -25,7 +25,6 @@ html{
     background: #f4f2fa;
     border-radius: 5px;
     border: solid 1px;
-
 }
 
 .navbar__single a{
@@ -35,7 +34,7 @@ html{
     color:  white;
 }
 
-.user__modify__content {
+.shipping__modify__content {
     float: left;
     width: 75%;
     background: aliceblue;
@@ -44,9 +43,8 @@ html{
     padding: 10px 30px 10px 30px;
     border-radius: 10px;
     border: solid 1px;
-
 }
-.modify-user{
+.modify-shipping{
     margin-top: 30px;
     margin-left: 15px;
     width: 400px;

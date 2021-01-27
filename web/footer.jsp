@@ -26,21 +26,21 @@
     <!-- Footer Top -->
     <div class="footer-top section">
         <div class="container">
-            <div class="row">
+            <div class="row" style="width: 1400px">
                 <div class="col-lg-5 col-md-6 col-12">
                     <!-- Single Widget -->
-                    <div class="single-footer about">
+                    <div class="single-footer about"  style="margin-left: -20px">
                         <div class="logo">
 
                         </div>
-                        <p class="text">LKMT Store</p>
+                        <h1 style="color: #f7941d;">LKMT Store</h1>
                         <p class="call">Mọi thắc mắc vui lòng liên hệ: <span><a href="tel:123456789">+84 000 111 000</a></span></p>
                     </div>
                     <!-- End Single Widget -->
                 </div>
                 <div class="col-lg-2 col-md-6 col-12">
                     <!-- Single Widget -->
-                    <div class="single-footer links">
+                    <div class="single-footer links" style="margin-left: -180px">
                         <h4 style="color:White">Thông tin </h4>
                         <ul>
                             <li><a href="#">Hải Nam</a></li>
@@ -51,7 +51,7 @@
                 </div>
                 <div class="col-lg-2 col-md-6 col-12">
                     <!-- Single Widget -->
-                    <div class="single-footer links">
+                    <div class="single-footer links" style="margin-left: -160px;">
                         <h4 style="color:White">Liên Hệ</h4>
 
                         <ul>
@@ -63,8 +63,8 @@
                 </div>
                 <div class="col-lg-3 col-md-6 col-12">
                     <!-- Single Widget -->
-                    <div class="single-footer social">
-                        <h4 styleq="color:White">Địa chỉ:</h4>
+                    <div class="single-footer social" style="margin-left: -80px">
+                        <h4 style="color:White">Địa chỉ:</h4>
                         <!-- Single Widget -->
                         <div class="contact">
                             <ul>

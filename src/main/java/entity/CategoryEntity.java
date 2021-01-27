@@ -18,7 +18,7 @@ public class CategoryEntity {
         List<Category> clist = new LinkedList<>();
         try {
             s = ConnectionDB.connect();
-            rs = s.executeQuery("SELECT * from Category");
+            rs = s.executeQuery("SELECT * from Category order by id");
             while(rs.next()){
                 clist.add(new Category(
                         rs.getInt(1),
@@ -91,5 +91,82 @@ public class CategoryEntity {
             e.printStackTrace();
         }
         return 0;
+    }
+    public Category getCategoryByID(String id) {
+        Statement s = null;
+        try {
+            s = ConnectionDB.connect();
+            ResultSet rs = s.executeQuery("select * from category where category.id = '" + id  +"'"  );
+            while (rs.next()) {
+                return new Category(
+                        rs.getInt(1),
+                        rs.getString(2));
+            }
+        }
+        catch (ClassNotFoundException|SQLException e) {
+            e.printStackTrace();
+
+        }
+        return null;
+    }
+    public void deleteCategory(String id){
+        Statement s = null;
+        String query = "delete from category where id = "+id;
+        try{
+            s = ConnectionDB.connect();
+            s.execute(query);
+        }
+        catch (ClassNotFoundException|SQLException e) {
+            e.printStackTrace();
+        }
+
+    }
+    public int getMaxId(){
+        Statement s = null;
+        int result ;
+        String query = "SELECT  MAX(id)  from category";
+        ResultSet rs;
+        try{
+            s = ConnectionDB.connect();
+            rs = s.executeQuery(query);
+
+            if(rs.next()){
+                return result = rs.getInt(1);
+            }
+
+
+        }
+        catch (ClassNotFoundException|SQLException e) {
+            e.printStackTrace();
+        }
+        return 0;
+    }
+
+    public void addCategory(int id, String name){
+        Statement s = null;
+        String query = "INSERT INTO category VALUES ('"+id+"','"+name+"')" ;
+
+        try{
+            s = ConnectionDB.connect();
+            s.executeUpdate(query);
+
+        }
+        catch (ClassNotFoundException|SQLException e) {
+            e.printStackTrace();
+        }
+
+    }
+    public void editCategory(String id, String name){
+        Statement s = null;
+        String query ="UPDATE category SET  `name` ='"+name+"' where id = '"+id+"'" ;
+        try{
+            s = ConnectionDB.connect();
+            s.executeUpdate(query);
+
+        }
+        catch (ClassNotFoundException|SQLException e) {
+            e.printStackTrace();
+        }
+
     }
 }

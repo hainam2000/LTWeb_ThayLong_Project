@@ -148,8 +148,9 @@
       <div class="modal-content">
         <div class="contain-main">
           <div class="tab">
-            <button class="tablinks" onclick="changeTab(event, 'login')" id="defaultOpen">ĐĂNG NHẬP</button>
-            <button class="tablinks" onclick="changeTab(event, 'register')">ĐĂNG KÝ</button>
+            <button style="width: 150px;" class="tablinks" onclick="changeTab(event, 'login')" id="defaultOpen">ĐĂNG NHẬP</button>
+            <button style="width: 150px;" class="tablinks" onclick="changeTab(event, 'register')">ĐĂNG KÝ</button>
+            <button style="width: 150px;" class="tablinks" onclick="changeTab(event, 'forgot')">QUÊN MẬT KHẨU</button>
           </div>
           <div class="alert alert-danger " style="${mess == null ? "display: none;" : "display: block;"}">
               ${mess}
@@ -190,7 +191,6 @@
           </div>
           <div class="tabcontent" id="login">
             <h3 class="form-title">ĐĂNG NHẬP</h3>
-
             <div class="form-container">
               <form class="login-form" method="post" action="login">
                 <div class="form-group">
@@ -203,8 +203,25 @@
                   <input class="form-control" type="password" placeholder="Mật khẩu" name="password">
 
                 </div>
-                <a class="forgot-pass" href="/forgot-password">Quên mật khẩu?</a>
+                <a class="forgot-pass" onclick="changeTab(event, 'forgot')">Quên mật khẩu?</a>
                 <button class="btn-login">Đăng nhập</button>
+              </form>
+              <br>
+            </div>
+          </div>
+          <div class="tabcontent" id="forgot">
+            <h3 class="form-title">QUÊN MẬT KHẨU</h3>
+            <div class="form-container">
+              <form class="login-form" method="post" action="forgotPassword">
+                <div class="form-group">
+                  <label class="lb">Tài Khoản</label>
+                  <input class="form-control" type="text" placeholder="Tài khoản" name="username">
+                </div>
+                <div class="form-group">
+                  <label class="lb">Email</label>
+                  <input class="form-control" type="email" placeholder="Địa chỉ Email" name="mail">
+                </div>
+                <button class="btn-forgot">Xác nhận</button>
               </form>
               <br>
             </div>

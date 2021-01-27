@@ -112,4 +112,7 @@ public class Cart implements Serializable {
     public void commit(HttpSession session) {
         session.setAttribute("cart", this);
     }
+    public static void quit(HttpSession session) {
+        session.removeAttribute("cart");
+    }
 }

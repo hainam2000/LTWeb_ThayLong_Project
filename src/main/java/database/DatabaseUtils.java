@@ -2,6 +2,7 @@ package database;
 
 import model.*;
 import entity.*;
+import tools.MailUtils;
 
 import java.sql.SQLException;
 import java.sql.Statement;
@@ -9,7 +10,7 @@ import java.util.*;
 
 public class DatabaseUtils {
     public static final String ProductTable = "Product(id, name, description, details, price, isSale, priceSale, id_brand, id_category, storage)";
-    public static void main(String[] args) {
+    public static void main(String[] args) throws Exception {
         ImageEntity ie = new ImageEntity();
         CategoryEntity ce = new CategoryEntity();
         ProductEntity pe = new ProductEntity();
@@ -20,21 +21,22 @@ public class DatabaseUtils {
         Product product = pe.getProductWithID("1");
         Cart c = new Cart();
 
-//        c.addProduct(pe.getProductWithID("1"));
-//        System.out.println(c.getTotalPrice());
-//        c.addProduct(pe.getProductWithID("1"));
-//        System.out.println(c.getTotalPrice());
-//        c.addProduct(pe.getProductWithID("1"));
-//        System.out.println(c.getTotalPrice());
-//        c.addProduct(pe.getProductWithID("1"));
-//        System.out.println(c.getTotalPrice());
-//        c.addProduct(pe.getProductWithID("1"));
-//        System.out.println(c.getTotalPrice());
-//
-//        oe.changeOrderStatus("2", c.getTotalPrice());
-//
-//
-        System.out.println(ue.getUserByID("1").toString());
+
+        String mail = "18130132@st.hcmuaf.edu.vn";
+        String orderID = "16";
+        String userID = "15";
+        String username = "test";
+        String subject = "Thanh toán thành công!";
+        String productList = oe.getAllOrderDetail(orderID, userID);
+        String totalPrice = "===================== \nTổng đơn hàng: " + oe.getTotalPrice(orderID, userID);
+        String body = "Cảm ơn bạn đã tin tưởng dịch vụ của chúng tôi! \nDưới đây là thông tin đơn hàng " + orderID + " của bạn!\n" + productList + totalPrice;
+
+        Mail mailsend = new Mail(mail, subject, body);
+
+        System.out.println(body);
+
+        //MailUtils.sendMail(mailsend);
+//        mu.sendPaidMail("18130132@st.hcmuaf.edu.vn", userID, orderID);
 
 //        oe.createOrder("2");
 //        System.out.println(c.getTotalPrice());

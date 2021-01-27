@@ -79,7 +79,7 @@
 
                         <p class="payment" style="margin-top: 10px;">
                             <c:if test="${sessionScope.user != null && !sessionScope.user.address.equals('')}">
-                                <a href="payment?userID=${sessionScope.user.id}" class="btn btn-danger" style="width: fit-content">
+                                <a href="payment?userID=${sessionScope.user.id}&userMail=${sessionScope.user.email}" class="btn btn-danger" style="width: fit-content">
                                     Xác nhận thanh toán
                                 </a>
                             </c:if>

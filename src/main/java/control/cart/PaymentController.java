@@ -3,6 +3,8 @@ package control.cart;
 import entity.OrderEntity;
 import entity.UserEntity;
 import model.Cart;
+import model.Mail;
+import tools.MailUtils;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -25,10 +27,16 @@ public class PaymentController extends HttpServlet {
         UserEntity ue = new UserEntity();
         String userID = request.getParameter("userID");
         String userMail = request.getParameter("userMail");
-        String mail;
-        if(userMail != null) {
-            mail = ue.getUserMail(userID);
-        }
+        String orderID = oe.getUnpaidOrder(userID);
+
+
+        String subject = "Thanh toán thành công!";
+        String details = "Tên \t\t\t\t\t\t Số lượng \t Giá \t Thành tiền \t Ngày\n";
+        String productList = oe.getAllOrderDetail(orderID, userID);
+        String totalPrice = "===================== \nTổng đơn hàng: " + oe.getTotalPrice(orderID, userID);
+        String body = "Cảm ơn bạn đã tin tưởng dịch vụ của chúng tôi! \nDưới đây là thông tin đơn hàng " + orderID + " của bạn!\n" + details + productList + totalPrice;
+
+        Mail mailsend = new Mail(userMail, subject, body);
 
         if(userID != null) {
             if(oe.isExistBlankOrder(userID)) {
@@ -37,7 +45,9 @@ public class PaymentController extends HttpServlet {
                 oe.createOrder(userID);
                 c.removeAll();
                 c.commit(session);
-                response.sendRedirect("payment.jsp");
+                MailUtils.sendMail(mailsend);
+//                System.out.println(body);
+                response.sendRedirect("Index");
             } else {
                 oe.createOrder(userID);
                 oe.addProductToOrderDetails(c.getAllProduct(), userID);
@@ -45,8 +55,11 @@ public class PaymentController extends HttpServlet {
                 oe.createOrder(userID);
                 c.removeAll();
                 c.commit(session);
-                response.sendRedirect("payment.jsp");
+                MailUtils.sendMail(mailsend);
+//                System.out.println(body);
+                response.sendRedirect("Index");
             }
         }
+
     }
 }

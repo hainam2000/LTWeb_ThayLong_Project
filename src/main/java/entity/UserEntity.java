@@ -224,4 +224,21 @@ public class UserEntity {
             return null;
         }
     }
+
+    public String getUserPassword(String username, String usermail) {
+        PreparedStatement ps = null;
+        String sql = "SELECT `User`.`password` FROM `User` WHERE `User`.username = ? AND `User`.mail = ?";
+        try {
+            ps = ConnectionDB.preparedStatementConnect(sql);
+            ps.setString(1, username);
+            ps.setString(2, usermail);
+            ResultSet rs = ps.executeQuery();
+
+            if(rs.next()) {
+                return rs.getString(1);
+            } else return null;
+        } catch (Exception e) {
+            return null;
+        }
+    }
 }

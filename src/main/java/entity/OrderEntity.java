@@ -158,12 +158,52 @@ public class OrderEntity implements Serializable {
 
     }
 
-    public void addCartToOrder(String userID) {
+    public String getAllOrderDetail(String orderID, String userID) {
+        String result = "";
+        String sql = "select Product.`name`, OrderDetail.quantity, OrderDetail.price, OrderDetail.total_price, `Order`.create_day FROM OrderDetail JOIN Product ON OrderDetail.id_product = Product.id JOIN `Order` ON OrderDetail.id_order = `Order`.id WHERE `Order`.id_user = ? AND `Order`.id = ? AND `Order`.`status` LIKE 'da thanh toan'";
+        PreparedStatement ps = null;
+        try {
+            ps = ConnectionDB.preparedStatementConnect(sql);
+            ps.setString(1, userID);
+            ps.setString(2, orderID);
+            ResultSet rs = ps.executeQuery();
+            while(rs.next()) {
+                result += rs.getString(1) + "\t\t\t\t\t\t" + rs.getString(2) + "\t" +rs.getString(3) + "\t" +rs.getString(4) + "\t" +rs.getString(5) + "\n";
+            }
+            return result;
+        } catch (Exception e) {
+            return null;
+        }
+    }
 
+    public String getUnpaidOrder(String userID) {
+        String sql = "select `Order`.id FROM `Order` WHERE `Order`.id_user = ? AND `Order`.`status` LIKE 'da thanh toan'";
+        PreparedStatement ps = null;
+        try {
+            ps = ConnectionDB.preparedStatementConnect(sql);
+            ps.setString(1, userID);
+            ResultSet rs = ps.executeQuery();
+            if(rs.next()) {
+                return rs.getString(1);
+            } else return null;
+        } catch (Exception e) {
+            return null;
+        }
+    }
 
-//                bat userID vo button,
-//                vong lap cart, cho vao orderDetail va order
-//                order co userID = userID
-//                bat dang nhap
+    public String getTotalPrice(String orderID, String userID) {
+        String sql = "select `Order`.total_price FROM `Order` WHERE `Order`.id_user = ? AND `Order`.id = ?";
+        PreparedStatement ps = null;
+        try {
+            ps = ConnectionDB.preparedStatementConnect(sql);
+            ps.setString(1, userID);
+            ps.setString(2,orderID);
+            ResultSet rs = ps.executeQuery();
+            if(rs.next()) {
+                return rs.getString(1);
+            } else return null;
+        } catch (Exception e) {
+            return null;
+        }
     }
 }

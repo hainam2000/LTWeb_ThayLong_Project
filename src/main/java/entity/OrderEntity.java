@@ -24,7 +24,7 @@ public class OrderEntity implements Serializable {
         try {
             s = ConnectionDB.preparedStatementConnect(query);
             s.setString(1, userID);
-            s.executeQuery();
+            s.executeUpdate();
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -42,6 +42,22 @@ public class OrderEntity implements Serializable {
             e.printStackTrace();
         }
     }
+
+    public boolean isExistBlankOrder(String userID) {
+        String sql = "select * from `Order` WHERE `Order`.id_user = ? AND `Order`.`status` = 'chua thanh toan'";
+        PreparedStatement ps = null;
+        try {
+            ps = ConnectionDB.preparedStatementConnect(sql);
+            ps.setString(1, userID);
+            ResultSet rs = ps.executeQuery();
+            if(rs.next()) {
+                return true;
+            } else return false;
+        } catch (Exception e) {
+            return false;
+        }
+    }
+
     public OrderDetail getOrderDetailByPID(String productID) {
         String sql = "select * from OrderDetail where OrderDetail.id_product = ?";
         PreparedStatement ps = null;
@@ -128,13 +144,13 @@ public class OrderEntity implements Serializable {
         }
     }
 
-    public void changeOrderStatus(String userID, double totalPrice) {
-        String sql = "update `Order` SET `Order`.`status` = 'da thanh toan', `Order`.total_price = ? WHERE `Order`.id_user = ? AND `Order`.`status` = 'chua thanh toan'";
+    public void changeOrderStatus(String userID, int totalPrice) {
+        String sql = "update `Order` SET `Order`.`status` = 'da thanh toan', `Order`.total_price = ?, `Order`.create_day = CURRENT_DATE WHERE `Order`.id_user = ? AND `Order`.`status` = 'chua thanh toan'";
         PreparedStatement ps = null;
         try {
             ps = ConnectionDB.preparedStatementConnect(sql);
-            ps.setString(1, userID);
-            ps.setDouble(2, totalPrice);
+            ps.setInt(1, totalPrice);
+            ps.setString(2, userID);
             ps.executeUpdate();
         } catch (Exception e) {
             e.printStackTrace();

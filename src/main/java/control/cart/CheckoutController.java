@@ -31,6 +31,7 @@ public class CheckoutController extends HttpServlet {
             c.setShippingPrice(shippingByName);
             c.commit(session);
         }
+
         response.sendRedirect("checkout.jsp");
     }
 }

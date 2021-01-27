@@ -93,6 +93,9 @@ public class Cart implements Serializable {
         productMap.get(Utils.changeStringToInt(productId)).updateStorage(productMap.get(-Utils.changeStringToInt(productId)).getQuantity());
     }
 
+    public void removeAll() {
+        productMap.clear();
+    }
 
     public List<Product> getAllProduct() {
         List<Product> result = new LinkedList<>();

@@ -11,14 +11,14 @@ import java.net.*;
 import java.nio.file.*;
 
 public class ImageDownloader {
-//    public static void main(String[] args) throws IOException {
-//         //saveImage("https://product.hstatic.net/1000026716/product/h470m-ds3h-rev-1-1_f021d2e481e840e698b03196ba999c1d_large.png", "image");
-//    getItemImage("https://gearvn.com/products/8gb-ddr4-1x8g-2666-ram-gigabyte-memory-2666");
-//    }
+    public static void main(String[] args) throws IOException {
+         //saveImage("https://product.hstatic.net/1000026716/product/h470m-ds3h-rev-1-1_f021d2e481e840e698b03196ba999c1d_large.png", "image");
+    getItemImage("https://gearvn.com/products/ssd-adata-xpg-spectrix-s40g-rgb-512gb");
+    }
 
     public static void saveImage(String url, String name) throws IOException {
         try(InputStream in = new URL(url).openStream()){
-            Files.copy(in, Paths.get("/Users/ThienLong/Google Drive/Image/" + name + ".jpg"));
+            Files.copy(in, Paths.get("/Users/ThienLong/Documents/temp/" + name + ".jpg"));
         }
     }
     //Get Image

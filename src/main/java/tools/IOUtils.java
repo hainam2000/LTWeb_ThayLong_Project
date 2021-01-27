@@ -20,6 +20,11 @@ public class IOUtils {
         }
     }
 
+    public static String renameFile() {
+
+        return "";
+    }
+
     public static void makeFolder(String name, String path){
             File theDir = new File(path  + name);
             if(!theDir.exists()){

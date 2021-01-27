@@ -24,12 +24,22 @@ public class PaymentController extends HttpServlet {
         String userID = request.getParameter("userID");
 
         if(userID != null) {
-            oe.addProductToOrderDetails(c.getAllProduct(), userID);
-
+            if(oe.isExistBlankOrder(userID)) {
+                oe.addProductToOrderDetails(c.getAllProduct(), userID);
+                oe.changeOrderStatus(userID,c.getTotalPrice());
+                oe.createOrder(userID);
+                c.removeAll();
+                c.commit(session);
+                response.sendRedirect("payment.jsp");
+            } else {
+                oe.createOrder(userID);
+                oe.addProductToOrderDetails(c.getAllProduct(), userID);
+                oe.changeOrderStatus(userID,c.getTotalPrice());
+                oe.createOrder(userID);
+                c.removeAll();
+                c.commit(session);
+                response.sendRedirect("payment.jsp");
+            }
         }
-
-
-
-        response.sendRedirect("payment.jsp");
     }
 }

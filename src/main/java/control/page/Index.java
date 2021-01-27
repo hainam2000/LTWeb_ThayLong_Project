@@ -1,4 +1,4 @@
-package control;
+package control.page;
 
 import entity.CategoryEntity;
 import entity.ImageEntity;

@@ -1,4 +1,4 @@
-package control;
+package control.page;
 
 import entity.CategoryEntity;
 import entity.ProductEntity;
@@ -13,20 +13,24 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.util.Collection;
 
-@WebServlet(name = "SearchController", urlPatterns = "/search")
-public class SearchController extends HttpServlet {
+@WebServlet(name = "CategoryControl", urlPatterns = "/category")
+public class CategoryControl extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         doGet(request, response);
     }
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        String txtSearch = request.getParameter("search");
-        CategoryEntity ce = new CategoryEntity();
         ProductEntity pe = new ProductEntity();
-        Collection<Product> products = pe.searchProduct(txtSearch);
+        CategoryEntity ce = new CategoryEntity();
+        String cateID = request.getParameter("cid");
+
+
+        Collection<Product> products = pe.getAllProductByCategoryID(cateID);
         Collection<Category> categories = ce.getAllCategory();
+        int pages = ce.getNumberPageWithCate(cateID);
+
         request.setAttribute("clist", categories);
         request.setAttribute("productsList", products);
-        request.getRequestDispatcher("index.jsp").forward(request,response);
+        request.getRequestDispatcher("index.jsp").forward(request, response);
     }
 }

@@ -1,4 +1,4 @@
-package control;
+package control.cart;
 
 import entity.OrderEntity;
 import entity.ProductEntity;

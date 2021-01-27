@@ -53,10 +53,10 @@
                                                     <span class="product-quantity">
                                                         <span style="position: absolute; left:-50px;">Số lượng: </span>
                                                         <form class="product-quantity--update" action="cart/update?pid=${p.id}" method="post">
-                                                        <a href="cart/add?pid=${p.id}"
+                                                        <a href="cart/addon?pid=${p.id}"
                                                            class="btn btn-outline-secondary">+</a>
                                                         <input type="text" id="quantity" name="quantity" value="${p.quantity}">
-                                                         <a href="cart/remove?pid=${p.id}" class="btn btn-outline-secondary">-</a>
+                                                         <a href="cart/removeon?pid=${p.id}" class="btn btn-outline-secondary">-</a>
                                                              <button value="update" type="submit"
                                                                      class="btn btn-outline-secondary">Update</button>
                                                         </form>
@@ -91,7 +91,7 @@
                         <div class="total-price">
                             <p class="prices-item">
                                 <span class="text">Tạm tính: </span>
-                                <span class="money">${cart.getTotalPrice()}đ</span>
+                                <span class="money">${cart.getTotalPrice() ==  null ? 0 : cart.getTotalPrice()}đ</span>
                             </p>
 
                         </div>

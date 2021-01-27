@@ -1,4 +1,4 @@
-package control;
+package control.user;
 
 import entity.UserEntity;
 import model.User;
@@ -18,11 +18,13 @@ public class userLoadUser4Edit extends HttpServlet {
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
+
         String id = request.getParameter("id");
         UserEntity ue = new UserEntity();
-        User user = ue.getUserByID(id);
-
-        request.setAttribute("userDetail", user);
+        if(id != null) {
+            User user = ue.getUserByID(id);
+            request.setAttribute("userDetail", user);
+        }
 
         request.getRequestDispatcher("userEditUser.jsp").forward(request,response);
     }

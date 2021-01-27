@@ -58,7 +58,7 @@
                 <ul class="header__user--account" style="font-size: 15px !important;">
                   <c:if test="${sessionScope.user.role == 1}">
                     <li >
-                      <a role="button" href="editUser?id=${sessionScope.user.id}" style=" color: #32494d" class="btn btn-outline-info btn-sm">Tài khoản</a>
+                      <a role="button" href="user?id=${sessionScope.user.id}" style=" color: #32494d" class="btn btn-outline-info btn-sm">Tài khoản</a>
                     </li>
                     <li>
                       <a role="button" href="loadUser" style=" color: #32494d" class="btn btn-outline-info btn-sm">Quản lý khách hàng</a>
@@ -81,7 +81,7 @@
                       <a role="button" href="#" style=" color: #32494d" class="btn btn-outline-info btn-sm">Kiểm tra đơn hàng</a>
                     </li>
                     <li>
-                      <a role="button" href="editUser?id=${sessionScope.user.id}" style=" color: #32494d" class="btn btn-outline-info btn-sm">Tài khoản</a>
+                      <a role="button" href="user?id=${sessionScope.user.id}" style=" color: #32494d" class="btn btn-outline-info btn-sm">Tài khoản</a>
                     </li>
                     <li>
                       <a role="button" href="#" style=" color: #32494d" class="btn btn-outline-info btn-sm">Câu hỏi thường gặp</a>

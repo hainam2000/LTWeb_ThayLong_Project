@@ -1,4 +1,4 @@
-package control;
+package control.user;
 
 import entity.UserEntity;
 

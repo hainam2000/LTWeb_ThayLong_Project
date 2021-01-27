@@ -8,9 +8,9 @@ import java.util.Map;
 public class Order implements Serializable {
     private int id;
     private int idUser;
-//    private Map<Integer, OrderDetail> orderList = new HashMap<>();
     private int totalPrice;
     private String status;
+    private String date;
 
     public Order() {
 
@@ -39,10 +39,6 @@ public class Order implements Serializable {
         this.idUser = idUser;
     }
 
-//    public double getTotalPrice() {
-//        return totalPrice;
-//    }
-
     public void setTotalPrice(int totalPrice) {
         this.totalPrice = totalPrice;
     }
@@ -55,41 +51,13 @@ public class Order implements Serializable {
         this.status = status;
     }
 
-    public void addOrderDetail(OrderDetail orderDetail){
-
+    public String getDate() {
+        return this.date;
+    }
+    public void setDate(String date) {
+        this.date = date;
     }
 
-//    public void addOrderDetail(OrderDetail od) {
-//        if(orderList.containsKey(od.getId())) {
-//            orderList.get(od.getId()).addOneQuantity();
-//        } else if(!orderList.containsKey(od.getId())) {
-//            orderList.put(od.getId(), od);
-//        }
-//    }
-/*
-    public void getValuesOfOrderList() {
-        for(Map.Entry<Integer, OrderDetail> o : orderList.entrySet()){
-            System.out.println(o.toString());
-        }
-    }
-    public void updateQuantityOrder(String id, int quantity) {
-        if(quantity < 0) {
-            return;
-        }
-        if(orderList.containsKey(id)) orderList.get(id).setQuantity(quantity);
-    }
-
-    public void removeOrderDetail(String id) {
-        orderList.remove(id);
-    }
-
-    public double getTotalPrice() {
-        for(OrderDetail o : orderList.values()) {
-//            totalPrice += o.getTotalPrice() * o.getQuantity();
-        }
-        return totalPrice;
-    }
-*/
     @Override
     public String toString() {
         return "Order{" +

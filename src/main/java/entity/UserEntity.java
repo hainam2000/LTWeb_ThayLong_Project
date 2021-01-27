@@ -210,5 +210,18 @@ public class UserEntity {
         return 0;
     }
 
-
+    public String getUserMail(String userId) {
+        PreparedStatement ps = null;
+        String sql = "select `User`.mail from `User` WHERE `User`.id = ?";
+        try{
+            ps = ConnectionDB.preparedStatementConnect(sql);
+            ps.setString(1, userId);
+            ResultSet rs = ps.executeQuery();
+            if(rs.next()) {
+                return rs.getString(1);
+            } else return null;
+        } catch (Exception e){
+            return null;
+        }
+    }
 }

@@ -1,6 +1,7 @@
 package control.cart;
 
 import entity.OrderEntity;
+import entity.UserEntity;
 import model.Cart;
 
 import javax.servlet.ServletException;
@@ -21,7 +22,13 @@ public class PaymentController extends HttpServlet {
         HttpSession session = request.getSession();
         Cart c = Cart.getCartSession(session);
         OrderEntity oe = new OrderEntity();
+        UserEntity ue = new UserEntity();
         String userID = request.getParameter("userID");
+        String userMail = request.getParameter("userMail");
+        String mail;
+        if(userMail != null) {
+            mail = ue.getUserMail(userID);
+        }
 
         if(userID != null) {
             if(oe.isExistBlankOrder(userID)) {

@@ -1,4 +1,4 @@
-package control;
+package control.admin;
 
 import entity.BrandEntity;
 import entity.CategoryEntity;

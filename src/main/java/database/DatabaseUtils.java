@@ -34,7 +34,9 @@ public class DatabaseUtils {
 //        oe.changeOrderStatus("2", c.getTotalPrice());
 //
 //
-        oe.createOrder("2");
+        System.out.println(ue.getUserByID("1").toString());
+
+//        oe.createOrder("2");
 //        System.out.println(c.getTotalPrice());
 //        c.updateProduct("1", );
 //        System.out.println(c.getTotalQuantity());

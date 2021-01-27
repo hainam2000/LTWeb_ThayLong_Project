@@ -17,32 +17,14 @@ public class DatabaseUtils {
         UserEntity ue = new UserEntity();
         OrderEntity oe = new OrderEntity();
         Order o = new Order();
+        ShippingEntity se = new ShippingEntity();
 
-        Product product = pe.getProductWithID("1");
-        Cart c = new Cart();
+        List<Shipping> shippingList = se.getAllShipping();
 
+        for(Shipping shipping : shippingList) {
+            System.out.println(shipping.toString());
+        }
 
-        String mail = "18130132@st.hcmuaf.edu.vn";
-        String orderID = "16";
-        String userID = "15";
-        String username = "test";
-        String subject = "Thanh toán thành công!";
-        String productList = oe.getAllOrderDetail(orderID, userID);
-        String totalPrice = "===================== \nTổng đơn hàng: " + oe.getTotalPrice(orderID, userID);
-        String body = "Cảm ơn bạn đã tin tưởng dịch vụ của chúng tôi! \nDưới đây là thông tin đơn hàng " + orderID + " của bạn!\n" + productList + totalPrice;
-
-        Mail mailsend = new Mail(mail, subject, body);
-
-        System.out.println(body);
-
-        //MailUtils.sendMail(mailsend);
-//        mu.sendPaidMail("18130132@st.hcmuaf.edu.vn", userID, orderID);
-
-//        oe.createOrder("2");
-//        System.out.println(c.getTotalPrice());
-//        c.updateProduct("1", );
-//        System.out.println(c.getTotalQuantity());
-//        oe.changeOrderStatus("2",c.getTotalPrice());
     }
 
 

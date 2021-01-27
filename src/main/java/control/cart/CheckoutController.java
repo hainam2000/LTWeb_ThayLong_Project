@@ -11,6 +11,9 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import java.io.IOException;
+import java.util.Collection;
+import java.util.LinkedList;
+import java.util.List;
 
 @WebServlet(name = "CheckoutController", urlPatterns = "/checkout")
 public class CheckoutController extends HttpServlet {
@@ -23,15 +26,14 @@ public class CheckoutController extends HttpServlet {
         Cart c = Cart.getCartSession(session);
         ShippingEntity shippingEntity = new ShippingEntity();
 
-
+        Collection<Shipping> shippingList = shippingEntity.getAllShipping();
+        request.setAttribute("shippingList", shippingList);
         String shipping = request.getParameter("shipping");
-        String payment = request.getParameter("payment");
         if(shipping != null) {
             Shipping shippingByName = shippingEntity.getShippingByName(shipping);
             c.setShippingPrice(shippingByName);
             c.commit(session);
         }
-
-        response.sendRedirect("checkout.jsp");
+        request.getRequestDispatcher("checkout.jsp").forward(request,response);
     }
 }

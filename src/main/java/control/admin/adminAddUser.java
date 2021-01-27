@@ -16,6 +16,8 @@ public class adminAddUser extends HttpServlet {
     }
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        response.setContentType("text/html;charset=UTF-8");
+        request.setCharacterEncoding("UTF-8");
 
         String id_role = request.getParameter("new_user_role");
         String fullname = request.getParameter("new_user_fullname");
@@ -26,8 +28,8 @@ public class adminAddUser extends HttpServlet {
         String password = request.getParameter("new_user_password");
 
         UserEntity ue = new UserEntity();
-
         int id = ue.getMaxId()+1;
+
         ue.addUser(id,fullname,email,phone,address,id_role,username,password);
         response.sendRedirect("loadUser");
 

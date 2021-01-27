@@ -49,20 +49,16 @@
                                                 </p>
                                                 <br>
                                                 <br>
-                                                <p style="width: 150px; position: absolute;top: 30px; left: -15px; text-align: center;">
+                                                <p style="width: 150px;text-align: center;">
                                                     <span class="product-quantity">
-                                                        <span class="">Số lượng: </span>
-                                                        <form action="cart/update?pid=${p.id}">
+                                                        <span style="position: absolute; left:-50px;">Số lượng: </span>
+                                                        <form class="product-quantity--update" action="cart/update?pid=${p.id}" method="post">
                                                         <a href="cart/add?pid=${p.id}"
-                                                            class="btn btn-outline-secondary">+</a>
-                                                        <input type="text" id="quantity" value="${p.quantity}"
-                                                            name="quantity" size="2">
-                                                        <a href="cart/remove?pid=${p.id}" class="btn btn-outline-secondary">-</a>
-
-                                                        <button value="update" type="submit"
-                                                            class="btn btn-outline-secondary">Update</button>
-                                                        <%-- <a href="cart/update?pid=${p.id}"
-                                                            class="btn btn-outline-secondary">Update</a>--%>
+                                                           class="btn btn-outline-secondary">+</a>
+                                                        <input type="text" id="quantity" name="quantity" value="${p.quantity}">
+                                                         <a href="cart/remove?pid=${p.id}" class="btn btn-outline-secondary">-</a>
+                                                             <button value="update" type="submit"
+                                                                     class="btn btn-outline-secondary">Update</button>
                                                         </form>
                                                     </span>
                                                 </p>
@@ -126,6 +122,7 @@
                             countElement.value = count;
                         }
                     }
+
                 </script>
             </body>
 

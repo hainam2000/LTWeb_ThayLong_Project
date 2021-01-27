@@ -19,11 +19,22 @@ public class Cart implements Serializable {
     }
 
     public int getTotalPrice() {
+        int tempPrice = 0;
         for(Product p : productMap.values()) {
-            totalPrice += p.getPrice();
+            tempPrice += p.getPrice() * p.getQuantity();
         }
-        return totalPrice;
+        return tempPrice;
     }
+    public void setTotalPrice(int totalPrice) {
+        this.totalPrice = totalPrice;
+    }
+
+    public void setTotalPrice() {
+        for(Product p : productMap.values()) {
+            this.totalPrice += p.getPrice() * p.getQuantity();
+        }
+    }
+
     public void setShippingPrice(Shipping shipping) {
          this.shippingPrice = shipping.getPrice();
     }
@@ -33,10 +44,6 @@ public class Cart implements Serializable {
 
     public int getTotalQuantity() {
         return  productMap.size();
-    }
-
-    public void setTotalPrice(int totalPrice) {
-        this.totalPrice = totalPrice;
     }
 
     public boolean isContain(String productId) {
@@ -68,25 +75,22 @@ public class Cart implements Serializable {
     public void updateProduct(String productId, String quantity) {
         if(Utils.changeStringToInt(quantity) <= 0) return;
         if(productMap.containsKey(Utils.changeStringToInt(productId))) {
-            System.out.println(getTotalPrice());
-
             productMap.get(Utils.changeStringToInt(productId)).setQuantity(Utils.changeStringToInt(quantity));
-            System.out.println(productMap.get(Utils.changeStringToInt(productId)).getQuantity());
-
-            int updatePrice = (productMap.get(Utils.changeStringToInt(productId)).getQuantity() *
-                    productMap.get(Utils.changeStringToInt(productId)).getPrice());
-
-
-            System.out.println(updatePrice);
-            setTotalPrice(getTotalPrice() - updatePrice);
-
-            System.out.println(getTotalPrice());
+            productMap.get(Utils.changeStringToInt(productId)).updateStorage(Utils.changeStringToInt(quantity));
+            System.out.println("new price: " + getTotalPrice());
         }
     }
 
+    public void removeOneQuantityProduct(String productId) {
+        if(isContain(productId)) {
+            productMap.get(Utils.changeStringToInt(productId)).setQuantity(Utils.changeStringToInt(productId) - 1);
+            productMap.get(Utils.changeStringToInt(productId)).updateStorage(-(Utils.changeStringToInt(productId) - 1));
+        }
+    }
 
     public void removeProduct(String productId) {
         productMap.remove(Utils.changeStringToInt(productId));
+        productMap.get(Utils.changeStringToInt(productId)).updateStorage(productMap.get(-Utils.changeStringToInt(productId)).getQuantity());
     }
 
 

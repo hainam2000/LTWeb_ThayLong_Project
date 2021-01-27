@@ -75,6 +75,20 @@
   text-align: center;
   margin-top: 10px;
 }
+.product-quantity--update{
+  position: absolute;
+  height: 40px;
+  line-height: 40px;
+  left: 18px;
+  top: 30px;
+}
+.product-quantity--update input {
+  height: 20px;
+  width: 50px;
+}
+.product-quantity--update a {
+  border: 1px solid;
+}
 .cart__price {
   position: fixed;
   width: calc(100% - 900px);

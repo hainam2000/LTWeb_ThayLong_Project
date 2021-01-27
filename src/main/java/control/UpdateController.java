@@ -3,6 +3,7 @@ package control;
 import entity.ProductEntity;
 import model.Cart;
 import model.Product;
+import tools.Utils;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -22,11 +23,14 @@ public class UpdateController extends HttpServlet {
         String productID = request.getParameter("pid");
         String quantity = request.getParameter("quantity");
         HttpSession session = request.getSession();
-        if (productID != null) {
-            Cart cart = Cart.getCartSession(session);
+        Cart cart = Cart.getCartSession(session);
+        System.out.println(productID);
+        System.out.println(Utils.changeStringToInt(quantity));
+        if(productID != null && Utils.changeStringToInt(quantity) > 0)  {
             cart.updateProduct(productID, quantity);
+            System.out.println(cart.getTotalPrice());
             cart.commit(session);
             response.sendRedirect("/LTWeb_war_exploded/cart");
-        } else response.sendRedirect("/LTWeb_war_exploded/Index");
+        } else System.out.println("error");
     }
 }

@@ -120,7 +120,7 @@
                         <form action="cart/update?pid=${p.id}">
                           <a href="cart/add?pid=${p.id}"
                              class="btn btn-outline-secondary">+</a>
-                          <input type="text" id="quantity" value="${p.quantity}"
+                          <input type="text" id="quantity"
                                  name="quantity" size="2">
                           <a href="cart/remove?pid=${p.id}" class="btn btn-outline-secondary">-</a>
 

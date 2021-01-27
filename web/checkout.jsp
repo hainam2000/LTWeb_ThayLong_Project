@@ -132,24 +132,7 @@
                     function submitPayment() {
                         document.getElementById("payment").submit();
                     }
-                        // document.getElementById("shipping").submit();
-                        // $(document).ready( function (){
-                        //     var radioVal;
-                        //     $("input[type='radio']").click( function () {
-                        //         radioVal = $("[name=shipping]:checked").val();
-                        //         alert(radioVal)
-                        //         $.post("checkout.jsp", {"shippingType" : radioVal});
-                        //     })
-                        //     // $('#payment').blur(function () {
-                        //     //
-                        //     // })
-                        // })
-                    //
-                    // $(document).ready(function() {
-                    //     $('[name=shipping]:checked').blur(function() {
-                    //
-                    //     });
-                    // });
+
 
                     function getShipping() {
                             var radioVal;

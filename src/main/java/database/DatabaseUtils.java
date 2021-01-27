@@ -19,22 +19,6 @@ public class DatabaseUtils {
 
         Product product = pe.getProductWithID("1");
         Cart c = new Cart();
-
-        c.addProduct(pe.getProductWithID("1"));
-        System.out.println(c.getTotalPrice());
-        c.addProduct(pe.getProductWithID("1"));
-        System.out.println(c.getTotalPrice());
-        c.addProduct(pe.getProductWithID("1"));
-        System.out.println(c.getTotalPrice());
-        c.addProduct(pe.getProductWithID("1"));
-        System.out.println(c.getTotalPrice());
-        c.addProduct(pe.getProductWithID("1"));
-        System.out.println(c.getTotalPrice());
-
-
-
-
-
         c.updateProduct("1", "2");
 
 

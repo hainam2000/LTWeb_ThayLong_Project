@@ -6,8 +6,7 @@
 <head>
     <title>Chỉnh sửa thông tin khách hàng</title>
     <link rel="stylesheet" href="assets/css/EditUser.css">
-    <link rel="stylesheet" href="assets/css/bootstrap.css ">
-      
+
 </head>
 <body>
 <jsp:include page="header.jsp"></jsp:include>

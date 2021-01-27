@@ -5,8 +5,6 @@
 <html lang="en">
 <head>
     <title>Thông tin cá nhân</title>
-    <link href="assets/css/fontawesome.css" rel="stylesheet">
-    <link href="assets/css/bootstrap.css" rel="stylesheet">
     <link href="assets/css/user.css" rel="stylesheet">
     <!------ Include the above in your HEAD tag ---------->
 </head>

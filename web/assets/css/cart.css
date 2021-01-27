@@ -164,3 +164,9 @@
   color:red;
   font-weight: bold;
 }
+
+.acceptpay {
+  margin-top: 5px;
+  width: 100%;
+  font-size: 15px;
+}

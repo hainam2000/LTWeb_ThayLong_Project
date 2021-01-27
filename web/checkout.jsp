@@ -8,8 +8,6 @@
                 <meta http-equiv="x-ua-compatible" content="ie=edge">
                 <meta name="viewport" content="width=device-width, initial-scale=1">
                 <link rel="stylesheet" href="assets/css/checkout.css">
-                <link rel="stylesheet" href="assets/css/font-awesome.min.css">
-                <link href="assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
                 <script src="/assets/js/cart.js"></script>
                 <title>LKMT - Thông tin thanh toán</title>
             </head>
@@ -65,12 +63,15 @@
                         </h3>
                         <div class="shipping-method">
                             <form id="shipping" method="get" action="/LTWeb_war_exploded/checkout">
-                                <input type="radio" name="shipping" id="saving" onclick="getShipping()" value="saving">
-                                <label for="saving">Giao hang tiet kiem</label> <br>
-                                <input type="radio" name="shipping" id="fast" onclick="getShipping()" value="fast">
-                                <label for="fast">Giao hang nhanh</label><br>
-                                <input type="radio" name="shipping" id="safety" onclick="getShipping()" value="safety">
-                                <label for="safety">Giao hang an toan</label>
+                                <c:forEach var="s" items="${shippingList}">
+                                <input type="radio" name="shipping" id="${s.type}" onclick="getShipping()" value="${s.type}">
+                                <label for="${s.type}">${s.name}</label><br>
+                                </c:forEach>
+
+<%--                                <input type="radio" name="shipping" id="fast" onclick="getShipping()" value="fast">--%>
+<%--                                <label for="fast">Giao hang nhanh</label><br>--%>
+<%--                                <input type="radio" name="shipping" id="safety" onclick="getShipping()" value="safety">--%>
+<%--                                <label for="safety">Giao hang an toan</label>--%>
                             </form>
                         </div>
                         <h3 class="cart__product--title" style="margin-top: 10px;">
@@ -78,10 +79,15 @@
                         </h3>
 
                         <p class="payment" style="margin-top: 10px;">
-                            <c:if test="${sessionScope.user != null && !sessionScope.user.address.equals('')}">
+                            <c:if test="${sessionScope.user != null && !sessionScope.user.address.equals('') && cart.getShippingPrice() != 0}">
                                 <a href="payment?userID=${sessionScope.user.id}&userMail=${sessionScope.user.email}" class="btn btn-danger" style="width: fit-content">
-                                    Xác nhận thanh toán
+                                    Xác nhận thanh toán.
                                 </a>
+                            </c:if>
+                            <c:if test="${sessionScope.user != null && !sessionScope.user.address.equals('') && cart.getShippingPrice() == 0}">
+                                <div class="alert alert-warning">
+                                    Xin vui lòng chọn phương thức giao hàng.
+                                </div>
                             </c:if>
                             <c:if test="${sessionScope.user == null}">
                                 <div class="alert alert-warning">

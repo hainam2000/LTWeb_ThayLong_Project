@@ -7,7 +7,6 @@
     <meta charset="UTF-8">
     <title>Quản lý người dùng</title>
     <link rel="stylesheet" href="assets/css/userManager.css">
-    <link rel="stylesheet" href="assets/css/bootstrap.css ">
 </head>
 <body>
 <jsp:include page="header.jsp"></jsp:include>

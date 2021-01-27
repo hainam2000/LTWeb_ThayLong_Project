@@ -14,14 +14,9 @@
           <title>LKMT - Linh Kiện Máy Tính</title>
 
           <!-- Bootstrap core CSS -->
-          <link href="assets/css/bootstrap.min.css" rel="stylesheet">
-          <link rel="stylesheet" href="assets/css/fontawesome.min.css">
 
           <!-- Custom styles for this template -->
           <link href="assets/css/shop-homepage.css" rel="stylesheet">
-          <script src="assets/js/bootstrap.js"></script>
-          <script src="assets/js/jquery.min.js"></script>
-          <script src="assets/js/bootstrap.bundle.js"></script>
 
         </head>
 
@@ -31,10 +26,9 @@
           <jsp:include page="header.jsp"></jsp:include>
           <jsp:include page="advertisement.jsp"></jsp:include>
           <!-- Page Content -->
-          <div class="page-content" style="margin-top: 5% !important;">
-            <div class="container">
-
-              <div class="row">
+          <div class="page-content" style="margin: 5% !important;">
+            <div class="container" style="max-width: 960px;">
+              <div class="row" style="margin-left: 2.5px;">
                 <c:forEach items="${productsList}" var="p">
                   <div class="product">
                     <div class="product__header">

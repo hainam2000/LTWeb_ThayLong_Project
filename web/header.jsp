@@ -9,6 +9,7 @@
   <title>Document</title>
   <!-- Bootstrap core CSS -->
   <link href="assets/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="assets/css/bootstrap.css">
   <link rel="stylesheet" href="assets/css/font-awesome.min.css">
 
   <!-- Custom styles for this template -->
@@ -100,8 +101,8 @@
 
               <div class="header__user--cart" style="font-size: 15px !important;">
                 <div class="shopping-cart-header">
-                  <i style="position: relative; right: 30%;" class="fa fa-shopping-cart cart-icon fa-lg"></i>
-                  <span style="position: relative;right: 30%;" class="badge fa-sm">${cart == null ? 0 : cart.getTotalQuantity()}</span>
+                  <i style="position: relative; right: 70%;" class="fa fa-shopping-cart cart-icon fa-lg"></i>
+                  <span style="position: relative;right: 69%;" class="badge fa-sm">${cart == null ? 0 : cart.getTotalQuantity()}</span>
                   <a role="button" href="/LTWeb_war_exploded/cart" style="float: right; color: #32494d"
                      class="btn btn-outline-info btn-sm">Chi Tiết Giỏ Hàng</a>
                 </div>
@@ -113,22 +114,16 @@
                            src=${p.imgUrl}>
                       <span class="item-name">${p.name}</span>
                       <div class="item-quantity">
-                        <span class="">Số lượng: </span>
-                        <form action="cart/update?pid=${p.id}">
-                          <a href="cart/add?pid=${p.id}"
-                             class="btn btn-outline-secondary">+</a>
-                          <input type="text" id="quantity"
-                                 name="quantity" size="2">
-                          <a href="cart/remove?pid=${p.id}" class="btn btn-outline-secondary">-</a>
-
-                          <button value="update" type="submit"
-                                  class="btn btn-outline-secondary">Update</button>
-                            <%-- <a href="cart/update?pid=${p.id}"
-                                class="btn btn-outline-secondary">Update</a>--%>
+                        <span style="float: left;">Số lượng: </span>
+                        <form class="product-quantity--update" action="cart/update?pid=${p.id}" method="post">
+                        <a href="cart/addon?pid=${p.id}"
+                           class="btn btn-secondary">+</a>
+                        <input type="text" id="quantity" name="quantity" value="${p.quantity}">
+                         <a href="cart/removeon?pid=${p.id}" class="btn btn-secondary">-</a>
                         </form>
                       </div>
                       <span class="item-price">Tổng tiền:${p.price}</span>
-                      <a href="cart/delete?pid=${p.id}" class="btn btn-outline-danger item-cancel">X</a>
+                      <a style="color: red; position: absolute; top: 45px;" href="cart/delete?pid=${p.id}" class="btn btn-outline-danger item-cancel">X</a>
                     </li>
                   </c:forEach>
                 </ul>
@@ -148,9 +143,9 @@
       <div class="modal-content">
         <div class="contain-main">
           <div class="tab">
-            <button style="width: 150px;" class="tablinks" onclick="changeTab(event, 'login')" id="defaultOpen">ĐĂNG NHẬP</button>
-            <button style="width: 150px;" class="tablinks" onclick="changeTab(event, 'register')">ĐĂNG KÝ</button>
-            <button style="width: 150px;" class="tablinks" onclick="changeTab(event, 'forgot')">QUÊN MẬT KHẨU</button>
+            <button class="tablinks" onclick="changeTab(event, 'login')" id="defaultOpen">ĐĂNG NHẬP</button>
+            <button class="tablinks" onclick="changeTab(event, 'register')">ĐĂNG KÝ</button>
+            <button class="tablinks" onclick="changeTab(event, 'forgot')">QUÊN MẬT KHẨU</button>
           </div>
           <div class="alert alert-danger " style="${mess == null ? "display: none;" : "display: block;"}">
               ${mess}
@@ -178,13 +173,13 @@
                   <input class="form-control" type="password" placeholder="Vui lòng nhập đúng mật khẩu ở trên "
                          name="confirmPassword" required>
                   <div class="error"></div>
-                  <div class="form-group">
-                    <label class="lb">Email</label>
-                    <input class="form-control" type="email" placeholder="Địa chỉ Email" name="mail">
-                    <div class="error"></div>
-                  </div>
                 </div>
-                <button class="btn-reg">Đăng ký</button>
+                <div class="form-group">
+                  <label class="lb">Email</label>
+                  <input class="form-control" type="email" placeholder="Địa chỉ Email" name="mail">
+                  <div class="error"></div>
+                </div>
+                <button class="btn-reg btn btn-info">Đăng ký</button>
               </form>
               <br>
             </div>
@@ -204,7 +199,7 @@
 
                 </div>
                 <a class="forgot-pass" onclick="changeTab(event, 'forgot')">Quên mật khẩu?</a>
-                <button class="btn-login">Đăng nhập</button>
+                <button class="btn-login btn btn-success">Đăng nhập</button>
               </form>
               <br>
             </div>
@@ -221,7 +216,7 @@
                   <label class="lb">Email</label>
                   <input class="form-control" type="email" placeholder="Địa chỉ Email" name="mail">
                 </div>
-                <button class="btn-forgot">Xác nhận</button>
+                <button class="btn-forgot btn btn-warning">Xác nhận</button>
               </form>
               <br>
             </div>

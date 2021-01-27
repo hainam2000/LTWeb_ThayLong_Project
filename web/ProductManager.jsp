@@ -7,9 +7,6 @@
     <meta charset="UTF-8">
     <title>Quản lý sản phẩm</title>
     <link rel="stylesheet" href="assets/css/productManager.css">
-    <link rel="stylesheet" href="assets/css/bootstrap.css ">
-    <link rel="stylesheet" href="assets/css/fontawesome.min.css">
-    <link href="assets/css/bootstrap.min.css" rel="stylesheet">
 
 
 </head>

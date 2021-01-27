@@ -6,7 +6,6 @@
 <head>
     <meta charset="UTF-8">
     <title>LKMT - Linh Kiện Máy Tính</title>
-    <link rel="stylesheet" href="assets/css/bootstrap.css">
     <link rel="stylesheet" href="assets/css/register-page.css">
 </head>
 <body>

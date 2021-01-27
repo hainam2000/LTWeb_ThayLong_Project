@@ -6,8 +6,6 @@
 <head>
     <title>Chỉnh sửa thông tin sản phẩm</title>
     <link rel="stylesheet" href="assets/css/EditProduct.css">
-    <link rel="stylesheet" href="assets/css/bootstrap.css ">
-    <link rel="stylesheet" href="assets/css/fontawesome.min.css">
 
 
 </head>

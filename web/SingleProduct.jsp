@@ -13,13 +13,7 @@
         <title>LKMT - ${product.name}</title>
 
         <!-- Custom styles for this template -->
-        <link href="assets/css/bootstrap.css" rel="stylesheet">
-        <link rel="stylesheet" href="assets/css/fontawesome.min.css">
         <link rel="stylesheet" href="assets/css/shop-item.css">
-        <!-- jQuery 1.8 or later, 33 KB -->
-        <script src="assets/js/bootstrap.js"></script>
-        <script src="assets/js/jquery.min.js"></script>
-        <script src="assets/js/bootstrap.bundle.js"></script>
       </head>
 
       <body>

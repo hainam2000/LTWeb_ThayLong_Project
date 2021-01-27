@@ -8,8 +8,6 @@
                 <meta http-equiv="x-ua-compatible" content="ie=edge">
                 <meta name="viewport" content="width=device-width, initial-scale=1">
                 <link rel="stylesheet" href="assets/css/cart.css">
-                <link rel="stylesheet" href="assets/css/font-awesome.min.css">
-                <link href="assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
                 <script src="/assets/js/cart.js"></script>
                 <title>Cart</title>
             </head>
@@ -51,15 +49,15 @@
                                                 <br>
                                                 <p style="width: 150px;text-align: center;">
                                                     <span class="product-quantity">
-                                                        <span style="position: absolute; left:-50px;">Số lượng: </span>
-                                                        <form class="product-quantity--update" action="cart/update?pid=${p.id}" method="post">
+                                                        <span style="position: absolute; left:-50px;">Số lượng:  <form class="product-quantity--update" action="cart/update?pid=${p.id}" method="post">
                                                         <a href="cart/addon?pid=${p.id}"
                                                            class="btn btn-outline-secondary">+</a>
                                                         <input type="text" id="quantity" name="quantity" value="${p.quantity}">
                                                          <a href="cart/removeon?pid=${p.id}" class="btn btn-outline-secondary">-</a>
                                                              <button value="update" type="submit"
                                                                      class="btn btn-outline-secondary">Update</button>
-                                                        </form>
+                                                        </form> </span>
+
                                                     </span>
                                                 </p>
                                             </div>
@@ -96,12 +94,12 @@
 
                         </div>
                         <c:if test="${sessionScope.user == null}">
-                            <a href="/cart" data-toggle="modal" data-target="#myModal" class="btn btn-success">
+                            <a href="/cart" data-toggle="modal" data-target="#myModal" class="btn btn-success acceptpay">
                                 <span> Thanh Toán </span>
                             </a>
                         </c:if>
                         <c:if test="${sessionScope.user != null}">
-                            <a href="checkout?userID=${sessionScope.user.id}" class="btn btn-success">
+                            <a href="checkout?userID=${sessionScope.user.id}" class="btn btn-success acceptpay">
                                 <span> Thanh Toán </span>
                             </a>
                         </c:if>

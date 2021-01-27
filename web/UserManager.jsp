@@ -20,7 +20,7 @@
 
                     </li>
                     <li class="navbar__single ">
-                        <a href="#" >Quản lí sản phẩm</a>
+                        <a href="loadProduct" >Quản lí sản phẩm</a>
                     </li>
 
                     <li class="navbar__single">
@@ -96,6 +96,80 @@
                 </div>
 
             </div>
+            <div class="modal" id="addUserModal">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <div class="contain-main">
+                            <div class="tabcontent" id="addUser" style="display: block">
+                                <h3 class="form-title">Nhập thông tin tài khoản</h3>
+                                <div class="form-container">
+<%--                                   from here --%>
+
+                                    <form class="reg-form" method="get" action="addUser">
+
+                                        <div class="form-group">
+                                                <label class="lb">Họ tên</label>
+                                                <input class="form-control" type="text" placeholder="Họ và Tên" name="new_user_fullname">
+                                                <div class="error"></div>
+                                        </div>
+
+                                        <div class="form-group">
+                                            <label class="lb">Email</label>
+                                            <input class="form-control" type="email" placeholder="VD: aaa@gmail.com" name="new_user_email">
+                                            <div class="error"></div>
+                                        </div>
+
+                                        <div class="form-group">
+                                            <label class="lb">SDT</label>
+                                            <input class="form-control" type="text" placeholder="Số điện thoại" name="new_user_phone">
+                                            <div class="error"></div>
+                                        </div>
+
+                                        <div class="form-group">
+                                            <label class="lb">Địa chỉ</label>
+                                            <input class="form-control" type="text" placeholder="Địa chỉ" name="new_user_address">
+                                            <div class="error"></div>
+                                        </div>
+
+                                        <div class="form-group">
+                                            <label class="lb">Chức năng (1: Admin | 2: Người dùng)</label>
+                                            <input class="form-control" type="text" placeholder="1 or 2" name="new_user_role">
+                                            <div class="error"></div>
+                                        </div>
+
+
+                                        <div class="form-group">
+                                            <label class="lb">Tài Khoản</label>
+                                            <input class="form-control" type="text" placeholder="Tài khoản (VD: aaa)" name="new_username" required>
+                                            <div class="error"></div>
+                                        </div>
+
+                                        <div class="form-group">
+                                            <label class="lb">Mật khẩu</label>
+                                            <input class="form-control" type="password" placeholder="Mật khẩu (8-18 ký tự)" name="new_user_password"
+                                                   required>
+                                            <div class="error"></div>
+                                        </div>
+
+
+                                        <button class="btn-reg" type="submit" style="margin-left: 190px">Thêm tài khoản</button>
+                                    </form>
+                                    <br>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <br><hr>
+            <div style="margin-left: 5px;margin-bottom: 90px">
+                <div>
+                    <h3 style="float: left;">Danh sách tài khoản</h3>
+                </div>
+                <div style="float: left;text-align: center;padding-top: 25px;padding-left: 12px;">
+                    <a href="#" data-toggle="modal" data-target="#addUserModal"><span>Thêm tài khoản</span></a>
+                </div>
+            </div>
 
             <table class="table table-data2" id="data-list">
                 <thead>
@@ -118,8 +192,9 @@
                         <td>${u.phone}</td>
                         <td>${u.address}</td>
                         <td>${u.accountName}</td>
-                        <td><a  href="LoadForEditUser_A?uid=${u.id}"><i class="fas fa-edit">Sửa</i></a>
-                            <a href="deleteUser?uid=${u.id}"><i class="fas fa-trash">Xóa</i></a></td>
+                        <td>
+                            <a href="loadUser4Edit?uid=${u.id}">Sửa</a> | <a href="deleteUser?uid=${u.id}">Xóa</a>
+                        </td>
                     </tr>
                 </c:forEach>
                 </thead>
@@ -129,6 +204,7 @@
             </table>
         </div>
     </div>
+
 
 </body>
 </html>

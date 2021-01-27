@@ -42,4 +42,57 @@ public class ImageEntity {
             return null;
         }
     }
+    public void deleteImageWithIdAndPid(String id,String pid){
+        Statement s = null;
+        String query = "delete from image where idImage = '"+id+"' AND idProduct='"+pid+"'";
+        try{
+            s = ConnectionDB.connect();
+            s.execute(query);
+        }
+        catch (ClassNotFoundException|SQLException e) {
+            e.printStackTrace();
+        }
+
+    }
+    public int getCountIdOfSingleProduct(String pid){
+        Statement s = null;
+        int result ;
+        String query = "SELECT idProduct,COUNT(idImage) count from image ";
+        ResultSet rs;
+        try{
+            s = ConnectionDB.connect();
+            rs = s.executeQuery(query +" WHERE idProduct ='"+pid+"' GROUP BY  idProduct");
+
+            if(rs.next()){
+                return result = rs.getInt(2);
+            }
+
+
+        }
+        catch (ClassNotFoundException|SQLException e) {
+            e.printStackTrace();
+        }
+        return 0;
+    }
+
+    public int getMaxIdOfSingleProduct(String pid){   //use to get the biggest id of the product you need
+        Statement s = null;
+        int result ;
+        String query = "SELECT idProduct,MAX(idImage) count from image ";
+        ResultSet rs;
+        try{
+            s = ConnectionDB.connect();
+            rs = s.executeQuery(query +" WHERE idProduct ='"+pid+"' GROUP BY  idProduct");
+
+            if(rs.next()){
+                return result = rs.getInt(2);
+            }
+
+
+        }
+        catch (ClassNotFoundException|SQLException e) {
+            e.printStackTrace();
+        }
+        return 0;
+    }
 }

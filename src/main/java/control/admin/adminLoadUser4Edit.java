@@ -9,9 +9,10 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
+import java.util.Collection;
 
-@WebServlet(name = "LoadForEditUser_U",urlPatterns = "/LoadForEditUser_U")
-public class LoadForEditUser_U extends HttpServlet {
+@WebServlet(name = "adminLoadUser4Edit",urlPatterns = "/loadUser4Edit")
+public class adminLoadUser4Edit extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
             doGet(request,response);
     }
@@ -24,6 +25,6 @@ public class LoadForEditUser_U extends HttpServlet {
 
         request.setAttribute("userDetail", user);
 
-        request.getRequestDispatcher("EditUser_U.jsp").forward(request,response);
+        request.getRequestDispatcher("adminEditUser.jsp").forward(request,response);
     }
 }

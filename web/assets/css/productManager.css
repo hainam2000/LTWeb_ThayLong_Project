@@ -76,7 +76,7 @@
     border-radius: 5px;
     width: 225px;
     height: 280px;
-    margin: 20px 3px;
+    margin: 25px 26px;
 }
 .product:hover {
     box-shadow: 0 2px 5px 0 rgba(0,0,0,.26)!important;

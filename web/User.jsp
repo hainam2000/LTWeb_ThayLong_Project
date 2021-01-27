@@ -4,9 +4,9 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <link href="assets/css/bootstrap.css" rel="stylesheet" id="bootstrap-css">
-    <link href="assets/css/User.css" rel="stylesheet">
+    <title>Thông tin cá nhân</title>
+    <link href="assets/css/bootstrap.css" rel="stylesheet">
+    <link href="assets/css/user.css" rel="stylesheet">
     <!------ Include the above in your HEAD tag ---------->
 </head>
 
@@ -35,7 +35,8 @@
 		            <div class="row">
 		                <div class="col-md-12">
 
-                            <form action="LoadForEditUser_U?uid=${userDetail.id}" method="post">
+<%--                            <form action="load4Edit?uid=${userDetail.id}" method="post">--%>
+                                <form action="load4Edit" method="post">
 
                                 <div class="form-group row">
                                     <label for="id" class="col-4 col-form-label">ID</label>

@@ -2,25 +2,26 @@ package entity;
 
 import database.ConnectionDB;
 import model.Category;
-import model.Product;
 
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
-import java.util.*;
-public class CategoryEntity {
+import java.util.LinkedList;
+import java.util.List;
+
+public class BrandEntity {
     Statement s = null;
     PreparedStatement ps = null;
     ConnectionDB c = null;
     ResultSet rs = null;
-    public List<Category> getAllCategory() {
-        List<Category> clist = new LinkedList<>();
+    public List<Category> getAllBrand() {
+        List<Category> blist = new LinkedList<>();
         try {
             s = ConnectionDB.connect();
-            rs = s.executeQuery("SELECT * from Category");
+            rs = s.executeQuery("SELECT * from Brand");
             while(rs.next()){
-                clist.add(new Category(
+                blist.add(new Category(
                         rs.getInt(1),
                         rs.getString(2)
                 ));
@@ -29,32 +30,13 @@ public class CategoryEntity {
         catch (ClassNotFoundException| SQLException e) {
             e.printStackTrace();
         }
-        return clist;
+        return blist;
     }
-    public int getNumberPageWithCate(String id_category){
-        int pages = 0;
-        Statement s = null;
-        try {
-            s = ConnectionDB.connect();
-            ResultSet rs = s.executeQuery(  "select count(*) from product where Product.id_category = " + id_category);
-            while(rs.next()){
-                int total = rs.getInt(1);
-                pages = total / 20;
-                if(total % 20 != 0) {
-                    pages++;
-                }
-            }
-            return pages;
-        }
-        catch (ClassNotFoundException| SQLException e) {
-            e.printStackTrace();
-            return 0;
-        }
-    }
+
     public int getCountId(){
         Statement s = null;
         int result ;
-        String query = "SELECT count(id)  from category";
+        String query = "SELECT count(id)  from brand";
         ResultSet rs;
         try{
             s = ConnectionDB.connect();
@@ -75,7 +57,7 @@ public class CategoryEntity {
     public int getIdByName(String name){
         Statement s = null;
         int result ;
-        String query = "SELECT * from category WHERE name Like '"+name+"'";
+        String query = "SELECT * from brand WHERE name Like '"+name+"'";
         ResultSet rs;
         try{
             s = ConnectionDB.connect();
@@ -92,4 +74,7 @@ public class CategoryEntity {
         }
         return 0;
     }
+
+
+
 }

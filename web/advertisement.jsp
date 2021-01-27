@@ -21,7 +21,7 @@
         </ul>
     </div>
     <div class="fotorama headerFotorama">
-        <img src="http://localhost:8080/LTWeb_war_exploded/assets/images/advertisement/solid1.jpg" alt="">
+        <img src="http://localhost:8080/LTWeb_war_exploded/main/webapp/assets/images/advertisement/solid1.jpg" alt="">
         <img src="http://localhost:8080/LTWeb_war_exploded/assets/images/advertisement/solid2.jpg" alt="">
         <img src="http://localhost:8080/LTWeb_war_exploded/assets/images/advertisement/solid3.jpg" alt="">
         <img src="http://localhost:8080/LTWeb_war_exploded/assets/images/advertisement/solid4.jpg" alt="">

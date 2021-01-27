@@ -85,6 +85,29 @@ public class UserEntity {
         }
         return null;
     }
+    public User getUserByID(String id) {
+        Statement s = null;
+        try {
+            s = ConnectionDB.connect();
+            ResultSet rs = s.executeQuery("select * from user where user.id = '" + id  +"'"  );
+            while (rs.next()) {
+                return new User(
+                        rs.getInt(1),
+                        rs.getString(2),
+                        rs.getString(3),
+                        rs.getString(4),
+                        rs.getString(5),
+                        rs.getInt(6),
+                        rs.getString(7),
+                        rs.getString(8));
+            }
+        }
+        catch (ClassNotFoundException|SQLException e) {
+            e.printStackTrace();
+
+        }
+        return null;
+    }
 
     public User checkExist(String username, String mail) {
         Statement s = null;
@@ -126,6 +149,7 @@ public class UserEntity {
         }
     }
 
+    //HaiNam
     public void deleteUser(String id){
         Statement s = null;
         String query = "delete from user where id = "+id;
@@ -138,7 +162,7 @@ public class UserEntity {
         }
 
     }
-
+    //HaiNam
     public void editUser(String id, String fullName, String email, String phone, String address, String accountName, String new_password){
         Statement s = null;
         String query ="UPDATE `user` set  fullName ='"+fullName+"', mail='"+ email+"',phone='"+phone+"',address = '"+address+"',username='"+accountName+"',password = '"+new_password+"' WHERE id ='" +id+"'" ;
@@ -152,5 +176,62 @@ public class UserEntity {
         }
 
     }
+    //HaiNam
+    public int getCountId(){
+        Statement s = null;
+        int result ;
+        String query = "SELECT count(id)  from user";
+        ResultSet rs;
+        try{
+            s = ConnectionDB.connect();
+            rs = s.executeQuery(query);
+
+            if(rs.next()){
+                return result = rs.getInt(1);
+            }
+
+
+        }
+        catch (ClassNotFoundException|SQLException e) {
+            e.printStackTrace();
+        }
+        return 0;
+    }
+    //HaiNam
+    public void addUser(int id, String fullName, String email, String phone, String address, String role,String accountName, String password){
+        Statement s = null;
+        String query = "INSERT INTO `user` value ('"+id+"','"+fullName+"','"+email+"','"+phone+"','"+address+"','"+role+"','"+accountName+"','"+password+"')" ;
+
+        try{
+            s = ConnectionDB.connect();
+            s.executeUpdate(query);
+
+        }
+        catch (ClassNotFoundException|SQLException e) {
+            e.printStackTrace();
+        }
+
+    }
+    public int getMaxId(){
+        Statement s = null;
+        int result ;
+        String query = "SELECT  MAX(id)  from user";
+        ResultSet rs;
+        try{
+            s = ConnectionDB.connect();
+            rs = s.executeQuery(query);
+
+            if(rs.next()){
+                return result = rs.getInt(1);
+            }
+
+
+        }
+        catch (ClassNotFoundException|SQLException e) {
+            e.printStackTrace();
+        }
+        return 0;
+    }
+
 
 }

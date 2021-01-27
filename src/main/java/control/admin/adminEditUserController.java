@@ -9,13 +9,12 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
-@WebServlet(name = "EditUserController_U" ,urlPatterns = "/editUser_U")
-public class EditUserController_U extends HttpServlet {
+@WebServlet(name = "adminEditUserController" ,urlPatterns = "/adminEditUser")
+public class adminEditUserController extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         doGet(request,response);    }
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-//        String id, String fullName, String email, String phone, String address, String accountName, String password
         String uid = request.getParameter("id");
         String uname = request.getParameter("fullname");
         String uemail = request.getParameter("email");
@@ -27,6 +26,6 @@ public class EditUserController_U extends HttpServlet {
         UserEntity ue = new UserEntity();
         ue.editUser(uid,uname,uemail,uphone,uaddress,username,newpass);
 
-        request.getRequestDispatcher("user").forward(request,response);
+        response.sendRedirect("loadUser");
     }
 }

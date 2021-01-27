@@ -4,8 +4,8 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
-    <title>Chỉnh sửa thông tin khách hàng</title>
-    <link rel="stylesheet" href="assets/css/User.css">
+    <title>Chỉnh sửa thông tin cá nhân</title>
+    <link rel="stylesheet" href="assets/css/EditUser.css">
     <link rel="stylesheet" href="assets/css/bootstrap.css ">
       
 </head>
@@ -14,7 +14,9 @@
 <div class="row">
     <div class="col-md-12">
 
-        <form action="editUser_U" method="post">
+        <br><h3 style="margin-left: 125px;">Nhập thông tin cá nhân</h3><hr>
+
+        <form action="editUser" method="post" style="margin: 100px 100px 0px 100px;">
 
             <div class="form-group row">
                 <label for="id" class="col-4 col-form-label">ID</label>

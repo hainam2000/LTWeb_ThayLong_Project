@@ -24,7 +24,7 @@
 
                 </li>
                 <li class="navbar__single ">
-                    <a href="#" >Quản lí sản phẩm</a>
+                    <a href="loadProduct" >Quản lí sản phẩm</a>
                 </li>
 
                 <li class="navbar__single">
@@ -91,11 +91,86 @@
             </div>
 
         </div>
+        <div class="modal" id="addProductModal">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="contain-main">
+                        <div class="tabcontent" id="addProduct" style="display: block">
+                            <h3 class="form-title">Nhập thông tin sản phẩm</h3>
+                            <div class="form-container">
+<%--                                    from here--%>
 
+                                <form class="reg-form" method="get" action="addProduct">
+
+                                    <div class="form-group">
+                                        <label class="lb">Tên sản phẩm</label>
+                                        <input class="form-control" type="text" placeholder="" name="new_pro_name">
+                                        <div class="error"></div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="lb">Mô tả</label>
+                                        <input class="form-control" type="text" placeholder="" name="new_pro_description">
+                                        <div class="error"></div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="lb">Chi tiết sản phẩm</label>
+                                        <input class="form-control" type="text" placeholder="" name="new_pro_detail">
+                                        <div class="error"></div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="lb">Giá sản phẩm</label>
+                                        <input class="form-control" type="text" placeholder="" name="new_pro_price">
+                                        <div class="error"></div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="lb">Giảm giá</label>
+                                        <input class="form-control" type="text" placeholder="1 nếu là sản phẩm giảm giá | 0 nếu sản phẩm không giảm giá" name="new_pro_isSale">
+                                        <div class="error"></div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="lb">Giá khuyến mãi</label>
+                                        <input class="form-control" type="text" placeholder="" name="new_pro_salePrice">
+                                        <div class="error"></div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="lb">Tên hãng sản xuất</label>
+                                        <input class="form-control" type="text" placeholder="ASUS,MSI,...." name="new_pro_brandName">
+                                        <div class="error"></div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="lb">Loại sản phẩm</label>
+                                        <input class="form-control" type="text" placeholder="Mainboard,Ram,....." name="new_pro_categoryName">
+                                        <div class="error"></div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="lb">Số lượng trong</label>
+                                        <input class="form-control" type="text" placeholder="" name="new_pro_storage">
+                                        <div class="error"></div>
+                                    </div>
+
+
+                                    <button class="btn-reg" type="submit" style="margin-left: 190px">Thêm sản phẩm</button>
+                                </form>
+                                <br>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <br><hr>
+        <div style="margin-left: 10px;margin-bottom: 90px">
+            <div>
+                <h3 style="float: left;">Danh sách sản phẩm</h3>
+            </div>
+            <div style="float: left;text-align: center;padding-top: 25px;padding-left: 12px;">
+                <a href="#" data-toggle="modal" data-target="#addProductModal"><span>Thêm sản phẩm</span></a>
+            </div>
+        </div>
 
         <div class="row">
             <c:forEach items="${productsList}" var="p">
-                <div class="product">
+                <div class="product" style="margin: 25px 26px">
                     <div class="product__header">
                         <a href="product?pid=${p.id}">
                             <img class="card-img-top" src=${p.imgUrl} alt="">
@@ -109,8 +184,8 @@
                         <h6 class="product__details--onStock">Còn lại: ${p.storage}</h6>
                     </div>
                     <div class="product__footer">
-                        <a  href="LoadForEditProduct_A?pid=${p.id}"><i class="fas fa-edit">Sửa</i></a>
-                        <a href=deleteProduct?pid=${p.id}"><i class="fas fa-trash">Xóa</i></a>
+                            <a  href="loadPro4Edit?pid=${p.id}"> Sửa </a>
+                            <a href="deleteProduct?pid=${p.id}"> Xóa </a>
 
                     </div>
                 </div>
@@ -133,6 +208,5 @@
 
 </div>
 
-<jsp:include page="footer.jsp"></jsp:include>
 </body>
 </html>

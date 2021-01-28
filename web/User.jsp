@@ -18,7 +18,7 @@
 		<div class="col-md-3 slide-bar ">
 		     <div class="list-group " style="margin-inline: 30px; text-align: center";>
                 <a href="user?id=${userDetail.id}" class="list-group-item list-group-item-action active">Thông tin cá nhân</a>
-                <a href="order?uid=${userDetail.id}" class="list-group-item list-group-item-action " style="margin-top: 10px">Danh sách đơn hàng</a>
+                <a href="order?id=${userDetail.id}" class="list-group-item list-group-item-action " style="margin-top: 10px">Danh sách đơn hàng</a>
             </div> 
 		</div>
 

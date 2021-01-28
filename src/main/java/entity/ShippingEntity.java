@@ -1,12 +1,14 @@
 package entity;
 
 import java.sql.*;
+import java.util.Collection;
 import java.util.LinkedList;
 import java.util.List;
 
 import database.ConnectionDB;
 import model.*;
 public class ShippingEntity {
+
     PreparedStatement ps = null;
     ResultSet rs = null;
 
@@ -47,9 +49,10 @@ public class ShippingEntity {
 
     public List<Shipping> getAllShippingForManager() {
         List<Shipping> sList = new LinkedList<>();
+        String sql = "SELECT * from shipping order by id";
         try {
-            s = ConnectionDB.connect();
-            rs = s.executeQuery("SELECT * from shipping order by id");
+            ps = ConnectionDB.preparedStatementConnect(sql);
+            rs = ps.executeQuery();
             while(rs.next()){
                 sList.add(new Shipping(
                         rs.getInt(1),

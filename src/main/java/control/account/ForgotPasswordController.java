@@ -32,7 +32,7 @@ public class ForgotPasswordController extends HttpServlet {
         if(mail != null && username != null) {
             MailUtils.sendMail(mailsend);
             response.sendRedirect("Index");
-        } response.sendRedirect("404");
+        } else response.sendRedirect("404.jsp");
 
 //        if(mail!= null && username != null) {
 //            mailsend.setTo(mail);

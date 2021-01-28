@@ -22,14 +22,14 @@
 <body>
 
 <!-- Start Footer Area -->
-<footer class="footer">
+<footer class="footer" style="">
     <!-- Footer Top -->
     <div class="footer-top section">
         <div class="container">
-            <div class="row" style="width: 1400px">
+            <div class="row">
                 <div class="col-lg-5 col-md-6 col-12">
                     <!-- Single Widget -->
-                    <div class="single-footer about"  style="margin-left: -20px">
+                    <div class="single-footer about" >
                         <div class="logo">
 
                         </div>
@@ -40,7 +40,7 @@
                 </div>
                 <div class="col-lg-2 col-md-6 col-12">
                     <!-- Single Widget -->
-                    <div class="single-footer links" style="margin-left: -180px">
+                    <div class="single-footer links" >
                         <h4 style="color:White">Thông tin </h4>
                         <ul>
                             <li><a href="#">Hải Nam</a></li>
@@ -51,7 +51,7 @@
                 </div>
                 <div class="col-lg-2 col-md-6 col-12">
                     <!-- Single Widget -->
-                    <div class="single-footer links" style="margin-left: -160px;">
+                    <div class="single-footer links" >
                         <h4 style="color:White">Liên Hệ</h4>
 
                         <ul>
@@ -63,7 +63,7 @@
                 </div>
                 <div class="col-lg-3 col-md-6 col-12">
                     <!-- Single Widget -->
-                    <div class="single-footer social" style="margin-left: -80px">
+                    <div class="single-footer social" style="width: 300px;">
                         <h4 style="color:White">Địa chỉ:</h4>
                         <!-- Single Widget -->
                         <div class="contact">

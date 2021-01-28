@@ -94,11 +94,14 @@
 
                         </div>
                         <c:if test="${sessionScope.user == null}">
-                            <a href="/cart" data-toggle="modal" data-target="#myModal" class="btn btn-success acceptpay">
-                                <span> Thanh Toán </span>
+                            <a href="/cart" data-toggle="modal" data-target="#myModal" class="btn btn-danger acceptpay">
+                                <span> Xin vui lòng đăng nhập </span>
                             </a>
                         </c:if>
-                        <c:if test="${sessionScope.user != null}">
+                        <c:if test="${cart.getTotalQuantity() == null && sessionScope.user != null}">
+                                <span class="btn btn-warning acceptpay"> Thanh Toán </span>
+                        </c:if>
+                        <c:if test="${sessionScope.user != null && cart.getTotalQuantity() != null}">
                             <a href="checkout?userID=${sessionScope.user.id}" class="btn btn-success acceptpay">
                                 <span> Thanh Toán </span>
                             </a>

@@ -1,21 +1,17 @@
 package entity;
 
 import database.ConnectionDB;
-import model.Cart;
-import model.Order;
 import model.OrderDetail;
 import model.Product;
+import model.Order;
 import tools.Utils;
 
-import javax.swing.*;
 import java.io.Serializable;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.sql.Statement;
 import java.util.LinkedList;
 import java.util.List;
-import java.util.Map;
 
 public class OrderEntity implements Serializable {
     public static void createOrder(String userID) {
@@ -105,24 +101,6 @@ public class OrderEntity implements Serializable {
         }
     }
 
-    public Order getOrder(String userID) {
-        String sql = " select `Order`.id, `Order`.id_user, `Order`.`status`, `Order`.total_price FROM `Order` JOIN `User` ON `User`.id = `Order`.id_user WHERE `User`.id = ? AND `Order`.`status` = 'chua thanh toan'";
-        PreparedStatement ps = null;
-        try {
-            ps = ConnectionDB.preparedStatementConnect(sql);
-            ps.setString(1,userID);
-            ResultSet rs = ps.executeQuery();
-            if(rs.next()) {
-                return new Order(rs.getInt(1),
-                rs.getInt(2),
-                rs.getInt(4),
-                rs.getString(3));
-            } else return null;
-        } catch (Exception e) {
-            return null;
-        }
-    }
-
     public void addProductToOrderDetails(List<Product> productList, String userID) {
         String sql = "insert into OrderDetail(OrderDetail.id_product, OrderDetail.id_order, OrderDetail.price, OrderDetail.quantity, OrderDetail.total_price) SELECT Product.id, `Order`.id, Product.price," +
                 " ?" +
@@ -191,13 +169,12 @@ public class OrderEntity implements Serializable {
         }
     }
 
-    public String getTotalPrice(String orderID, String userID) {
-        String sql = "select `Order`.total_price FROM `Order` WHERE `Order`.id_user = ? AND `Order`.id = ?";
+    public String getTotalPrice(String orderID) {
+        String sql = "select `Order`.total_price FROM `Order` WHERE `Order`.id = ?";
         PreparedStatement ps = null;
         try {
             ps = ConnectionDB.preparedStatementConnect(sql);
-            ps.setString(1, userID);
-            ps.setString(2,orderID);
+            ps.setString(1, orderID);
             ResultSet rs = ps.executeQuery();
             if(rs.next()) {
                 return rs.getString(1);
@@ -208,12 +185,12 @@ public class OrderEntity implements Serializable {
     }
     public List<Order> getAllOrder() {
         List<Order> olist = new LinkedList<>();
-        Statement s = null;
+        PreparedStatement s = null;
         ResultSet rs = null;
-
+        String sql = "SELECT * FROM `order` ORDER BY id_user asc,id asc;";
         try {
-            s = ConnectionDB.connect();
-            rs = s.executeQuery("SELECT* FROM `order` ORDER BY id_user asc,id asc;");
+            s = ConnectionDB.preparedStatementConnect(sql);
+            rs = s.executeQuery();
 
             while(rs.next()){
                 olist.add(new Order(
@@ -222,7 +199,6 @@ public class OrderEntity implements Serializable {
                         rs.getInt(3),
                         rs.getString(4),
                         rs.getString(5)
-
                 ));
             }
             return  olist;
@@ -231,7 +207,58 @@ public class OrderEntity implements Serializable {
             e.printStackTrace();
             return null;
         }
+    }
+
+    public List<Order> getAllOrderByUserID(String userID) {
+        List<Order> orderList = new LinkedList<>();
+        PreparedStatement ps = null;
+        ResultSet rs = null;
+        String sql = "select * from `Order`WHERE `Order`.id_user = ?;";
+        try {
+            ps = ConnectionDB.preparedStatementConnect(sql);
+            ps.setString(1, userID);
+            rs = ps.executeQuery();
+
+            while (rs.next()) {
+                orderList.add( new Order(
+                    rs.getInt(1),
+                            rs.getInt(2),
+                            rs.getInt(3),
+                            rs.getString(4),
+                            rs.getString(5))
+                );
+            }
+            return orderList;
+            } catch (Exception e) {
+            return null;
+        }
 
     }
 
+
+    public List<OrderDetail> getAllOrderDetailsByOrderID(String orderID) {
+        PreparedStatement ps = null;
+        ResultSet rs = null;
+        String sql = "select Product.`name`, OrderDetail.id_product, OrderDetail.id_order, OrderDetail.quantity, OrderDetail.price, OrderDetail.total_price FROM OrderDetail JOIN `Order` On `Order`.id = OrderDetail.id_order JOIN Product ON OrderDetail.id_product = Product.id WHERE `Order`.id = ?";
+        List<OrderDetail> orderDetails = new LinkedList<>();
+        try {
+            ps = ConnectionDB.preparedStatementConnect(sql);
+            ps.setString(1, orderID);
+            rs = ps.executeQuery();
+            while(rs.next()) {
+                orderDetails.add(new OrderDetail(
+                        rs.getString(1),
+                        rs.getInt(2),
+                        rs.getInt(3),
+                        rs.getInt(4),
+                        rs.getInt(5),
+                        rs.getInt(6)
+                ));
+            }
+            return orderDetails;
+        } catch (Exception e) {
+            return null;
+        }
+
+    }
 }

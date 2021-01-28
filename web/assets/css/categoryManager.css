@@ -38,8 +38,8 @@ html{
     float: left;
     width: 75%;
     background: aliceblue;
-    margin-top: 100px;
-    margin-left: 70px;
+    margin-top: 100px !important;
+    margin: 20px;
     padding: 10px 30px 10px 30px;
     border-radius: 10px;
     border: solid 1px;

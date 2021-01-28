@@ -1,9 +1,6 @@
 package model;
 
-import javax.servlet.http.HttpSession;
 import java.io.Serializable;
-import java.util.HashMap;
-import java.util.Map;
 
 public class Order implements Serializable {
     private int id;
@@ -16,11 +13,12 @@ public class Order implements Serializable {
 
     }
 
-    public Order(int id, int idUser, int totalPrice, String status) {
+    public Order(int id, int idUser, int totalPrice, String status, String date) {
         this.id = id;
         this.idUser = idUser;
         this.totalPrice = totalPrice;
         this.status = status;
+        this.date = date;
     }
 
     public int getId() {
@@ -39,6 +37,10 @@ public class Order implements Serializable {
         this.idUser = idUser;
     }
 
+    public int getTotalPrice() {
+        return totalPrice;
+    }
+
     public void setTotalPrice(int totalPrice) {
         this.totalPrice = totalPrice;
     }
@@ -52,8 +54,9 @@ public class Order implements Serializable {
     }
 
     public String getDate() {
-        return this.date;
+        return date;
     }
+
     public void setDate(String date) {
         this.date = date;
     }
@@ -65,6 +68,7 @@ public class Order implements Serializable {
                 ", idUser=" + idUser +
                 ", totalPrice=" + totalPrice +
                 ", status='" + status + '\'' +
+                ", date='" + date + '\'' +
                 '}';
     }
 }

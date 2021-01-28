@@ -16,13 +16,12 @@ public class DatabaseUtils {
         ProductEntity pe = new ProductEntity();
         UserEntity ue = new UserEntity();
         OrderEntity oe = new OrderEntity();
-        Order o = new Order();
         ShippingEntity se = new ShippingEntity();
 
-        List<Shipping> shippingList = se.getAllShipping();
+        List<Order> order = oe.getAllOrderByUserID("1");
 
-        for(Shipping shipping : shippingList) {
-            System.out.println(shipping.toString());
+        for(Order o : order) {
+            System.out.println(o.toString());
         }
 
     }

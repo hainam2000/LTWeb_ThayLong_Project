@@ -1,13 +1,11 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
-<%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Loại sản phẩm</title>
+    <title>Quản lý người dùng</title>
     <link rel="stylesheet" href="assets/css/orderManager.css">
-    <link rel="stylesheet" href="assets/css/bootstrap.css ">
 </head>
 <body>
 <jsp:include page="header.jsp"></jsp:include>
@@ -15,7 +13,6 @@
         <div class="menu-sidebar__content ">
             <nav class="navbar-sidebar">
                 <ul class="list-unstyled navbar__list">
-
                     <li class="navbar__single">
                         <a href="loadUser">Quản lí người dùng</a>
 
@@ -75,18 +72,6 @@
                             </div>
                         </div>
 
-                        <div class="input_box">
-                            <div class="text">
-                                <label for="uname">Tên khách hàng</label>
-                            </div>
-                            <div class="input__">
-                                <input class="form__input" id="uname" type="text" name="uname">
-                            </div>
-                            <div class="err">
-                                <span class="error__message" id="error__uname"></span>
-                            </div>
-                        </div>
-
 
                         <div class="modify__button">
                             <input type="submit" value="Tìm">
@@ -101,9 +86,8 @@
             <br><hr style="height: 10px;background-color: #a9b3c9">
             <div style="margin-left: 5px;margin-bottom: 90px">
                 <div>
-                    <h3 style="float: left;">Danh sách các đơn hàng</h3>
+                    <h3 style="float: left;">Danh sách đơn hàng</h3>
                 </div>
-
             </div>
 
             <table class="table table-data2" id="data-list">
@@ -118,15 +102,15 @@
                     <th>Tác vụ</th>
                 </tr>
 
-                <c:forEach var="o" items="${orderList}">
+                <c:forEach var="order" items="${userOrderList}">
                     <tr>
-                        <td>${o.id}</td>
-                        <td>${o.idUser}</td>
-                        <td>${o.totalPrice}</td>
-                        <td>${o.status}</td>
-                        <td>${o.date}</td>
+                        <td>${order.id}</td>
+                        <td>${order.idUser}</td>
+                        <td>${order.totalPrice}</td>
+                        <td>${order.status}</td>
+                        <td>${order.date}</td>
                         <td>
-                            <a href="loadOrder4Edit?oid=${o.id}">Sửa</a> | <a href="viewOrder?oid=${o.id}">Xem chi tiết</a>
+                            <a  href="loadOrderDetails?oid=${order.id}">Chi tiết</a>
                         </td>
                     </tr>
                 </c:forEach>

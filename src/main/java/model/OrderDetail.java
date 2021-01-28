@@ -9,7 +9,7 @@ public class OrderDetail implements Serializable {
     private int quantity;
     private int productPrice;
     private int totalPrice;
-
+    private String productName;
     public OrderDetail() {
 
     }
@@ -22,6 +22,17 @@ public class OrderDetail implements Serializable {
         this.productPrice = productPrice;
         this.totalPrice = totalPrice;
     }
+
+    public OrderDetail(String productName, int idProduct, int idOrder, int quantity, int productPrice, int totalPrice) {
+        this.productName = productName;
+        this.idProduct = idProduct;
+        this.idOrder = idOrder;
+        this.quantity = quantity;
+        this.productPrice = productPrice;
+        this.totalPrice = totalPrice;
+    }
+
+
 
     public int getId() {
         return id;
@@ -72,6 +83,14 @@ public class OrderDetail implements Serializable {
         this.idOrder = idOrder;
     }
 
+    public String getProductName() {
+        return productName;
+    }
+
+    public void setProductName(String productName) {
+        this.productName = productName;
+    }
+
     @Override
     public String toString() {
         return "OrderDetail{" +
@@ -81,6 +100,7 @@ public class OrderDetail implements Serializable {
                 ", quantity=" + quantity +
                 ", productPrice=" + productPrice +
                 ", totalPrice=" + totalPrice +
+                ", productName=" + productName +
                 '}';
     }
 }

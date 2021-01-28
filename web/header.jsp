@@ -65,7 +65,7 @@
                       <a role="button" href="loadUser" style=" color: #32494d" class="btn btn-outline-info btn-sm">Quản lý khách hàng</a>
                     </li>
                     <li>
-                      <a role="button" href="#" style=" color: #32494d" class="btn btn-outline-info btn-sm">Quản lý đơn hàng</a>
+                      <a role="button" href="loadOrder" style=" color: #32494d" class="btn btn-outline-info btn-sm">Quản lý đơn hàng</a>
                     </li>
                     <li>
                       <a role="button" href="loadProduct" style=" color: #32494d" class="btn btn-outline-info btn-sm">Quản lý sản phẩm</a>
@@ -79,7 +79,7 @@
                   </c:if>
                   <c:if test="${sessionScope.user.role == 2}">
                     <li >
-                      <a role="button" href="#" style=" color: #32494d" class="btn btn-outline-info btn-sm">Kiểm tra đơn hàng</a>
+                      <a role="button" href="order?id=${sessionScope.user.id}" style=" color: #32494d" class="btn btn-outline-info btn-sm">Kiểm tra đơn hàng</a>
                     </li>
                     <li>
                       <a role="button" href="user?id=${sessionScope.user.id}" style=" color: #32494d" class="btn btn-outline-info btn-sm">Tài khoản</a>
@@ -108,7 +108,7 @@
                 </div>
 
                 <ul class="shopping-cart-item">
-                  <c:forEach items="${cart.getProducts()}" var="p" begin="0" end="3">
+                  <c:forEach items="${cart.getProducts()}" var="p" begin="0" end="2">
                     <li>
                       <img style="max-width: 125px; max-height: 125px;"
                            src=${p.imgUrl}>
@@ -123,7 +123,7 @@
                         </form>
                       </div>
                       <span class="item-price">Tổng tiền:${p.price}</span>
-                      <a style="color: red; position: absolute; top: 45px;" href="cart/delete?pid=${p.id}" class="btn btn-outline-danger item-cancel">X</a>
+                      <a style="color: red; float:right;" href="cart/delete?pid=${p.id}" class="btn btn-outline-danger item-cancel">X</a>
                     </li>
                   </c:forEach>
                 </ul>

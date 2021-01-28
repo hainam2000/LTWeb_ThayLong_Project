@@ -33,7 +33,7 @@ public class PaymentController extends HttpServlet {
         String subject = "Thanh toán thành công!";
         String details = "Tên \t\t\t\t\t\t Số lượng \t Giá \t Thành tiền \t Ngày\n";
         String productList = oe.getAllOrderDetail(orderID, userID);
-        String totalPrice = "===================== \nTổng đơn hàng: " + oe.getTotalPrice(orderID, userID);
+        String totalPrice = "===================== \nTổng đơn hàng: " + oe.getTotalPrice(orderID);
         String body = "Cảm ơn bạn đã tin tưởng dịch vụ của chúng tôi! \nDưới đây là thông tin đơn hàng " + orderID + " của bạn!\n" + details + productList + totalPrice;
 
         Mail mailsend = new Mail(userMail, subject, body);

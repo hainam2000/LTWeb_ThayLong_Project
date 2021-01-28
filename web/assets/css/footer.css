@@ -1,10 +1,14 @@
 
 .footer {
-    background: #7288a2;
+    background: #343a40 !important;
+    padding-top: 30px;
+    padding-bottom: 10px;
+    font-size: 13px;
 }
 
 .footer .about {
     padding-right: 40px;
+    margin-left: 40px;
 }
 
 .footer .single-footer h4 {

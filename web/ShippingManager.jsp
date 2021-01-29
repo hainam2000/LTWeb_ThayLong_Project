@@ -25,7 +25,7 @@
                     </li>
 
                     <li class="navbar__single">
-                        <a href="#">Quản lí đơn hàng</a>
+                        <a href="loadOrder">Quản lí đơn hàng</a>
                     </li>
 
                     <li class="navbar__single">
@@ -86,11 +86,11 @@
                     </div>
                 </div>
             </div>
-            <div style="margin-left: 5px;margin-bottom: 90px">
+            <div style="margin-top: 20px;margin-left: 5px;margin-bottom: 90px">
                 <div>
                     <h3 style="float: left;">Các phương thức giao hàng</h3>
                 </div>
-                <div style="float: left;text-align: center;padding-top: 25px;padding-left: 12px;">
+                <div style="float: left;text-align: center;padding-left: 12px;">
                     <a href="#" data-toggle="modal" data-target="#addShippingModal"><span>Thêm phương thức giao hàng</span></a>
                 </div>
             </div>

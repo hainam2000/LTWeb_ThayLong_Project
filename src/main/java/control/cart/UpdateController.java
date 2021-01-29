@@ -28,6 +28,6 @@ public class UpdateController extends HttpServlet {
             cart.updateProduct(productID, quantity);
             cart.commit(session);
             response.sendRedirect("/LTWeb_war_exploded/cart");
-        } else System.out.println("error");
+        } else response.sendRedirect("404.jsp");
     }
 }

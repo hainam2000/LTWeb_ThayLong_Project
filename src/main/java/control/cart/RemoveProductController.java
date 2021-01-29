@@ -24,12 +24,12 @@ public class RemoveProductController extends HttpServlet {
         HttpSession session = request.getSession();
         Product p = pe.getProductWithID(productID);
         Cart cart = Cart.getCartSession(session);
-        if(productID == null || p == null)
+        if(productID == null)
             request.getRequestDispatcher("/Index").forward(request,response);
         else if(productID != null) {
             cart.removeOneQuantityProduct(productID);
             cart.commit(session);
             response.sendRedirect("/LTWeb_war_exploded/cart");
-        }
+        } else response.sendRedirect("404.jsp");
     }
 }

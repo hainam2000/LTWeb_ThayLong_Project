@@ -25,7 +25,7 @@
                     </li>
 
                     <li class="navbar__single">
-                        <a href="#">Quản lí đơn hàng</a>
+                        <a href="loadOrder">Quản lí đơn hàng</a>
                     </li>
 
                     <li class="navbar__single">
@@ -79,7 +79,7 @@
                 <div>
                     <h3 style="float: left;">Các hãng sản xuất</h3>
                 </div>
-                <div style="float: left;text-align: center;padding-top: 25px;padding-left: 12px;">
+                <div style="float: left;text-align: center;padding-left: 12px;">
                     <a href="#" data-toggle="modal" data-target="#addBrandModal"><span>Thêm nhà sản xuất</span></a>
                 </div>
             </div>

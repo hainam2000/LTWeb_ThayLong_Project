@@ -25,7 +25,7 @@
                 </li>
 
                 <li class="navbar__single">
-                    <a href="#">Quản lí đơn hàng</a>
+                    <a href="loadOrder">Quản lí đơn hàng</a>
                 </li>
 
                 <li class="navbar__single">
@@ -49,41 +49,14 @@
                 <span><h3>Nhập thông tin sản phẩm</h3></span>
             </div>
             <div class="modify-form">
-                <form id="form-modify-product" method="post" action="">
+                <form id="form-modify-product" method="post" action="productSearch">
 
                     <div class="input_box">
-                        <div class="text">
-                            <label for="pid">Mã Sản phẩm</label>
-                        </div>
                         <div class="input__">
-                            <input class="form__input" id="pid" type="text" name="pid">
+                            <input class="form__input" id="pid" type="text" name="searchText" placeholder="Asus, ram, vga,...">
                         </div>
                         <div class="err">
                             <span class="error__message" id="error__id__product"></span>
-                        </div>
-                    </div>
-
-                    <div class="input_box">
-                        <div class="text">
-                            <label for="cid">Mã loại sản phẩm</label>
-                        </div>
-                        <div class="input__">
-                            <input class="form__input" id="cid" type="text" name="cid">
-                        </div>
-                        <div class="err">
-                            <span class="error__message" id="error__id__category"></span>
-                        </div>
-                    </div>
-
-                    <div class="input_box">
-                        <div class="text">
-                            <label for="bid">Mã hãng sản xuất</label>
-                        </div>
-                        <div class="input__">
-                            <input class="form__input" id="bid" type="text" name="bid">
-                        </div>
-                        <div class="err">
-                            <span class="error__message" id="error__id__brand"></span>
                         </div>
                     </div>
 
@@ -172,7 +145,7 @@
             <div>
                 <h3 style="float: left;">Danh sách sản phẩm</h3>
             </div>
-            <div style="float: left;text-align: center;padding-top: 25px;padding-left: 12px;">
+            <div style="float: left;text-align: center;padding-left: 12px;">
                 <a href="#" data-toggle="modal" data-target="#addProductModal"><span>Thêm sản phẩm</span></a>
             </div>
         </div>
@@ -193,7 +166,7 @@
                         <h6 class="product__details--onStock">Còn lại: ${p.storage}</h6>
                     </div>
                     <div class="product__footer">
-                            <a  href="loadPro4Edit?pid=${p.id}"> Sửa </a>
+                            <a  href="loadPro4Edit?pid=${p.id}"> Sửa </a> |
                             <a href="deleteProduct?pid=${p.id}"> Xóa </a>
 
                     </div>

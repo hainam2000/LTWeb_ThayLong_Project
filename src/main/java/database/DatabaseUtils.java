@@ -18,12 +18,8 @@ public class DatabaseUtils {
         OrderEntity oe = new OrderEntity();
         ShippingEntity se = new ShippingEntity();
 
-        List<Order> order = oe.getAllOrderByUserID("1");
-
-        for(Order o : order) {
-            System.out.println(o.toString());
-        }
-
+        User u = ue.getUserByID("1");
+        System.out.println(u.toString());
     }
 
 

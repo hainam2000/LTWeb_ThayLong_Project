@@ -22,7 +22,6 @@ public class MailUtils {
         props.put("mail.smtp.starttls.enable", "true");
     }
     public static void sendMail(Mail mailsend){
-        System.out.println("sending");
             Session session = Session.getDefaultInstance(props, new Authenticator() {
                 @Override
                 protected PasswordAuthentication getPasswordAuthentication() {
@@ -35,9 +34,8 @@ public class MailUtils {
         try {
             Transport.send(message);
         } catch (MessagingException e) {
-            System.out.println("unsend");
+            e.printStackTrace();
         }
-        System.out.println("send success");
     }
     private static Message prepareMessage(Session session, Mail mail) {
         Message message = new MimeMessage(session);
@@ -59,7 +57,6 @@ public class MailUtils {
             String body = "Cảm ơn bạn đã tin tưởng dịch vụ của chúng tôi! \nDưới đây là thông tin đơn hàng " + orderID + " của bạn!\n";
             String productList = oe.getAllOrderDetail(orderID, userID);
             try {
-//                sendEmail(mail, sub, mess, productList);
             } catch (Exception e) {
                 e.printStackTrace();
             }

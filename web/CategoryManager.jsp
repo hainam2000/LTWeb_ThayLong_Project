@@ -25,7 +25,7 @@
                     </li>
 
                     <li class="navbar__single">
-                        <a href="#">Quản lí đơn hàng</a>
+                        <a href="loadOrder">Quản lí đơn hàng</a>
                     </li>
 
                     <li class="navbar__single">
@@ -75,7 +75,7 @@
                 <div>
                     <h3 style="float: left;">Các loại sản phẩm trong cừa hàng</h3>
                 </div>
-                <div style="float: left;text-align: center;padding-top: 25px;padding-left: 12px;">
+                <div style="float: left;text-align: center;padding-left: 12px;">
                     <a href="#" data-toggle="modal" data-target="#addCategoryModal" ><span style="font-size: 17px">Thêm loại sản phẩm</span></a>
                 </div>
             </div>

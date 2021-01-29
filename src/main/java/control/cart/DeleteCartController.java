@@ -23,11 +23,11 @@ public class DeleteCartController extends HttpServlet {
         HttpSession session = request.getSession();
         if(productID == null)
             request.getRequestDispatcher("/Index").forward(request,response);
-        else {
+        else if(productID != null) {
             Cart cart = Cart.getCartSession(session);
             cart.removeProduct(productID);
             cart.commit(session);
             response.sendRedirect("/LTWeb_war_exploded/Index");
-        }
+        } else response.sendRedirect("404.jsp");
     }
 }

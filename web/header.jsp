@@ -40,7 +40,7 @@
         </div>
         <div class="header-container--search">
           <form class="search-form" action="search" method="get">
-            <input type="text" placeholder="Input something..." name="search" style="border-radius: 5px;">
+            <input type="text" placeholder="Asus, ram, vga,..." name="search" style="border-radius: 5px;">
             <button value="search" type="submit"><i class="fa fa-search" aria-hidden="true"></i></button>
           </form>
         </div>

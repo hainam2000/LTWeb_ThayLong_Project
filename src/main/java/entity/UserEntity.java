@@ -68,6 +68,7 @@ public class UserEntity {
             s = ConnectionDB.connect();
             ResultSet rs = s.executeQuery("select * from user where user.id = '" + id  +"'"  );
             while (rs.next()) {
+                System.out.println(rs.getString(4));
                 return new User(
                         rs.getInt(1),
                         rs.getString(2),
@@ -237,6 +238,37 @@ public class UserEntity {
             if(rs.next()) {
                 return rs.getString(1);
             } else return null;
+        } catch (Exception e) {
+            return null;
+        }
+    }
+
+    public List<User> searchUser(String searchText) {
+        List<User> users = new LinkedList<>();
+        PreparedStatement ps = null;
+        String sql = "select * FROM `User` WHERE `User`.`fullName` like ? or `User`.username LIKE ? or `User`.mail LIKE ? or `User`.phone LIKE ?";
+        ResultSet rs = null;
+        try {
+            ps = ConnectionDB.preparedStatementConnect(sql);
+            ps.setString(1, searchText);
+            ps.setString(2, searchText);
+            ps.setString(3, searchText);
+            ps.setString(4, searchText);
+
+            rs = ps.executeQuery();
+
+            while(rs.next()) {
+                users.add(new User(
+                        rs.getInt(1),
+                        rs.getString(2),
+                        rs.getString(3),
+                        rs.getString(4),
+                        rs.getString(5),
+                        rs.getInt(6),
+                        rs.getString(7),
+                        rs.getString(8)));
+            }
+            return users;
         } catch (Exception e) {
             return null;
         }

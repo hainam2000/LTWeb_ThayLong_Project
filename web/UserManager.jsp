@@ -23,7 +23,7 @@
                     </li>
 
                     <li class="navbar__single">
-                        <a href="#">Quản lí đơn hàng</a>
+                        <a href="loadOrder">Quản lí đơn hàng</a>
                     </li>
 
                     <li class="navbar__single">
@@ -47,57 +47,16 @@
                     <span><h3>Nhập thông tin khách hàng</h3></span>
                 </div>
                 <div class="modify-form">
-                    <form id="form-modify-user" method="post" action="">
+                    <form id="form-modify-user" method="post" action="searchUser">
 
                         <div class="input_box">
-                            <div class="text">
-                                <label for="fullname">Tên khách hàng</label>
-                            </div>
                             <div class="input__">
-                                <input class="form__input" id="fullname" type="text" name="fullname">
+                                <input class="form__input" type="text" name="searchText" placeholder="tìm theo tên, email...">
                             </div>
                             <div class="err">
                                 <span class="error__message" id="error__fullname"></span>
                             </div>
                         </div>
-
-                        <div class="input_box">
-                            <div class="text">
-                                <label for="id">Mã khách hàng</label>
-                            </div>
-                            <div class="input__">
-                                <input class="form__input" id="id" type="text" name="id">
-                            </div>
-                            <div class="err">
-                                <span class="error__message" id="error__id"></span>
-                            </div>
-                        </div>
-
-                        <div class="input_box">
-                            <div class="text">
-                                <label  for="email">Email</label>
-                            </div>
-                            <div class="input__">
-                                <input class="form__input" id="email" type="email" name="email">
-                            </div>
-                            <div class="err">
-                                <span class="error__message" id="error__email"></span>
-                            </div>
-                        </div>
-
-                        <div class="input_box">
-                            <div class="text">
-                                <label for="phone">Số điện thoại</label>
-                            </div>
-                            <div class="input__">
-                                <input class="form__input" id="phone" type="text" name="phone">
-                            </div>
-                            <div class="err">
-                                <span class="error__message" id="error__phone"></span>
-                            </div>
-                        </div>
-
-
                         <div class="modify__button">
                             <input type="submit" value="Tìm">
                         </div>
@@ -177,7 +136,7 @@
                 <div>
                     <h3 style="float: left;">Danh sách tài khoản</h3>
                 </div>
-                <div style="float: left;text-align: center;padding-top: 25px;padding-left: 12px;">
+                <div style="float: left;text-align: center;padding-left: 12px;">
                     <a href="#" data-toggle="modal" data-target="#addUserModal"><span>Thêm tài khoản</span></a>
                 </div>
             </div>
